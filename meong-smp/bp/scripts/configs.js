@@ -2,7 +2,7 @@ export const configs = {
 	version: "1.0.0-alpha",
 	server: {
 		name: "Meong SMP",
-		subname: "α: The Covenant of Past",
+		subname: "The Covenant of Past",
 		season: 1,
 		difficulty: "hard",
 		themes: [
