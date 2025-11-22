@@ -2,7 +2,7 @@ import { world } from "@minecraft/server";
 
 /*
 	Default:
-		miawdb?type:key
+		prefix?type:key
 		miawdb?global:eventCountdown
 		miawdb?KuroReichi:mana
 		miawdb?KuroReichi:physical_attack
