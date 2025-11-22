@@ -33,7 +33,9 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 		db.set("block.break", 0, player.name);
 		db.set("kills", 0, player.name);
 		db.set("deaths", 0, player.name);
-		db.set("", 0, player.name);
+		db.set("playtime.seconds", 0, player.name);
+		db.set("playtime.minutes", 0, player.name);
+		db.set("playtime.hours", 0, player.name);
 		db.set("nirvane.amount", configs.gameplay.initial, player.name);
 		db.set("nirvane.maxAmount", configs.gameplay.initial, player.name);
 		db.set("nirvane.regenAmount", configs.gameplay.regenAmount, player.name);
@@ -44,6 +46,9 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 	}
 });
 
-world.beforeEvents.playerBreakBlock.subscribe((event) => {
+world.afterEvents.playerBreakBlock.subscribe((event) => {
 	console.info(1)
+});
+world.afterEvents.playerPlaceBlock.subscribe((event) => {
+	
 });
