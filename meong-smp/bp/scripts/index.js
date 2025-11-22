@@ -27,6 +27,10 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 
 	if (!db.get("isMember", player.name)) {
 		db.set("isMember", true, player.name);
+		db.set("server.firstJoinDate", new Date().valueOf(), player.name);
+		db.set("server.loginStreak", 0, player.name);
+		db.set("breakBlock", 0, player.name);
+		db.set("placeBlock", 0, player.name);
 		db.set("nirvane.amount", configs.gameplay.initial, player.name);
 		db.set("nirvane.maxAmount", configs.gameplay.initial, player.name);
 		db.set("nirvane.regenAmount", configs.gameplay.regenAmount, player.name);
