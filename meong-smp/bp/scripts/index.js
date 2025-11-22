@@ -27,8 +27,10 @@ world.afterEvents.playerJoin.subscribe((event) => {
 
 	if (!db.get("isMember", player.name)) {
 		db.set("isMember", true, player.name);
-		dn.ser("nirvane.amount", configs.gameplay.initial, player.name);
-		dn.ser("nirvane.maxAmount", configs.gameplay.initial, player.name);
+		db.set("nirvane.amount", configs.gameplay.initial, player.name);
+		db.set("nirvane.maxAmount", configs.gameplay.initial, player.name);
+		db.set("nirvane.regenAmount", configs.gameplay.regenAmount, player.name);
+		db.set("nirvane.regenTime", configs.gameplay.regenTime, player.name);
 		player.sendMessage(`§2§l» §r§aWelcome §7${player.name}! §fYou're new here!`);
 	} else {
 		player.sendMessage(`§2§l» §r§aWelcome back §7${player.name}`);
