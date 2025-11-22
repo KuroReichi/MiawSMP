@@ -29,7 +29,7 @@ world.afterEvents.playerJoin.subscribe((event) => {
 	} else {
 		player.sendMessage(`§2§l» §r§aWelcome back §7${player.name}`);
 	}
-}
+});
 
 world.beforeEvents.playerBreakBlock.subscribe((event) => {
 	console.info(1)
