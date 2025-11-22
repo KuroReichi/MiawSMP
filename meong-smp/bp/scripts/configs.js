@@ -1,4 +1,4 @@
-const configs = {
+export const configs = {
 	version: "1.0.0-alpha",
 	server: {
 		name: "Meong SMP",
