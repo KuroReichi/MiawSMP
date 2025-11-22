@@ -21,7 +21,7 @@ import { uiManager, ActionFormData, ModalFormData, MessageFormData } from "@mine
 import { configs } from "./configs.js";
 import { db } from "@minecraft/database.js";
 
-world.afterEvents.playerJoin.subscribe((event) => {
+world.afterEvents.playerSpawn.subscribe((event) => {
 	if (event.initialSpawn === false) return;
 	const player = event.player;
 
