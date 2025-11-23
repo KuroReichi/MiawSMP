@@ -40,8 +40,11 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 		db.set("nirvane.maxAmount", configs.gameplay.initial, player.name);
 		db.set("nirvane.regenAmount", configs.gameplay.regenAmount, player.name);
 		db.set("nirvane.regenTime", configs.gameplay.regenTime, player.name);
-		
-		player.sendMessage(`§2§l» §r§aWelcome §7${player.name}! §7to §bMiaw§3SMP§f: §dThe Covenant of Past§7.`);
+		new ActionFormData()
+		.title("Select Your Class")
+		.button("Aether Vanguard")
+		.button("")
+		world.sendMessage(`§2§l» §r§aWelcome §7${player.name}! §7to §bMiaw§3SMP§f: §dThe Covenant of Past§7.`);
 	} else {
 		player.sendMessage(`§2§l» §r§aWelcome back §7${player.name}`);
 	}
