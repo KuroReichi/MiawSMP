@@ -56,7 +56,6 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 
 world.afterEvents.playerBreakBlock.subscribe((event) => {
 	db.incValue("block.break", 1, event.player.name);
-	console.info(db.get(block.break));
 });
 world.afterEvents.playerPlaceBlock.subscribe((event) => {
 	db.incValue("block.place", 1, event.player.name);
