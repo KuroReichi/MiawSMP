@@ -61,4 +61,5 @@ world.afterEvents.playerPlaceBlock.subscribe((event) => {
 	db.incValue("block.place", 1, event.player.name);
 });
 world.afterEvents.playerInteractWithBlock.subscribe((event) => {
+	
 });
