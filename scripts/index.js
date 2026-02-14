@@ -33,7 +33,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 			
 		} else {
 			event.player.sendMessage("§4»§a This player is not allowing you to ride.");
-			event.player.playSound("notify.error");)
+			event.player.playSound("notify.error");
 		}
 	} else if (event.itemStack.typeId === "minecraft:name_tag")
 		event.cancel = true;
