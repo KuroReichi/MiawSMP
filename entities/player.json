@@ -134,13 +134,13 @@
 				"family_types": [
 					"player"
 				],
-				"dismount_mode": "default",
+				"dismount_mode": "on_top_center",
 				"seats": [
 					{
 						"position": [
 							0,
 							0.1,
-							0@
+							0
 						],
 						"min_rider_count": 0,
 						"max_rider_count": 1
