@@ -29,7 +29,13 @@ world.afterEvents.worldLoad.subscribe(() => {
 });
 world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 	if (event.itemStack.typeId === undefined) {
-		e
+		if(db.player(event.target.name).get("allowRider") === true) {
+			
+		} else {
+			event.player.sendMessage("§4»§a This player is not allowing you to ride.");
+			event.
+		}
 	} else if (event.itemStack.typeId === "minecraft:name_tag") {
+		event.cancel = true;
 	}
 });
