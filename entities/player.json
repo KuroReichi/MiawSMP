@@ -96,7 +96,7 @@
 			},
 			"minecraft:player.exhaustion": {
 				"value": 0,
-				"max": 20
+				"max": 0
 			},
 			"minecraft:player.level": {
 				"value": 0,
