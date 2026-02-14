@@ -153,7 +153,7 @@
 			},
 			"q:stop_riding": {
 				"remove": {
-					"component_groups": [ "q:remove_rider" ]
+					"component_groups": [ "q:add_rider" ]
 				}
 			}
 			"minecraft:trigger_raid": {
