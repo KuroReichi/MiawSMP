@@ -29,7 +29,8 @@ world.afterEvents.worldLoad.subscribe(() => {
 });
 world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 	if (event.itemStack.typeId === undefined) {
-		if (db.player(event.target.name).get("allowRider") === true) {
+		if (db.player(event.target.name).get("allowRider") === true && event.player.isSneaking === false) {
+			
 		} else {
 			event.player.sendMessage("§4»§a Pemain ini tidak mengizinkanmu menungganginya.");
 			event.player.playSound("notify.error");
