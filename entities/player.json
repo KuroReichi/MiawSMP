@@ -144,26 +144,7 @@
 			},
 			"minecraft:conditional_bandwidth_optimization": {
 			},
-			"minecraft:block_climber": {},
-			"minecraft:environment_sensor": {
-				"triggers": {
-					"filters": {
-						"all_of": [
-							{
-								"test": "has_mob_effect",
-								"subject": "self",
-								"value": "bad_omen"
-							},
-							{
-								"test": "is_in_village",
-								"subject": "self",
-								"value": true
-							}
-						]
-					},
-					"event": "minecraft:gain_raid_omen"
-				}
-			}
+			"minecraft:block_climber": {}
 		},
 
 		"events": {
