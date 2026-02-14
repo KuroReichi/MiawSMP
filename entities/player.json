@@ -146,6 +146,11 @@
 		},
 
 		"events": {
+			"q:start_riding": {
+				"add": {
+					"component_groups": ["q:add_rider"]
+				}
+			},
 			"minecraft:trigger_raid": {
 				"add": {
 					"component_groups": [ "minecraft:raid_trigger" ]
