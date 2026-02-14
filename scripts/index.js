@@ -21,7 +21,6 @@ import { uiManager, ActionFormData, ModalFormData, MessageFormData } from "@mine
 
 import { db } from "@minecraft/database.js";
 import { configs, PlayerClass } from "./configs.js";
-import { 
 
 world.afterEvents.worldLoad.subscribe(() => {
 	console.info("MIAW's Core Loaded");
