@@ -107,9 +107,7 @@
 			},
 			"minecraft:rideable": {
 				"seat_count": 1,
-				"family_types": [
-					"player"
-				],
+				"family_types": [],
 				"dismount_mode": "on_top_center",
 				"seats": [
 					{
