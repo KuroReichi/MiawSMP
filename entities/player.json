@@ -94,7 +94,7 @@
 				"lunge": 4.0
 			},
 			"minecraft:player.saturation": {
-				"value": 5,
+				"value": 20,
 				"max": 20
 			},
 			"minecraft:player.exhaustion": {
@@ -116,8 +116,8 @@
 				"generates_bubbles": false
 			},
 			"minecraft:nameable": {
-				"always_show": true,
-				"allow_name_tag_renaming": false
+				"always_show": false,
+				"allow_name_tag_renaming": true
 			},
 			"minecraft:physics": {
 				"push_towards_closest_space": true
