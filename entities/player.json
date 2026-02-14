@@ -9,30 +9,6 @@
 		},
 
 		"component_groups": {
-			"minecraft:add_raid_omen": {
-				"minecraft:spell_effects": {
-					"add_effects": [
-						{
-							"effect": "raid_omen",
-							"duration": 30,
-							"display_on_screen_animation": true
-						}
-					],
-					"remove_effects": "bad_omen"
-				},
-				"minecraft:timer": {
-					"time": [ 0.0, 0.0 ],
-					"looping": false,
-					"time_down_event": {
-						"event": "minecraft:clear_add_raid_omen",
-						"target": "self"
-					}
-				}
-			},
-			"minecraft:clear_raid_omen_spell_effect": {
-				"minecraft:spell_effects": {
-				}
-			},
 			"minecraft:raid_trigger": {
 				"minecraft:raid_trigger": {
 					"triggered_event": {
