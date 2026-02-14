@@ -29,12 +29,10 @@ world.afterEvents.worldLoad.subscribe(() => {
 });
 world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 	if (event.itemStack.typeId === undefined) {
-		if(db.player(event.target.name).get("allowRider") === true) {
-			
+		if (db.player(event.target.name).get("allowRider") === true) {
 		} else {
-			event.player.sendMessage("§4»§a This player is not allowing you to ride.");
+			event.player.sendMessage("§4»§a Pemain ini tidak mengizinkan kamu naik.");
 			event.player.playSound("notify.error");
 		}
-	} else if (event.itemStack.typeId === "minecraft:name_tag")
-		event.cancel = true;
+	} else if (event.itemStack.typeId === "minecraft:name_tag") event.cancel = true;
 });
