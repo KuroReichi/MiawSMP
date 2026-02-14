@@ -124,7 +124,7 @@
 				"is_pushable_by_piston": true
 			},
 			"minecraft:insomnia": {
-				"days_until_insomnia": 3
+				"days_until_insomnia": 0
 			},
 			"minecraft:rideable": {
 				"seat_count": 1,
