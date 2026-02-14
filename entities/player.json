@@ -142,8 +142,7 @@
 					}
 				]
 			},
-			"minecraft:conditional_bandwidth_optimization": {
-			},
+			"minecraft:conditional_bandwidth_optimization": {},
 			"minecraft:block_climber": {}
 		},
 
