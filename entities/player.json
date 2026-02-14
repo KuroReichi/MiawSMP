@@ -148,12 +148,12 @@
 		"events": {
 			"q:start_riding": {
 				"add": {
-					"component_groups": [ "q:add_rider" ]
+					"component_groups": [ "q:is_rideable" ]
 				}
 			},
 			"q:stop_riding": {
 				"remove": {
-					"component_groups": [ "q:add_rider" ]
+					"component_groups": [ "q:is_rideable" ]
 				}
 			}
 			"minecraft:trigger_raid": {
