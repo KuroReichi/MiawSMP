@@ -100,7 +100,7 @@
 			},
 			"minecraft:player.level": {
 				"value": 0,
-				"max": 24791
+				"max": 1000
 			},
 			"minecraft:player.experience": {
 				"value": 0,
