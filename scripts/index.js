@@ -35,7 +35,6 @@ world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 			event.player.sendMessage("§4»§a This player is not allowing you to ride.");
 			event.
 		}
-	} else if (event.itemStack.typeId === "minecraft:name_tag") {
+	} else if (event.itemStack.typeId === "minecraft:name_tag")
 		event.cancel = true;
-	}
 });
