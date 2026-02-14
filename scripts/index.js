@@ -16,7 +16,7 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-import { ItemStack, ItemType, system, world } from "@minecraft/server";
+import { EntityComponentTypes, ItemStack, system, world } from "@minecraft/server";
 import { uiManager, ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 
 import { db } from "@minecraft/database.js";
@@ -27,11 +27,9 @@ world.afterEvents.worldLoad.subscribe(() => {
 	db.set("server.dateCreated", new Date().valueOf(), "global", false);
 	db.set("server.uptime", new Date().valueOf(), "global", true);
 });
-
 world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
-	if(event.itemStack.typeId === undefined) {
-		
-	} else if(event.itemStack.typeId === "minecraft:name_tag") {
-		
+	if (event.itemStack.typeId === undefined) {
+		e
+	} else if (event.itemStack.typeId === "minecraft:name_tag") {
 	}
 });
