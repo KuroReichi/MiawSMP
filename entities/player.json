@@ -130,23 +130,21 @@
 				"days_until_insomnia": 3
 			},
 			"minecraft:rideable": {
-				"seat_count": 2,
+				"seat_count": 1,
+				"interact_text": "",
 				"family_types": [
-					"parrot_tame"
+					"player"
 				],
-				"pull_in_entities": true,
+				"dismount_mode": "on_top_center",
 				"seats": [
 					{
-						"position": [ 0.4, -0.2, -0.1 ],
+						"position": [
+							0,
+							0.1,
+							0
+						],
 						"min_rider_count": 0,
-						"max_rider_count": 0,
-						"lock_rider_rotation": 0
-					},
-					{
-						"position": [ -0.4, -0.2, -0.1 ],
-						"min_rider_count": 1,
-						"max_rider_count": 2,
-						"lock_rider_rotation": 0
+						"max_rider_count": 1
 					}
 				]
 			},
