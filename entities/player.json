@@ -42,7 +42,7 @@
 
 		"components": {
 			"minecraft:experience_reward": {
-				"on_death": "Math.Min(query.player_level * 7, 100)"
+				"on_death": "query.player_level"
 			},
 			"minecraft:type_family": {
 				"family": [ "player" ]
