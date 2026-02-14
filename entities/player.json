@@ -9,6 +9,27 @@
 		},
 
 		"component_groups": {
+			"q:is_rideable": {
+				"minecraft:rideable": {
+					"seat_count": 1,
+					"interact_text": "",
+					"family_types": [
+						"player"
+					],
+					"dismount_mode": "on_top_center",
+					"seats": [
+						{
+							"position": [
+								0,
+								0.1,
+								0
+							],
+							"min_rider_count": 0,
+							"max_rider_count": 1
+						}
+					]
+				}
+			},
 			"minecraft:raid_trigger": {
 				"minecraft:raid_trigger": {
 					"triggered_event": {
