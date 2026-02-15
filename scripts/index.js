@@ -46,14 +46,20 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 			{
 				"date.firstJoin": new Date().valueOf(),
 				"date.lastSeen": false,
+				"playtime": {
+					"seconds": 0,
+					"minutes": 0,
+					"hours": 0,
+					"weeks": 0
+				},
 				"block.place": 0,
 				"block.break": 0,
-				"mobs.kill": {
+				"mobs.kills": {
 					count: 0,
 					list: []
 				},
-				"player.kill": {
-					count: 0, 
+				"player.kills": {
+					count: 0,
 					list: []
 				}
 			},
