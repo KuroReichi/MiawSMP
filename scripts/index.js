@@ -27,6 +27,7 @@ world.afterEvents.worldLoad.subscribe(() => {
 	db.set("server.dateCreated", new Date().valueOf(), "global", false);
 	db.set("server.uptime", new Date().valueOf(), "global", true);
 });
+
 world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 	if (event.itemStack.typeId === undefined) {
 		if (db.player(event.target.name).get("allowRider") === true
@@ -36,4 +37,8 @@ world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 			event.player.playSound("notify.error");
 		}
 	} else if (event.itemStack.typeId === "minecraft:name_tag") event.cancel = true;
+});
+
+world.afterEvents.playerJoin.subscribe((event) => {
+	
 });
