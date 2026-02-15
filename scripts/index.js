@@ -55,7 +55,8 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 				"block.place": 0,
 				"block.break": 0,
 				"mobs.kills": {
-					"count": 0
+					"count": 0,
+					"list": new Array()
 				},
 				"player.kills": {
 					"count": 0,
