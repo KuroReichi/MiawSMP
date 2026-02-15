@@ -49,13 +49,13 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 				"block.place": 0,
 				"block.break": 0,
 				"mobs.kill": {
-					"count": 0,
-					"list": []
+					count: 0,
+					list: []
 				},
 				"player.kill": {
-					"count": 0,
-					"list": []
-				}
+					count: 0,
+					list: []
+				},
 			},
 			player.name,
 			false
