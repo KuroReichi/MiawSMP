@@ -9,6 +9,11 @@
 		},
 
 		"component_groups": {
+			"q:player_registered": {
+				"minecraft:type_family": {
+					"family": [ "player" ]
+				}
+			},
 			"q:is_rideable": {
 				"minecraft:rideable": {
 					"seat_count": 1,
@@ -45,7 +50,7 @@
 				"on_death": "query.player_level"
 			},
 			"minecraft:type_family": {
-				"family": [ "player" ]
+				"family": []
 			},
 			"minecraft:is_hidden_when_invisible": {
 			},
