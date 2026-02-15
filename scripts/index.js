@@ -55,7 +55,7 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 				"player.kill": {
 					count: 0,
 					list: []
-				},
+				}
 			},
 			player.name,
 			false
