@@ -42,8 +42,7 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 	const player = event.player;
 	if (event.initialSpawn === true) {
 		// Data
-		db.set(
-			{
+		db.set({
 				"date.firstJoin": new Date().valueOf(),
 				"date.lastSeen": false,
 				"playtime": {
