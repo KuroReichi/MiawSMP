@@ -30,8 +30,7 @@ world.afterEvents.worldLoad.subscribe(() => {
 
 world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 	if (event.itemStack.typeId === undefined) {
-		if (db.player(event.target.name).get("allowRider") === true
-		&& event.player.isSneaking === false) {
+		if (db.player(event.target.name).get("allowRider") === true && event.player.isSneaking === false) {
 		} else {
 			event.player.sendMessage("§4»§a Pemain ini tidak mengizinkanmu menungganginya.");
 			event.player.playSound("notify.error");
@@ -39,6 +38,39 @@ world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 	} else if (event.itemStack.typeId === "minecraft:name_tag") event.cancel = true;
 });
 
-world.afterEvents.playerJoin.subscribe((event) => {
-	
+world.afterEvents.playerSpawn.subscribe((event) => {
+	const player = event.player;
+	if(event.initialSpawn === true) {
+		// Data
+		db.set({
+			"date.firstJoin": new Date().valueOf(),
+			"date.lastSeen": false,
+			"block.place": 0,
+			"block.break": 0,
+			"mobs.kill": {
+				
+			},
+			"player.kill": {
+				"count": 0,
+				"list": []
+			},
+		}, player.name, false);
+		
+		// Attributes
+		db.set({
+			"health": 100,
+			"physical.atk": 0,
+			"physical.def": 0,
+			"magic.power": 0,
+			"magic.def": 0,
+			"nirvane.current": 0,
+			"nirvane.regenAmount": 0,
+			"nirvane.regenTime": 0,
+			"energy.current": 0,
+			"energy.regenAmount": 0,
+			"energy.regenTime": 0
+		}, player.name, false);
+	} else {
+		
+	}
 });
