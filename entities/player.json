@@ -152,6 +152,11 @@
 		},
 
 		"events": {
+			"q:register_player": {
+				"add": {
+					"component_groups": [ "q:player_registered" ]
+				}
+			},
 			"q:start_riding": {
 				"add": {
 					"component_groups": [ "q:is_rideable" ]
