@@ -39,6 +39,7 @@ export function PlayerClass(void) {
 				pD: [7, 14],
 				mA: [0, 0],
 				mD: [2, 2],
+				type: "energy",
 				energy: {
 					range: [80, 120],
 					regenAmount: 5,
@@ -60,6 +61,7 @@ export function PlayerClass(void) {
 				pD: [2, 3],
 				mA: [19, 32],
 				mD: [4, 7],
+				type: "nirvane",
 				nirvane: {
 					range: [92, 183],
 					regenAmount: 13,
@@ -81,6 +83,7 @@ export function PlayerClass(void) {
 				pD: [4, 7],
 				mA: [14, 23],
 				mD: [6, 11],
+				type: "nirvane",
 				nirvane: {
 					range: [85, 130],
 					regenAmount: 7,
