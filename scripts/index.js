@@ -42,24 +42,25 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 	const player = event.player;
 	if (event.initialSpawn === true) {
 		// Data
-		db.set({
+		db.set(
+			{
 				"date.firstJoin": new Date().valueOf(),
 				"date.lastSeen": false,
 				"playtime": {
-					"seconds": 0,
-					"minutes": 0,
-					"hours": 0,
-					"weeks": 0
+					seconds: 0,
+					minutes: 0,
+					hours: 0,
+					weeks: 0
 				},
 				"block.place": 0,
 				"block.break": 0,
 				"mobs.kills": {
-					"count": 0,
-					"list": new Array()
+					count: 0,
+					list: new Array()
 				},
 				"player.kills": {
-					"count": 0,
-					"list": new Array()
+					count: 0,
+					list: new Array()
 				}
 			},
 			player.name,
