@@ -40,37 +40,45 @@ world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 
 world.afterEvents.playerSpawn.subscribe((event) => {
 	const player = event.player;
-	if(event.initialSpawn === true) {
+	if (event.initialSpawn === true) {
 		// Data
-		db.set({
-			"date.firstJoin": new Date().valueOf(),
-			"date.lastSeen": false,
-			"block.place": 0,
-			"block.break": 0,
-			"mobs.kill": {
-				
+		db.set(
+			{
+				"date.firstJoin": new Date().valueOf(),
+				"date.lastSeen": false,
+				"block.place": 0,
+				"block.break": 0,
+				"mobs.kill": {
+					"count": 0,
+					"list": []
+				},
+				"player.kill": {
+					"count": 0,
+					"list:" []
+				}
 			},
-			"player.kill": {
-				"count": 0,
-				"list": []
-			},
-		}, player.name, false);
-		
+			player.name,
+			false
+		);
+
 		// Attributes
-		db.set({
-			"health": 100,
-			"physical.atk": 0,
-			"physical.def": 0,
-			"magic.power": 0,
-			"magic.def": 0,
-			"nirvane.current": 0,
-			"nirvane.regenAmount": 0,
-			"nirvane.regenTime": 0,
-			"energy.current": 0,
-			"energy.regenAmount": 0,
-			"energy.regenTime": 0
-		}, player.name, false);
+		db.set(
+			{
+				"health": 100,
+				"physical.atk": 0,
+				"physical.def": 0,
+				"magic.power": 0,
+				"magic.def": 0,
+				"nirvane.current": 0,
+				"nirvane.regenAmount": 0,
+				"nirvane.regenTime": 0,
+				"energy.current": 0,
+				"energy.regenAmount": 0,
+				"energy.regenTime": 0
+			},
+			player.name,
+			false
+		);
 	} else {
-		
 	}
 });
