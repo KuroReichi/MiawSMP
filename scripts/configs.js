@@ -1,4 +1,3 @@
-import { EffectType, EffectTypes } from "@minecraft/server";
 export const configs = {
 	server: {
 		name: "Qyrogata",
