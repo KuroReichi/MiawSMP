@@ -19,7 +19,7 @@
 export const configs = {
 	server: {
 		name: "Qyrogata",
-		subname: "Beyond magic of nirvane's"
+		subname: "Beyond magic of nirvane\'s"
 	},
 	mobsLevelz: {
 		blacklist: [
