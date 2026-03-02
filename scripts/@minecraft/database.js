@@ -9,10 +9,10 @@ export const db = {
 	query: "?",
 	/**
 	 * @param {string} id
-	 * @param {string, number, Boolean, Object[]} value
+	 * @param {string, number, Boolean, Object[id: <value>]} value
 	 * @param {string} key
 	 * @param {Boolean} overwrite
-	 * @returns {Object} 
+	 * @returns {Object}
 	 */
 	set: function (id, value, key = "global", overwrite = true) {
 		if (typeof id === "object" && id !== null && !Array.isArray(id)) {
