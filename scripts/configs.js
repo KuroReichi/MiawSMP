@@ -22,9 +22,6 @@ export const configs = {
 		subname: "Beyond Magic of Nirvane"
 	},
 	mobsLevelz: {
-		/*
-		* 
-		*/
 		blacklist: [
 			{
 				query: "family",
