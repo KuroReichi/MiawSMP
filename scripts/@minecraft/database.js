@@ -3,6 +3,7 @@ import { system, world } from "@minecraft/server";
 export const db = {
 	/**
 	 * @var {string} prefix - Unique identifier, prevent other(s) Add-Ons to overwriting the data.
+	 * @var {string} query - Unique divider, this also make the data looks complex.
 	prefix: "MiawDB",
 	query: "?",
 	/**
