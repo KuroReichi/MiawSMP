@@ -8,12 +8,12 @@ export const db = {
 	prefix: "MiawDB",
 	query: "?",
 	/**
-	* @param {string} id - Identifier
-	* @param {string} value
-	* @param {string} key
-	* @param {Boolean} overwrite
-	* @returns {Object}
-	*/
+	 * @param {string} id
+	 * @param {string, number, Boolean, Object[]} value
+	 * @param {string} key
+	 * @param {Boolean} overwrite
+	 * @returns {Object} 
+	 */
 	set: function (id, value, key = "global", overwrite = true) {
 		if (typeof id === "object" && id !== null && !Array.isArray(id)) {
 			const entries = Object.entries(id);
