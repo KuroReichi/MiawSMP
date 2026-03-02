@@ -22,11 +22,12 @@ export const configs = {
 		subname: "Beyond Magic of Nirvane"
 	},
 	mobsLevelz: {
+		/*
+		* 
+		*/
 		blacklist: [
-			// Cuma entity sing mlebu list "mobs" family
-			// sing bakal keitung sebagai target ber-level.
 			{
-				query: "family", // <family|typeId>
+				query: "family",
 				name: "fish"
 			},
 			{
