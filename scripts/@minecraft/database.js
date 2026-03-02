@@ -72,7 +72,6 @@ export const db = {
 		if (typeof value !== "number") throw new ReferenceError(`Unexpected type at » db.remove(...) «, value must be a number, but it present ${typeof value}`);
 		return db.set(id, db.get(id, key) - value, key, true);
 	},
-	// db.player => { db } + "key" = player.name
 	player(player) {
 		const key = player.name;
 		return {
