@@ -1,12 +1,17 @@
 import { system, world } from "@minecraft/server";
 
-//  Syntax prefix:query:key:id
-//  Expected Output : MiawDB?global:uptime        <- Global Data
-//                    MiawDB?KuroReichii:aspd     <- Object/Entity Data
-
 export const db = {
+	/**
+	 * @var {string} prefix - Unique identifier, prevent other(s) Add-Ons to overwriting the data.
 	prefix: "MiawDB",
 	query: "?",
+	/**
+	* @param {string} id - Identifier
+	* @param {string} value
+	* @param {string} key
+	* @param {Boolean} overwrite
+	* @returns {Object}
+	*/
 	set: function (id, value, key = "global", overwrite = true) {
 		if (typeof id === "object" && id !== null && !Array.isArray(id)) {
 			const entries = Object.entries(id);
