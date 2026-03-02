@@ -9,7 +9,7 @@ export const db = {
 	query: "?",
 	/**
 	 * @param {string} id
-	 * @param {string, number, Boolean, Object[id: <value>]} value
+	 * @param {string, number, boolean, Object[id: <value>]} value
 	 * @param {string} key
 	 * @param {Boolean} overwrite
 	 * @returns {Object}
