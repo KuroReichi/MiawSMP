@@ -58,17 +58,11 @@ export const db = {
 		return true;
 	},
 	add: function (id, key = "global", value = 0) {
-		if (typeof value !== "number")
-			throw new ReferenceError(
-				`Unexpected type at » db.add(...) «, value must be a number, but it present ${typeof value}`
-			);
+		if (typeof value !== "number") throw new ReferenceError(`Unexpected type at » db.add(...) «, value must be a number, but it present ${typeof value}`);
 		return db.set(id, db.get(id, key) + value, key, true);
 	},
 	remove: function (id, key = "global", value = 0) {
-		if (typeof value !== "number")
-			throw new ReferenceError(
-				`Unexpected type at » db.remove(...) «, value must be a number, but it present ${typeof value}`
-			);
+		if (typeof value !== "number") throw new ReferenceError(`Unexpected type at » db.remove(...) «, value must be a number, but it present ${typeof value}`);
 		return db.set(id, db.get(id, key) - value, key, true);
 	},
 	// db.player => { db } + "key" = player.name
