@@ -38,7 +38,6 @@ world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
 	} else if (event.itemStack.typeId === "minecraft:name_tag") event.cancel = true;
 });
 
-
 world.afterEvents.playerSpawn.subscribe((event) => {
 	const player = event.player;
 	if (event.initialSpawn === true) {
