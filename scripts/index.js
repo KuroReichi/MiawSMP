@@ -66,7 +66,6 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 			player.name,
 			false
 		);
-
 		// Attributes
 		db.set(
 			{
