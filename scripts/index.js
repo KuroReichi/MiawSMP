@@ -16,8 +16,10 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-import { EntityComponentTypes, ItemStack, system, world } from "@minecraft/server";
-import { uiManager, ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
+import { ItemStack, system, world } from "@minecraft/server";
+import { ActionFormData, 
+ModalFormData,
+MessageFormData } from "@minecraft/server-ui";
 
 import { db } from "@minecraft/database.js";
 import { configs, PlayerClass } from "./configs.js";
