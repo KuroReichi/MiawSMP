@@ -17,14 +17,10 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 import { ItemStack, system, world } from "@minecraft/server";
-import { 
-	ActionFormData, 
-	ModalFormData, 
-	MessageFormData 
-} from "@minecraft/server-ui";
+import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 
 import { db } from "@minecraft/database.js";
-import { configs, PlayerClass } from "./configs.js";
+import { configs, PlayerClass } from "configs.js";
 
 world.afterEvents.worldLoad.subscribe(() => {
 	console.info("MIAW's Core Loaded");
