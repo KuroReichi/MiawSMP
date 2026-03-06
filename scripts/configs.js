@@ -38,3 +38,9 @@ export const configs = {
 		}
 	}
 };
+
+export function playerClass() {
+	return {
+		
+	}
+}
