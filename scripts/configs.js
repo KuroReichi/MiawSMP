@@ -57,7 +57,7 @@ export function playerClass() {
 			stats: {
 				hp: [80, 100],
 				pA: [8, 12],
-				pD:[4, 4],
+				pD: [4, 4],
 				mA: [37, 51],
 				mD: [13, 17],
 				randFactor: [-13, 20]
