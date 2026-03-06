@@ -40,7 +40,10 @@ export const configs = {
 };
 
 export function playerClass() {
-	return {
-		
-	}
+	return [
+		{
+			name: "Aether Vanguard",
+			
+		}
+	]
 }
