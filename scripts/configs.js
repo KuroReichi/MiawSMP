@@ -49,7 +49,7 @@ export function playerClass() {
 				pD: [11, 16],
 				mA: [0, 0],
 				mD: [0, 0],
-				randFactor: [-0.2, 0.2]
+				randFactor: [-20, 18]
 			}
 		},
 		{
