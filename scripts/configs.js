@@ -69,7 +69,7 @@ export function playerClass() {
 				hp: [80, 120],
 				pA: [8, 11],
 				pD: [2, 6],
-				mA: [20, 37],
+				mA: [19, 37],
 				mD: [23, 30],
 				randFactor: [-7, 23]
 			}
