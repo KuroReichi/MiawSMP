@@ -43,6 +43,7 @@ export function playerClass() {
 	return [
 		{
 			name: "Aether Vanguard",
+			icon: "",
 			color: "§c",
 			stats: {
 				hp: [180, 200],
@@ -55,6 +56,7 @@ export function playerClass() {
 		},
 		{
 			name: "Lunaris Arcanist",
+			icon: "",
 			color: "§b",
 			stats: {
 				hp: [80, 100],
@@ -67,6 +69,7 @@ export function playerClass() {
 		},
 		{
 			name: "Seraphine Warden",
+			icon: "",
 			color: "§a",
 			stats: {
 				hp: [80, 120],
