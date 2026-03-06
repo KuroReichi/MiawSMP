@@ -43,7 +43,29 @@ export function playerClass() {
 	return [
 		{
 			name: "Aether Vanguard",
-			
+			stats: {
+				hp: [180, 200],
+				pA: [18, 24],
+				pD: [11, 16],
+				mA: [0, 0],
+				mD: [0, 0],
+				randFactor: [-0.2, 0.2]
+			}
+		},
+		{
+			name: "Lunaris Arcanist",
+			stats: {
+				hp: [80, 100],
+				pA: []
+			}
+		},
+		{
+			name: "Seraphine Warden",
+			stats: {
+				hp: [80, 120],
+				pA: [8, 11],
+				pD: []
+			}
 		}
-	]
+	];
 }
