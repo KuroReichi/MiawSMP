@@ -56,7 +56,11 @@ export function playerClass() {
 			name: "Lunaris Arcanist",
 			stats: {
 				hp: [80, 100],
-				pA: []
+				pA: [8, 12],
+				pD:[4, 4],
+				mA: [37, 51],
+				mD: [13, 17],
+				randFactor: [-13, 20]
 			}
 		},
 		{
