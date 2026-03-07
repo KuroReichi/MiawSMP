@@ -7,13 +7,6 @@ const database = {
 	 */
 	prefix: "MiawDB",
 	query: "?",
-	/**
-	 * @param {string} id
-	 * @param {string, number, boolean, Object[id: <value>]} value
-	 * @param {string} key
-	 * @param {Boolean} overwrite
-	 * @returns {Object}
-	 */
 	set: function (id, value, key = "global", overwrite = true) {
 		if (typeof id === "object" && id !== null && !Array.isArray(id)) {
 			const entries = Object.entries(id);
