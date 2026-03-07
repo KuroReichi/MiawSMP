@@ -1,25 +1,45 @@
-//░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-//░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-//░░░███╗░░░███╗██╗░█████╗░░██╗░░░░░░░██╗░░░░░░░░░░░░
-//░░░████╗░████║██║██╔══██╗░██║░░██╗░░██║░░░░░░░░░░░░
-//░░░██╔████╔██║██║███████║░╚██╗████╗██╔╝░░░░░░░░░░░░
-//░░░██║╚██╔╝██║██║██╔══██║░░████╔═████║░░░░░░░░░░░░░
-//░░░██║░╚═╝░██║██║██║░░██║░░╚██╔╝░╚██╔╝░░░░░░░░░░░░░
-//░░░╚═╝░░░░░╚═╝╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░░░░░░░░░░
-//░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-//░░░░██████╗████████╗██╗░░░██╗██████╗░██╗░█████╗░░░░
-//░░░██╔════╝╚══██╔══╝██║░░░██║██╔══██╗██║██╔══██╗░░░
-//░░░╚█████╗░░░░██║░░░██║░░░██║██║░░██║██║██║░░██║░░░
-//░░░░╚═══██╗░░░██║░░░██║░░░██║██║░░██║██║██║░░██║░░░
-//░░░██████╔╝░░░██║░░░╚██████╔╝██████╔╝██║╚█████╔╝░░░
-//░░░╚═════╝░░░░╚═╝░░░░╚═════╝░╚═════╝░╚═╝░╚════╝░░░░
-//░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-//░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
 export const configs = {
 	server: {
 		name: "Qyrogata",
-		subname: "Beyond Magic of Nirvane"
+		subname: "Beyond Magic of Nirvane",
+		studio: {
+			name: "Legiun Studio",
+			owner: "Kuro Reichi",
+			licensedWith: "Apache 2.0",
+		},
+		gamerules: {
+			commandBlocksEnabled: true,
+			commandBlockOutput: true,
+			doDaylightCycle: true,
+			doEntityDrops: true,
+			doFireTick: true,
+			doImmediateRespawn: false,
+			doInsomnia: true,
+			doLimitedCrafting: false,
+			doMobLoot: true,
+			doMobSpawning: true,
+			doTileDrops: true,
+			doWeatherCycle: true,
+			drowningDamage: true,
+			fallDamage: true,
+			fireDamage: true,
+			freezeDamage: true,
+			functionCommandLimit: 10000,
+			keepInventory: false,
+			maxCommandChainLength: 65536,
+			mobGriefing: true,
+			naturalRegeneration: true,
+			pvp: true,
+			randomTickSpeed: 1,
+			sendCommandFeedback: true,
+			showCoordinates: false,
+			showDeathMessages: true,
+			showTags: true,
+			spawnRadius: 10,
+			tntExplodes: true,
+			showBorderEffect: true,
+			playersSleepingPercentage: 100
+		}
 	},
 	mobsLevelz: {
 		blacklist: [
