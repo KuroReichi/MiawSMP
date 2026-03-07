@@ -19,7 +19,7 @@
 import { system, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 
-import { db } from "@minecraft/database.js";
+import database from "@minecraft/database.js";
 import { configs, PlayerClass } from "configs.js";
 
 world.afterEvents.worldLoad.subscribe(() => {
