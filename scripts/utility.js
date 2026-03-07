@@ -1,5 +1,5 @@
 // ========================================================================
-/*
+/**
   @description - Mengonversi angka menjadi format singkatan metrik (k, M, G, dst).
   @function - Memformat angka besar menjadi string yang lebih ringkas dan mudah dibaca.
   @param {number} value - Angka yang akan diformat.
