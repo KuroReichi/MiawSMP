@@ -20,70 +20,10 @@ import { system, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 
 import database from "@minecraft/database.js";
-import { configs, PlayerClass } from "configs.js";
+import { PlayerClass, configs } from "configs.js";
 
 world.afterEvents.worldLoad.subscribe(() => {
 	console.info("MIAW's Core Loaded");
 	db.set("server.dateCreated", new Date().valueOf(), "global", false);
 	db.set("server.uptime", new Date().valueOf(), "global", true);
-});
-
-world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
-	if (event.itemStack.typeId === undefined) {
-		if (db.player(event.target.name).get("allowRider") === true && event.player.isSneaking === false) {
-		} else {
-			event.player.sendMessage("§4»§a Pemain ini tidak mengizinkanmu menungganginya.");
-			event.player.playSound("notify.error");
-		}
-	} else if (event.itemStack.typeId === "minecraft:name_tag") event.cancel = true;
-});
-
-world.afterEvents.playerSpawn.subscribe((event) => {
-	const player = event.player;
-	if (event.initialSpawn === true) {
-		// Data
-		db.set(
-			{
-				"date.firstJoin": new Date().valueOf(),
-				"date.lastSeen": false,
-				"playtime": {
-					seconds: 0,
-					minutes: 0,
-					hours: 0,
-					weeks: 0
-				},
-				"block.place": 0,
-				"block.break": 0,
-				"mobs.kills": {
-					count: 0,
-					list: new Array()
-				},
-				"player.kills": {
-					count: 0,
-					list: new Array()
-				}
-			},
-			player.name,
-			false
-		);
-		// Attributes
-		db.set(
-			{
-				"health": 100,
-				"physical.atk": 0,
-				"physical.def": 0,
-				"magic.power": 0,
-				"magic.def": 0,
-				"nirvane.current": 0,
-				"nirvane.regenAmount": 0,
-				"nirvane.regenTime": 0,
-				"energy.current": 0,
-				"energy.regenAmount": 0,
-				"energy.regenTime": 0
-			},
-			player.name,
-			false
-		);
-	} else {
-	}
 });
