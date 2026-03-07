@@ -1,4 +1,4 @@
-// ========================================================================
+//=============================< metricNumber >======================================
 /**
  *	@name metricNumber
  *	@description - Mengonversi angka menjadi format singkatan metrik (k, M, G, dst).
@@ -18,4 +18,4 @@ export function metricNumber(value, decimals = 2) {
 	const formattedNumber = parseFloat((absValue / Math.pow(k, i)).toFixed(dm));
 	return (value < 0 ? "-" : "") + formattedNumber + sizes[i];
 }
-// ========================================================================
+//==================================================================================
