@@ -37,7 +37,7 @@ export const configs = {
 			showTags: true,
 			spawnRadius: 0,
 			tntExplodes: true,
-		
+		}
 	},
 	mobsLevelz: {
 		blacklist: [
