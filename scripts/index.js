@@ -16,15 +16,4 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-import { system, world } from "@minecraft/server";
-import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
-
-import database from "@minecraft/database.js";
-import { PlayerClass, configs } from "configs.js";
-
-world.afterEvents.worldLoad.subscribe(() => {
-	console.info("MIAW's Core Loaded");
-	db.set("server.dateCreated", new Date().valueOf(), "global", false);
-	db.set("server.uptime", new Date().valueOf(), "global", true);
-});
-
+import commandBuilder from "@cores/command-builder.js"
