@@ -16,4 +16,4 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-import commandBuilder from "@cores/command-builder.js";
+import commandHandler from "@cores/command-handler.js";
