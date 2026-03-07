@@ -5,10 +5,10 @@ export const configs = {
 		studio: {
 			name: "Legiun Studio",
 			owner: "Kuro Reichi",
-			licensedWith: "Apache 2.0",
+			licensedWith: "Apache 2.0"
 		},
 		gamerules: {
-			commandBlocksEnabled: true,
+			commandBlocksEnabled: false,
 			commandBlockOutput: true,
 			doDaylightCycle: true,
 			doEntityDrops: true,
