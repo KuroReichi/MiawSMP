@@ -37,9 +37,7 @@ export const configs = {
 			showTags: true,
 			spawnRadius: 0,
 			tntExplodes: true,
-			showBorderEffect: true,
-			playersSleepingPercentage: 101
-		}
+		
 	},
 	mobsLevelz: {
 		blacklist: [
