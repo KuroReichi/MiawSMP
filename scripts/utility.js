@@ -1,10 +1,10 @@
 // ========================================================================
 /**
-  @name metricNumber
-  @description - Mengonversi angka menjadi format singkatan metrik (k, M, G, dst).
-  @function - Memformat angka besar menjadi string yang lebih ringkas dan mudah dibaca.
-  @param {number} value - Angka yang akan diformat.
-  @param {number} decimals - Jumlah angka di belakang koma (default: 2).
+  * @name metricNumber
+  * @description - Mengonversi angka menjadi format singkatan metrik (k, M, G, dst).
+  * @function - Memformat angka besar menjadi string yang lebih ringkas dan mudah dibaca.
+  * > @param {number} value - Angka yang akan diformat.
+  * > @param {number} decimals - Jumlah angka di belakang koma (default: 2).
 */
 export function metricNumber(value, decimals = 2) {
 	if (value === 0) return "0";
