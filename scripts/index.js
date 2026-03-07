@@ -27,3 +27,4 @@ world.afterEvents.worldLoad.subscribe(() => {
 	db.set("server.dateCreated", new Date().valueOf(), "global", false);
 	db.set("server.uptime", new Date().valueOf(), "global", true);
 });
+
