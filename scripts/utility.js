@@ -1,7 +1,3 @@
-import { world, system } from "@minecraft/server";
-import db from "@minecraft/database.js";
-import "./configs.js";
-
 /**
  * @description - Mengonversi angka menjadi format singkatan metrik (k, M, G, dst).
  * @function - Memformat angka besar menjadi string yang lebih ringkas dan mudah dibaca.
