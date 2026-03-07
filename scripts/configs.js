@@ -30,15 +30,15 @@ export const configs = {
 			mobGriefing: true,
 			naturalRegeneration: true,
 			pvp: true,
-			randomTickSpeed: 1,
+			randomTickSpeed: 3,
 			sendCommandFeedback: true,
 			showCoordinates: false,
 			showDeathMessages: true,
 			showTags: true,
-			spawnRadius: 10,
+			spawnRadius: 0,
 			tntExplodes: true,
 			showBorderEffect: true,
-			playersSleepingPercentage: 100
+			playersSleepingPercentage: 101
 		}
 	},
 	mobsLevelz: {
