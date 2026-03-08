@@ -34,36 +34,20 @@ export function registerCommand(command) {
  *		@param {Object} registry - customCommandRegistry dari Script API.
  **/
 function buildCommands(registry) {
-
 	for (const command of commandRegistry) {
-
-		registry.registerCommand({
-			name: command.name,
-			description: command.description ?? "",
-			permissionLevel: command.permissionLevel ?? 0
-		}, (root) => {
-
-			if (typeof command.build === "function") {
-				command.build(root);
+		registry.registerCommand(
+			{
+				name: command.name,
+				description: command.description ?? "",
+				permissionLevel: command.permissionLevel ?? 0
+			},
+			(root) => {
+				if (typeof command.build === "function") {
+					command.build(root);
+				}
 			}
-
-		});
-
+		);
 	}
-
 }
-
-//===================================================================================
-
-/**
- *	@name startupCommandRegistry
- *	@description - Menginisialisasi registry command saat server startup.
- *	@function - Mengambil customCommandRegistry dari event startup lalu membangun seluruh command.
- **/
-system.beforeEvents.startup.subscribe((event) => {
-
-	buildCommands(event.customCommandRegistry);
-
-});
 
 //===================================================================================
