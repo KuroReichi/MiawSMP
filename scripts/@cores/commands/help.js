@@ -1,4 +1,4 @@
-import { registerCommand } from "../registry/commandRegistry.js";
+import { registerCommand } from "../command-builder.js";
 import database from "../../@minecraft/database.js";
 //===================================================================================
 
