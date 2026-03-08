@@ -23,19 +23,14 @@ registerCommand({
 	permissionLevel: 0,
 
 	build(root) {
-
 		root.executes((ctx) => {
 			showHelp(ctx, 1);
 		});
 
-		root
-			.integer("page")
-			.executes((ctx) => {
-				showHelp(ctx, ctx.args.page);
-			});
-
+		root.integer("page").executes((ctx) => {
+			showHelp(ctx, ctx.args.page);
+		});
 	}
-
 });
 
 //===================================================================================
@@ -51,9 +46,8 @@ registerCommand({
  */
 
 function showHelp(ctx, page) {
-
 	const registry = database.get(id, key) ?? [];
-
+	
 	const total = registry.length;
 	const maxPage = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
@@ -66,36 +60,25 @@ function showHelp(ctx, page) {
 
 	const messages = [];
 
-	// Header
 	messages.push({
 		rawtext: [
 			{
 				translate: "commands.help.header",
-				with: [
-					String(page),
-					String(maxPage)
-				]
+				with: [String(page), String(maxPage)]
 			}
 		]
 	});
 
-	// Command list
 	for (const cmd of commands) {
-
 		messages.push({
-			rawtext: [
-				{ text: "§e/" + cmd.name },
-				{ text: " §7- " + (cmd.description ?? "") }
-			]
+			rawtext: [{ text: "§e/" + cmd.name }, { text: " §7- " + (cmd.description ?? "") }]
 		});
-
 	}
 
 	// Kirim ke player
 	for (const msg of messages) {
 		ctx.source.sendMessage(msg);
 	}
-
 }
 
 //===================================================================================
