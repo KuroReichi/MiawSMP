@@ -3,6 +3,10 @@
 
 const registry = [];
 
+export function getCommands() {
+	return registry;
+}
+
 //===================================================================================
 
 export function registerCommand(command) {
