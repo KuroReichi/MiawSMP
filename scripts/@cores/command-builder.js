@@ -7,7 +7,7 @@ import database from "../@minecraft/database.js";
  *	@description - Registry penyimpanan seluruh definisi custom command.
  *	@function - Menyimpan semua command yang akan didaftarkan ke customCommandRegistry saat startup.
  **/
-system.run(() => database.set("commandRegistry", [], "global", false));
+system.run(() => database.set("commandRegistry", [], "server", false));
 
 //===================================================================================
 
