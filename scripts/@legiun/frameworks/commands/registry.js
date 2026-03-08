@@ -6,7 +6,7 @@ const registry = [];
 //===================================================================================
 
 export function registerCommand(command) {
-	const index = registry.findIndex(c => c.name === command.name);
+	const index = registry.findIndex((c) => c.name === command.name);
 	if (index !== -1) registry.splice(index, 1);
 	registry.push(command);
 	registry.sort((a, b) => a.name.localeCompare(b.name));
