@@ -27,4 +27,3 @@ import { buildCommands } from "./@legiun/frameworks/commands/registry.js";
 system.beforeEvents.startup.subscribe((event) => {
 	buildCommands(event.customCommandRegistry);
 });
-
