@@ -21,5 +21,5 @@ import { CommandBuilder } from "./@legiun/frameworks/commands/builder.js";
 
 system.beforeEvents.startup.subscribe((event) => {
 	CommandBuilder(event.customCommandRegistry);
-	console.info("§aCustom Command Success§r")
+	console.info("§aCustom Command Loaded§r");
 });
