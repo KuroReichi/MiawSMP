@@ -1,4 +1,3 @@
-//=< Metric Number >============================================
 /**
  *	@name metricNumber
  *	@description - Mengonversi angka menjadi format singkatan metrik (k, M, G, dst).
