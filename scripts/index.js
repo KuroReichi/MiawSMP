@@ -28,4 +28,3 @@ system.beforeEvents.startup.subscribe((event) => {
 	buildCommands(event.customCommandRegistry);
 });
 
-//===================================================================================
