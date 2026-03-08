@@ -32,6 +32,5 @@ export class CommandBuilder {
 		this.node.executes(callback);
 		return this;
 	}
-
 }
 //===================================================================================
