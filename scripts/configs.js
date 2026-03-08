@@ -58,7 +58,7 @@ export const configs = {
 	}
 };
 
-export function playerClass() {
+export function PlayerClass() {
 	return [
 		{
 			name: "Aether Vanguard",
