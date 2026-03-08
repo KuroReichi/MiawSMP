@@ -17,3 +17,7 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 import CommandBuilder from "@cores/command-builder.js";
+
+system.beforeEvents.startup.subscribe((event) => {
+	CommandBuilder(event.customCommandRegistry);
+});
