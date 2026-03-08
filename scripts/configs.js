@@ -11,7 +11,7 @@ export const configs = {
 		gamerules: {
 			commandBlocksEnabled: false,
 			commandBlockOutput: true,
-			doDaylightCycle: true,
+			doDaylightCycle: false,
 			doEntityDrops: true,
 			doFireTick: true,
 			doImmediateRespawn: false,
@@ -20,7 +20,7 @@ export const configs = {
 			doMobLoot: true,
 			doMobSpawning: true,
 			doTileDrops: true,
-			doWeatherCycle: false,
+			doWeatherCycle: true,
 			drowningDamage: true,
 			fallDamage: true,
 			fireDamage: true,
