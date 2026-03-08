@@ -5,7 +5,7 @@ export const configs = {
 		studio: {
 			name: "Legiun Studio",
 			owner: "Kuro Reichi",
-			licensedWith: "Apache 2.0"
+			licensedWith: "MIT License"
 		},
 		forceGamerule: true,
 		gamerules: {
