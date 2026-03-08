@@ -18,7 +18,7 @@ const PAGE_SIZE = 10;
  */
 
 registerCommand({
-	name: "help",
+	name: "qyro:help",
 	description: "Show list of commands",
 	permissionLevel: 0,
 
