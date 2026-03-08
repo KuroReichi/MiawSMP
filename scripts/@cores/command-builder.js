@@ -45,7 +45,6 @@ export function registerCommand(command) {
 
 export function buildCommands(registry) {
 	const commandRegistry = database.get(id, key) ?? [];
-
 	for (const command of commandRegistry) {
 		registry.registerCommand(
 			{
