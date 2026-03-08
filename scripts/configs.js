@@ -37,7 +37,7 @@ export const configs = {
 			showDeathMessages: true,
 			showTags: true,
 			spawnRadius: 0,
-			tntExplodes: true,
+			tntExplodes: true
 		}
 	},
 	mobsLevelz: {
