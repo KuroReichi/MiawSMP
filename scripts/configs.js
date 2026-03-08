@@ -7,6 +7,7 @@ export const configs = {
 			owner: "Kuro Reichi",
 			licensedWith: "Apache 2.0"
 		},
+		forceGamerule: true,
 		gamerules: {
 			commandBlocksEnabled: false,
 			commandBlockOutput: true,
