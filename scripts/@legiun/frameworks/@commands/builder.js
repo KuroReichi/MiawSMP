@@ -1,5 +1,5 @@
 import { system } from "@minecraft/server";
-import database from "../@minecraft/database.js";
+import database from "./../../database.js";
 //===================================================================================
 
 /**
