@@ -12,7 +12,7 @@ import { world } from "@minecraft/server";
 const OBJECTIVE = "money";
 
 registerCommand({
-	name: "pay",
+	name: "q:pay",
 	description: "Send money to another player",
 	build(root) {
 		root
