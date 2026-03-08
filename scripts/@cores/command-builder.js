@@ -8,8 +8,10 @@ import database from "../@minecraft/database.js";
  *	@function - Menyimpan semua command yang akan didaftarkan ke customCommandRegistry saat startup.
  **/
 
-const id = "CommandRG";
-const key = "1VXvbozwnG";
+export const commandConfigs = {
+	id: "CommandRegistry",
+	key: "1VXvbozwnG"
+}
 
 system.run(() => database.set(id, new Array(), key, false));
 
