@@ -47,7 +47,7 @@ registerCommand({
 
 function showHelp(ctx, page) {
 	const registry = database.get(id, key) ?? [];
-	
+
 	const total = registry.length;
 	const maxPage = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
@@ -75,7 +75,6 @@ function showHelp(ctx, page) {
 		});
 	}
 
-	// Kirim ke player
 	for (const msg of messages) {
 		ctx.source.sendMessage(msg);
 	}
