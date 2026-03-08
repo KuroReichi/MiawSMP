@@ -26,27 +26,11 @@ registerCommand({
 					sender.sendMessage("§cAmount must be greater than 0.");
 					return;
 				}
-				const objective = world.scoreboard.getObjective(OBJECTIVE);
-				if (!objective) {
-					sender.sendMessage("§cMoney scoreboard not found.");
-					return;
-				}
-				const senderScore = objective.getScore(sender) ?? 0;
-				if (senderScore < amount) {
+				const senderMoney = database.player(sender).get("money") ?? 0;
+				if (senderMoney < amount) {
 					sender.sendMessage("§cYou don't have enough money.");
 					return;
 				}
-				for (const target of targets) {
-					if (target.id === sender.id) {
-						sender.sendMessage("§cYou cannot pay yourself.");
-						continue;
-					}
-					const targetScore = objective.getScore(target) ?? 0;
-					objective.setScore(sender, senderScore - amount);
-					objective.setScore(target, targetScore + amount);
-					target.sendMessage(`§aYou received §e${amount}§a from §b${sender.name}`);
-				}
-				sender.sendMessage(`§aPaid §e${amount}`);
 			});
 	}
 });
