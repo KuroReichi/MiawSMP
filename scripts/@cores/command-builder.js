@@ -8,12 +8,10 @@ import database from "../@minecraft/database.js";
  *	@function - Menyimpan semua command yang akan didaftarkan ke customCommandRegistry saat startup.
  **/
 
-export const commandConfigs = {
-	id: "CommandRegistry",
-	key: "1VXvbozwnG"
-};
+	const id = "CommandRegistry",
+	const key = "1VXvbozwnG"
 
-system.run(() => database.set(commandConfigs.id, new Array(), commandConfigs.key, false));
+system.run(() => database.set(id, new Array(), key, false));
 
 //===================================================================================
 
@@ -29,11 +27,11 @@ system.run(() => database.set(commandConfigs.id, new Array(), commandConfigs.key
  **/
 
 export function registerCommand(command) {
-	let registry = database.get(commandConfigs.id, commandConfigs.key) ?? [];
+	let registry = database.get(id, key) ?? [];
 	registry = registry.filter((cmd) => cmd.name !== command.name);
 	registry.push(command);
 	registry.sort((a, b) => a.name.localeCompare(b.name));
-	database.set(commandConfigs.id, registry, commandConfigs.key, false);
+	database.set(id, registry, key, false);
 }
 
 //===================================================================================
@@ -46,7 +44,7 @@ export function registerCommand(command) {
  **/
 
 export function buildCommands(registry) {
-	const commandRegistry = database.get(commandConfigs.id, commandConfigs.key) ?? [];
+	const commandRegistry = database.get(id, key) ?? [];
 	for (const command of commandRegistry) {
 		registry.registerCommand(
 			{
