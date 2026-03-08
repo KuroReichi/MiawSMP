@@ -1,5 +1,5 @@
 import { system } from "@minecraft/server";
-import database from "../@minecraft/database.js"
+import database from "../@minecraft/database.js";
 //===================================================================================
 
 /**
@@ -7,7 +7,7 @@ import database from "../@minecraft/database.js"
  *	@description - Registry penyimpanan seluruh definisi custom command.
  *	@function - Menyimpan semua command yang akan didaftarkan ke customCommandRegistry saat startup.
  **/
-const commandRegistry = [];
+system.run(() => database.set("commandRegistry", [], "global", false)
 
 //===================================================================================
 
