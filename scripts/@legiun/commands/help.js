@@ -11,15 +11,13 @@ import { registerCommand, getCommands } from "../frameworks/commands/registry.js
 const PAGE_SIZE = 10;
 
 registerCommand({
-	name: "help",
+	name: "q:help",
 	description: "Show list of commands",
 	build(root) {
 		root.executes((ctx) => {
 			showHelp(ctx, 1);
 		});
-		root
-			.integer("page")
-			.executes((ctx) => {
+		root.integer("page").executes((ctx) => {
 			showHelp(ctx, ctx.args.page);
 		});
 	}
