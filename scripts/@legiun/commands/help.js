@@ -20,8 +20,8 @@ registerCommand({
 		root
 			.integer("page")
 			.executes((ctx) => {
-				showHelp(ctx, ctx.args.page);
-			});
+			showHelp(ctx, ctx.args.page);
+		});
 	}
 });
 
@@ -42,20 +42,14 @@ function showHelp(ctx, page) {
 		rawtext: [
 			{
 				translate: "commands.help.header",
-				with: [
-					String(page),
-					String(maxPage)
-				]
+				with: [String(page), String(maxPage)]
 			}
 		]
 	});
 
 	for (const cmd of list) {
 		ctx.source.sendMessage({
-			rawtext: [
-				{ text: "§e/" + cmd.name },
-				{ text: " §7- " + (cmd.description ?? "") }
-			]
+			rawtext: [{ text: "§e/" + cmd.name }, { text: " §7- " + (cmd.description ?? "") }]
 		});
 	}
 }
