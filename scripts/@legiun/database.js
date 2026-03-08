@@ -39,7 +39,6 @@ const database = {
 
 		return world.getDynamicProperty(fullKey);
 	},
-
 	get: function (id, key = "global") {
 		try {
 			return JSON.parse(world.getDynamicProperty(database.prefix + database.query + key + ":" + id));
@@ -47,7 +46,6 @@ const database = {
 			return world.getDynamicProperty(database.prefix + database.query + key + ":" + id);
 		}
 	},
-
 	getAllBy: function (key = "global") {
 		return world
 			.getDynamicPropertyIds()
@@ -57,7 +55,6 @@ const database = {
 				data: database.get(propertyID.replace(database.prefix + database.query + key + ":", ""), key)
 			}));
 	},
-
 	getAll: function () {
 		return world
 			.getDynamicPropertyIds()
@@ -67,23 +64,19 @@ const database = {
 				source: propertyID.slice(propertyID.indexOf(database.query) + 1, propertyID.lastIndexOf(":"))
 			}));
 	},
-
 	delete: function (id, key = "global") {
 		if (world.getDynamicProperty(database.prefix + database.query + key + ":" + id) === undefined) return false;
 		world.setDynamicProperty(database.prefix + database.query + key + ":" + id, undefined);
 		return true;
 	},
-
 	add: function (id, key = "global", value = 0) {
 		if (typeof value !== "number") throw new ReferenceError(`Unexpected type at » database.add(...) «, value must be a number, but it present ${typeof value}`);
 		return database.set(id, database.get(id, key) + value, key, true);
 	},
-
 	remove: function (id, key = "global", value = 0) {
 		if (typeof value !== "number") throw new ReferenceError(`Unexpected type at » database.remove(...) «, value must be a number, but it present ${typeof value}`);
 		return database.set(id, database.get(id, key) - value, key, true);
 	},
-
 	player(player) {
 		const key = player.name;
 		return {
