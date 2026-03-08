@@ -17,9 +17,15 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
+import "./@legiun/frameworks/commands/loader.js";
+
+import { system } from "@minecraft/server";
 import { buildCommands } from "./@legiun/frameworks/commands/registry.js";
+
+//===================================================================================
 
 system.beforeEvents.startup.subscribe((event) => {
 	buildCommands(event.customCommandRegistry);
-	console.info("§3[§bSystem§3]§7: §aCustom Command Loaded§r");
 });
+
+//===================================================================================
