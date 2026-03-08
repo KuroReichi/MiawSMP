@@ -27,19 +27,10 @@ system.run(() => database.set(id, new Array(), key, false));
  **/
 
 export function registerCommand(command) {
-
 	let registry = database.get(id, key) ?? [];
-
-	// Filter command dengan nama sama (anti duplicate)
-	registry = registry.filter(cmd => cmd.name !== command.name);
-
-	// Tambahkan command baru
+	registry = registry.filter((cmd) => cmd.name !== command.name);
 	registry.push(command);
-
-	// Sort command.name A-Z
 	registry.sort((a, b) => a.name.localeCompare(b.name));
-
-	// Simpan kembali ke database
 	database.set(id, registry, key, false);
 }
 
@@ -53,11 +44,9 @@ export function registerCommand(command) {
  **/
 
 export function buildCommands(registry) {
-
 	const commandRegistry = database.get(id, key) ?? [];
 
 	for (const command of commandRegistry) {
-
 		registry.registerCommand(
 			{
 				name: command.name,
@@ -65,14 +54,11 @@ export function buildCommands(registry) {
 				permissionLevel: command.permissionLevel ?? 0
 			},
 			(root) => {
-
 				if (typeof command.build === "function") {
 					command.build(root);
 				}
-
 			}
 		);
-
 	}
 }
 
