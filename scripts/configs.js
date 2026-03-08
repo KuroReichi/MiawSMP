@@ -20,7 +20,7 @@ export const configs = {
 			doMobLoot: true,
 			doMobSpawning: true,
 			doTileDrops: true,
-			doWeatherCycle: true,
+			doWeatherCycle: false,
 			drowningDamage: true,
 			fallDamage: true,
 			fireDamage: true,
@@ -38,22 +38,6 @@ export const configs = {
 			showTags: true,
 			spawnRadius: 0,
 			tntExplodes: true
-		}
-	},
-	mobsLevelz: {
-		blacklist: [
-			{
-				query: "family",
-				name: "fish"
-			},
-			{
-				query: "family",
-				name: "inanimate"
-			}
-		],
-		scaling: {
-			growthFactor: 0.02,
-			distanceFactor: 0.37
 		}
 	}
 };
