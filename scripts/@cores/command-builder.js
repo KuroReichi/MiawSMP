@@ -43,7 +43,7 @@ export function registerCommand(command) {
  *	@param {Object} registry - customCommandRegistry dari Script API.
  **/
 
-export function buildCommands(registry) {
+export function CommandBuilder(registry) {
 	const commandRegistry = database.get(id, key) ?? [];
 	for (const command of commandRegistry) {
 		registry.registerCommand(
