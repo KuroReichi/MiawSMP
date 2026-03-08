@@ -4,6 +4,10 @@
  *		@param {object} data
  **/
 export class CommandBuilder {
-	constructor(data) {}
+	constructor(data) {
+		for() {
+			
+		}
+	}
 }
 //=======================================================================================
