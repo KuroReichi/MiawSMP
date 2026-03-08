@@ -11,9 +11,9 @@ import database from "../@minecraft/database.js";
 export const commandConfigs = {
 	id: "CommandRegistry",
 	key: "1VXvbozwnG"
-}
+};
 
-system.run(() => database.set(id, new Array(), key, false));
+system.run(() => database.set(commandConfigs.id, new Array(), commandConfigs.key, false));
 
 //===================================================================================
 
