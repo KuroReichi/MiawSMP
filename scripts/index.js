@@ -17,9 +17,9 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-import { CommandBuilder } from "./@legiun/frameworks/commands/builder.js";
+import { buildCommands } from "./@legiun/frameworks/commands/registry.js";
 
 system.beforeEvents.startup.subscribe((event) => {
-	CommandBuilder(event.customCommandRegistry);
+	buildCommands(event.customCommandRegistry);
 	console.info("§3[§bSystem§3]§7: §aCustom Command Loaded§r");
 });
