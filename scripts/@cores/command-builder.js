@@ -29,11 +29,11 @@ system.run(() => database.set(commandConfigs.id, new Array(), commandConfigs.key
  **/
 
 export function registerCommand(command) {
-	let registry = database.get(id, key) ?? [];
+	let registry = database.get(commandConfigs.id, commandConfigs.key) ?? [];
 	registry = registry.filter((cmd) => cmd.name !== command.name);
 	registry.push(command);
 	registry.sort((a, b) => a.name.localeCompare(b.name));
-	database.set(id, registry, key, false);
+	database.set(commandConfigs.id, registry, commandConfigs.key, false);
 }
 
 //===================================================================================
