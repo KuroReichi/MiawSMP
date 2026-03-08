@@ -1,5 +1,5 @@
 import { registerCommand } from "../registry/commandRegistry.js";
-import database from "../@minecraft/database.js";
+import database from "../../@minecraft/database.js";
 //===================================================================================
 
 const id = "CommandRG";
