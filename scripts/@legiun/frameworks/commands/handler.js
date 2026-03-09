@@ -11,5 +11,6 @@ if (configs.commandPrefix.includes("/")) {
 world.beforeEvents.chatSend.subscribe((event) => {
 	if (event.message.startsWith(configs.commandPrefix)) {
 	} else {
+		console.info(`${event.sender.name}: ${event.message}`)
 	}
 });
