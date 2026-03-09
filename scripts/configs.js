@@ -7,6 +7,7 @@ export const configs = {
 			owner: "Kuro Reichi",
 			licensedWith: "MIT License"
 		},
+		commandPrefix: "!",
 		forceGamerule: true,
 		gamerules: {
 			commandBlocksEnabled: false,
