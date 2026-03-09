@@ -10,11 +10,11 @@ if (configs.commandPrefix.includes("/")) {
 
 world.beforeEvents.chatSend.subscribe((event) => {
 	if (event.message.startsWith(configs.commandPrefix)) {
-		if (!configs.server.staff.includes(event.sender.name)) 
-		console.info(`${event.sender.name}: ${event.message}`);
+		event.cancel = true;
+		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
 		
 	} else {
+		event.cancel = true;
 		console.info(`${event.sender.name}: ${event.message}`);
-		
 	}
 });
