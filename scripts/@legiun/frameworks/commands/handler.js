@@ -9,9 +9,7 @@ function parseParam(type, value) {
 		if (isNaN(n)) return undefined;
 		return n;
 	}
-
 	if (type === "string") return value;
-
 	return value;
 }
 
@@ -33,7 +31,7 @@ world.beforeEvents.chatSend.subscribe((event) => {
 		return;
 	}
 	const literalName = args.shift()?.toLowerCase();
-	const literal = command.literals.find(l => l.name === literalName);
+	const literal = command.literals.find((l) => l.name === literalName);
 
 	if (!literal) {
 		sender.sendMessage("§cInvalid subcommand.");
@@ -43,7 +41,6 @@ world.beforeEvents.chatSend.subscribe((event) => {
 		const params = {};
 		let valid = true;
 		for (let i = 0; i < overload.params.length; i++) {
-
 			const param = overload.params[i];
 			const value = parseParam(param.type, args[i]);
 
@@ -64,7 +61,6 @@ world.beforeEvents.chatSend.subscribe((event) => {
 			sender.sendMessage("§cCommand error.");
 			return;
 		}
-
 	}
 	sender.sendMessage("§cInvalid command usage.");
 });
