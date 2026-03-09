@@ -1,5 +1,5 @@
 export const configs = {
-		commandPrefix: "!",
+	commandPrefix: "!",
 	server: {
 		name: "Qyrogata",
 		subname: "Beyond Magic of Nirvane",
@@ -8,6 +8,10 @@ export const configs = {
 			owner: "Kuro Reichi",
 			licensedWith: "MIT License"
 		},
+		staff: [
+			"KuroReichii",
+			"OscarJofaXD"
+		],
 		forceGamerule: true,
 		gamerules: {
 			commandBlocksEnabled: false,
