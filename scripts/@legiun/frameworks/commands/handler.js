@@ -7,6 +7,7 @@ if (configs.commandPrefix.includes("/")) {
 	configs.commandPrefix = "!";
 	console.info(`§2[§aInfo§2]§7: §fChange the prefix to standard characters, now the prefix is "!".`);
 }
+
 world.beforeEvents.chatSend.subscribe((event) => {
 	if (event.message.startsWith(configs.commandPrefix)) {
 	} else {
