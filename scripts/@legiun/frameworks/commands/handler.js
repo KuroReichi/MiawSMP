@@ -6,7 +6,7 @@ const prefix = configs.commandPrefix;
 
 if (prefix.startsWith("/")) {
 	console.info(`§4[§cERROR§4]§7: §eat §ghandler.js`);
-	console.info(`    The prefix: ">> ${prefix.substr(prefix.indexOf("/"), 1)} << ${prefix.slice(prefix.indexOf("/") + 1, 3)}...", cannot starts with a slash (/).`);
+	console.info(`    The prefix: ">> ${prefix.substr(prefix.indexOf("/"), 1)} << ${prefix.slice(prefix.indexOf("/") + 1, 3)}${prefix.length >= 3 ? "..." : ""}", cannot starts with a slash (/).`);
 	configs.commandPrefix = "!";
 	console.info(`§2[§aINFO§2]§7: §fChange the prefix to standard characters, now the prefix is "!".`);
 }
