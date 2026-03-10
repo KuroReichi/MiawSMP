@@ -4,7 +4,7 @@ import { getCommand } from "./registry.js";
 
 if (configs.commandPrefix.startsWith("/")) {
 	console.info(`§4[§cERROR§4]§7: §eat §ghandler.js`);
-	console.info(`">> ${configs.commandPrefix.substr(configs.commandPrefix.indexOf("/"), 1)} << ${configs.commandPrefix.slice(configs.commandPrefix.indexOf("/") + 1, 3)}..."`);
+	console.info(`    The prefix: ">> ${configs.commandPrefix.substr(configs.commandPrefix.indexOf("/"), 1)} << ${configs.commandPrefix.slice(configs.commandPrefix.indexOf("/") + 1, 3)}...", cannot starts with a slash (/).`);
 	configs.commandPrefix = "!";
 	console.info(`§2[§aINFO§2]§7: §fChange the prefix to standard characters, now the prefix is "!".`);
 }
