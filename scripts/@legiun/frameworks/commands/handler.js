@@ -13,7 +13,8 @@ if (prefix.startsWith("/")) {
 }
 
 world.beforeEvents.chatSend.subscribe((event) => {
-	if (event.message.startsWith(prefix)) {
+	const query = event.message;
+	if (query.startsWith(prefix)) {
 		event.cancel = true;
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
 	} else {
