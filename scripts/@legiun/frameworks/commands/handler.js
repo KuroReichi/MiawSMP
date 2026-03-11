@@ -3,7 +3,6 @@ import { configs } from "./../../../configs.js";
 import { getCommand } from "./registry.js";
 
 const prefix = configs.commandPrefix;
-
 if (prefix.startsWith("/")) {
 	console.info(`§4[§cERROR§4]§7: §eat §ghandler.js`);
 	console.info(`    The prefix: ">> ${prefix.substr(prefix.indexOf("/"), 1)} << ${prefix.slice(prefix.indexOf("/") + 1, 3)}${prefix.length >= 3 ? "..." : ""}", cannot starts with a slash (/).`);
