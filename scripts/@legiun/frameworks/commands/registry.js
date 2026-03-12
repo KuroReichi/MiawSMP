@@ -18,14 +18,17 @@ export function registerCommand(command) {
  * @param {object[]} query - [args...]
  * @description verifying exact words of first arguments.
  */
-async function pendingCommand(query) {
+export async function pendingCommand(query) {
 	return new Promise((resolve, reject) => {
 		for (let command of registry) {
 			if (command.name === query[0] || command.aliases.includes(query[0])) {
+				runCommand(command, query);
 			} else {
 				continue;
 			}
 		}
 	});
 }
+
+async function runCommand
 //===================================================================================
