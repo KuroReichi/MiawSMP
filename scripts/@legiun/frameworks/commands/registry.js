@@ -13,10 +13,19 @@ export function registerCommand(command) {
 }
 //===================================================================================
 
+/**
+ * @name pendingCommand
+ * @param {object[]} query - [args...]
+ * @description verifying exact words
+ */
 async function pendingCommand(query) {
 	return new Promise((resolve, reject) => {
 		for(let command of registry) {
-			if(command.name === query[0] || command.aliases.includes(query[0])) 
+			if(command.name === query[0] || command.aliases.includes(query[0])) {
+				
+			} else {
+				continue;
+			}
 		}
 	});
 }
