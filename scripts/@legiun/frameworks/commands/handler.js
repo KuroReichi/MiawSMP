@@ -15,8 +15,8 @@ world.beforeEvents.chatSend.subscribe((event) => {
 	const query = event.message;
 	if (query.startsWith(prefix)) {
 		event.cancel = true;
+		query = query.slice(1, query.length)
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
-		
 	} else {
 		event.cancel = true;
 		console.info(`${event.sender.name}: ${event.message}`);
