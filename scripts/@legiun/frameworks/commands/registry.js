@@ -16,7 +16,7 @@ export function registerCommand(command) {
 async function pendingCommand(query) {
 	return new Promise((resolve, reject) => {
 		for(let command of registry) {
-			if(command.name === query[0] || command.aliases) 
+			if(command.name === query[0] || command.aliases.includes(query[0])) 
 		}
 	});
 }
