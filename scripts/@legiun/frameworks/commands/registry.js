@@ -13,9 +13,11 @@ export function registerCommand(command) {
 }
 //===================================================================================
 
-async function pendingCommand(command) {
+async function pendingCommand(query) {
 	return new Promise((resolve, reject) => {
-		registry;
+		for(command of registry) {
+			if(command.name === query[0] || command.aliases) 
+		}
 	});
 }
 //===================================================================================
