@@ -11,7 +11,7 @@ export function getCommands() {
 
 async function pendingCommand(command) {
 	return new Promise((resolve, reject) => {
-		registry
-	})
+		registry;
+	});
 }
 //===================================================================================
