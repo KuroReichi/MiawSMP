@@ -15,7 +15,20 @@ world.beforeEvents.chatSend.subscribe((event) => {
 	const query = event.message;
 	if (query.startsWith(prefix)) {
 		event.cancel = true;
-		query = query.slice(1, query.length)
+		const prefix = "!";
+const q = `!pay "Kuro Reichi" 1000`;
+
+const args = q
+	.slice(prefix.length)
+	.match(/"[^"]*"|'[^']*'|`[^`]*`|\S+/g)
+	.map(v => v.replace(/^["'`]|["'`]$/g, ""));
+
+console.log(args);
+
+/**
+* Result:
+* ["pay", "Kuro Reichi", "1000"]
+*/
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
 	} else {
 		event.cancel = true;
