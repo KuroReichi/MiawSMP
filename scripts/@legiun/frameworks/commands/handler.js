@@ -24,7 +24,7 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 		 * @return {object[]}
 		 */
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
-		const registry
+		
 		pendingCommand(query).then((response) => {
 			database.set(
 				"log-commands",
