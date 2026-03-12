@@ -1,6 +1,6 @@
 import { world } from "@minecraft/server";
 import { configs } from "./../../../configs.js";
-import { getCommand } from "./registry.js";
+import { pendingCommand } from "./registry.js";
 
 const prefix = configs.commandPrefix;
 if (prefix.startsWith("/")) {
