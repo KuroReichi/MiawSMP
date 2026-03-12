@@ -15,10 +15,7 @@ world.beforeEvents.chatSend.subscribe((event) => {
 	const query = event.message;
 	if (query.startsWith(prefix)) {
 		event.cancel = true;
-		const prefix = "!";
-		const q = `!pay "Kuro Reichi" 1000`;
-
-		const args = q
+		query = event.message
 			.slice(prefix.length)
 			.match(/"[^"]*"|'[^']*'|`[^`]*`|\S+/g)
 			.map((v) => v.replace(/^["'`]|["'`]$/g, ""));
