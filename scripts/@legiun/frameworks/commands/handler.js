@@ -11,7 +11,7 @@ if (prefix.startsWith("/")) {
 	console.info(`§2[§aINFO§2]§7: §fChanged the prefix to standard character, now the prefix is "!".`);
 }
 
-world.beforeEvents.chatSend.subscribe((event) => {
+world.beforeEvents.chatSend.subscribe(async (event) => {
 	const query = event.message;
 	if (query.startsWith(prefix)) {
 		event.cancel = true;
@@ -23,7 +23,7 @@ world.beforeEvents.chatSend.subscribe((event) => {
 		 * @return {object[]}
 		 */
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
-		getCommand(query).then((response) => {
+		getComma(query).then((response) => {
 			database.set(
 				"log-commands",
 				database.get("log-commands").push({
