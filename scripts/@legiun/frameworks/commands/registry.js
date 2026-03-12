@@ -22,7 +22,7 @@ export async function pendingCommand(query) {
 	return new Promise((resolve, reject) => {
 		for (let command of registry) {
 			if (command.name === query[0] || command.aliases.includes(query[0])) {
-				runCommand(command, query);
+				runCommand(command, query.slice(1));
 			} else {
 				continue;
 			}
@@ -30,5 +30,7 @@ export async function pendingCommand(query) {
 	});
 }
 
-async function runCommand
+async function runCommand() {
+	
+}
 //===================================================================================
