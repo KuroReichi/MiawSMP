@@ -30,7 +30,7 @@ export async function pendingCommand(query) {
 	});
 }
 
-async function runCommand() {
+async function runCommand(args) {
 	
 }
 //===================================================================================
