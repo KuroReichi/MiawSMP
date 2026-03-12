@@ -23,12 +23,15 @@ world.beforeEvents.chatSend.subscribe((event) => {
 		 * @return {object[]}
 		 */
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
-		getCommand(query).then(response => {
-			database.set("log-commands", database.get("log-commands").push({
-				status: response.status,
-				message: response.message
-			}))
-		})
+		getCommand(query).then((response) => {
+			database.set(
+				"log-commands",
+				database.get("log-commands").push({
+					status: response.status,
+					message: response.message
+				})
+			);
+		});
 	} else {
 		event.cancel = true;
 		console.info(`${event.sender.name}: ${event.message}`);
