@@ -1,6 +1,6 @@
 import { world } from "@minecraft/server";
 import { configs } from "./../../../configs.js";
-import { pendingCommand } from "./registry.js";
+import { getCommands, pendingCommand } from "./registry.js";
 
 if (configs.commandPrefix.startsWith("/")) {
 	console.info(`§4[§cERROR§4]§7: §eat §ghandler.js`);
@@ -24,6 +24,7 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 		 * @return {object[]}
 		 */
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
+		const registry
 		pendingCommand(query).then((response) => {
 			database.set(
 				"log-commands",
