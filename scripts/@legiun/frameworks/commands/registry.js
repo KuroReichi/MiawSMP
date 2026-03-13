@@ -23,6 +23,7 @@ export async function CommandQueue(player, query) {
 	return new Promise((resolve, reject) => {
 		const command = registry.find((c) => c.name === commandName || c.aliases.includes(commandName));
 		if (command) {
+			command.run(player, query)
 		} else {
 			player.sendMessage([
 				{ text: "§c" },
@@ -32,6 +33,7 @@ export async function CommandQueue(player, query) {
 				}
 			]);
 			player.playSound("note.bass");
+			resolve({"status": "Failed", "message": "Unknown Command"});
 		}
 	});
 }
