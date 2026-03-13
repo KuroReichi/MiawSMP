@@ -18,6 +18,7 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 import "./@legiun/frameworks/commands/loader.js";
+import "./@legiun/frameworks/commands/handler.js";
 import { system } from "@minecraft/server";
 
 //===================================================================================
