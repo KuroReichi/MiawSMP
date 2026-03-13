@@ -25,12 +25,13 @@ export async function CommandQueue(player, query) {
 		if (command) {
 		} else {
 			player.sendMessage([
-				{"text": "§c"},
+				{ text: "§c" },
 				{
-					"translate": "commands.generic.unknown",
-					"with": [query[0]]
+					translate: "commands.generic.unknown",
+					with: [query[0]]
 				}
 			]);
+			player.playSound("note.bass");
 		}
 	});
 }
