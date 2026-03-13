@@ -27,16 +27,15 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 		CommandQueue(event.sender, query).then((response) => {
 			const logs = database.get("log-commands");
 
-			logs.push({
-				sender: event.sender,
-				status: response.status,
-				message: response.message
-			});
+logs.push({
+	sender: event.sender.name,
+	status: response.status,
+	message: response.message
+});
 
-			database.set("log-commands", logs);
+if (logs.length > 100) logs.shift();
 
-			// Maximum Data (Default: 100)
-			if (database.get("log-commands").length >= 100 /* <== change the value */) database.set("log-commands", database.get("log-commands").slice(1));
+database.set("log-commands", logs);
 		});
 	} else {
 		event.cancel = true;
