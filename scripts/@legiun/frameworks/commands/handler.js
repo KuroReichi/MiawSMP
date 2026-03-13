@@ -15,7 +15,7 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 	let query = event.message;
 	if (query.startsWith(configs.commandPrefix)) {
 		event.cancel = true;
-		
+
 		query = event.message
 			.slice(configs.commandPrefix.length)
 			.trim()
@@ -26,13 +26,13 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 		CommandQueue(query).then((response) => {
 			const logs = database.get("log-commands");
 
-logs.push({
-	sender: event.sender,
-	status: response.status,
-	message: response.message
-});
+			logs.push({
+				sender: event.sender,
+				status: response.status,
+				message: response.message
+			});
 
-database.set("log-commands", logs);
+			database.set("log-commands", logs);
 
 			// Maximum Data (Default: 100)
 			if (database.get("log-commands").length >= 100 /* <== change the value */) database.set("log-commands", database.get("log-commands").slice(1));
