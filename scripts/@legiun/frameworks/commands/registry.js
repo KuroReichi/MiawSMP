@@ -21,16 +21,18 @@ export function registerCommand(command) {
  */
 export async function CommandQueue(player, query) {
 	return new Promise((resolve, reject) => {
-		const command = registry.find(c => c.name === commandName || c.aliases.includes(commandName));
+		const command = registry.find((c) => c.name === commandName || c.aliases.includes(commandName));
 		if (command) {
-			
 		} else {
-			player.sendMessage({})
+			player.sendMessage([
+				{
+					"translate": "",
+					"with": []
+				}
+			]);
 		}
 	});
 }
 
-async function runCommand(args) {
-	
-}
+async function runCommand(args) {}
 //===================================================================================
