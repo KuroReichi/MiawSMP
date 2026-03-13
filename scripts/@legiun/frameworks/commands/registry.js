@@ -37,7 +37,6 @@ export function registerCommand(command) {
 	console.info(`[Push] Command "${command.name}" registered.`);
 }
 
-
 /**
  * --------------------------------------------------
  * @name CommandQueue
@@ -78,17 +77,13 @@ async function traverse(player, node, args, index, context) {
 	}
 	const token = args[index].toLowerCase();
 	// Literal
-	const literal = node.children?.find(
-		(n) => n.type === "literal" && n.name === token
-	);
+	const literal = node.children?.find((n) => n.type === "literal" && n.name === token);
 	if (literal) {
 		return traverse(player, literal, args, index + 1, context);
 	}
 
 	// Argument
-	const argument = node.children?.find(
-		(n) => n.type === "argument"
-	);
+	const argument = node.children?.find((n) => n.type === "argument");
 	if (argument) {
 		context[argument.name] = parseArgument(argument.argType, args[index]);
 		return traverse(player, argument, args, index + 1, context);
