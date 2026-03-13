@@ -26,7 +26,7 @@ export function registerCommand(command) {
 		return;
 	} else {
 			exist = registry.find((c) => c.aliases.includes(alias));
-			console.info(`[Remove] Alias "${alias}" of ${command.name} has been removed due conflict with another alias command.`);
+			console.info(`[Remove] Alias \"${alias}\" of ${command.name} has been removed due conflict with another alias command.`);
 		}
 		registry.push(command);
 		console.info(`[Push]: ${command.name} has been registered.`);
