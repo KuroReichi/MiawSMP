@@ -48,7 +48,7 @@ export async function CommandQueue(player, query) {
 				{ text: "§c" },
 				{
 					translate: "commands.generic.unknown",
-					with: [query[0]]
+					with: [`§7${query[0]}9c`]
 				}
 			]);
 			player.playSound("note.bass");
