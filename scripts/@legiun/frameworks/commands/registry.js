@@ -39,11 +39,10 @@ export function registerCommand(command) {
  * @returns {status[Success, Failed], message}
  */
 export async function CommandQueue(player, query) {
-	return new Promise((resolve, reject) => {
 		const command = registry.find((c) => c.name === query[0].toLowerCase() || c.aliases.includes(query[0].toLowerCase()));
 		if (command) {
 			command.run(player, query);
-			resolve({ status: "Success", message: `Running /${command.name}` });
+			return { status: "Success", message: `Running /${command.name}` };
 		} else {
 			player.sendMessage([
 				{ text: "§c" },
@@ -53,9 +52,8 @@ export async function CommandQueue(player, query) {
 				}
 			]);
 			player.playSound("note.bass");
-			resolve({ status: "Failed", message: "Unknown Command" });
+			return { status: "Failed", message: "Unknown Command" };
 		}
-	});
 }
 
 //===================================================================================
