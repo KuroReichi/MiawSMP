@@ -17,10 +17,10 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 		event.cancel = true;
 
 		query =
-	event.message
-		.slice(configs.commandPrefix.length)
-		.trim()
-		.match(/"[^"]*"|'[^']*'|`[^`]*`|\S+/g) ?? [];
+			event.message
+				.slice(configs.commandPrefix.length)
+				.trim()
+				.match(/"[^"]*"|'[^']*'|`[^`]*`|\S+/g) ?? [];
 		query = query.map((v) => v.replace(/^["'`]|["'`]$/g, ""));
 
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
