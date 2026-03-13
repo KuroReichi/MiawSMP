@@ -9,8 +9,12 @@ export function getCommands() {
 
 export function registerCommand(command) {
 	const exist = registry.find((c) => c.name === command.name);
-	if (exist) registry.push(command);
-	console.info(`[Push]: ${command.name} `);
+	if (exist) {
+		console.error(`${command.name} already registered.`)
+	} else {
+		registry.push(command);
+	console.info(`[Push]: ${command.name} has been registered.`);
+	}
 }
 //===================================================================================
 
