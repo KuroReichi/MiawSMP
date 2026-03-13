@@ -28,7 +28,6 @@ export function registerCommand(command) {
 		}
 		return true;
 	});
-
 	registry.push(command);
 	console.info(`[Push]: ${command.name} has been registered.`);
 }
