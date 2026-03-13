@@ -8,30 +8,35 @@ export function getCommands() {
 }
 
 /**
+ * --------------------------------------------------
  * @name registerCommand
- * @param {object} command
- * @object
- 	{
- 		name.String,
- 		aliases.Array,
- 		description.String,
- 		permission.Int [0 - 2],
- 		run.Function() => {}
-	}
+ * @description Register command into registry and remove conflicting aliases.
+ * @function registerCommand
+ * @param {object} command Command configuration object
+ * --------------------------------------------------
  */
 export function registerCommand(command) {
 	let exist = registry.find((c) => c.name === command.name);
+
 	if (exist) {
 		console.error(`${command.name} already registered.`);
 		return;
-	} else {
-		for(let alias of command.aliases) {
-			exist = registry.find((c) => c.aliases.includes(alias));
-			console.info(`[Remove] Alias "${alias}" of ${command.name} has been removed due to conflict with another alias command`);
-		}
-		registry.push(command);
-		console.info(`[Push]: ${command.name} has been registered.`);
 	}
+
+	// Remove conflicting aliases
+	command.aliases = command.aliases.filter((alias) => {
+		let conflict = registry.find((c) => c.aliases.includes(alias));
+
+		if (conflict) {
+			console.info(`[Remove] Alias "${alias}" of ${command.name} removed (conflict with ${conflict.name})`);
+			return false;
+		}
+
+		return true;
+	});
+
+	registry.push(command);
+	console.info(`[Push]: ${command.name} has been registered.`);
 }
 //===================================================================================
 
