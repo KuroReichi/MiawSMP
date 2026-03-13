@@ -8,9 +8,8 @@ export function getCommands() {
 }
 
 export function registerCommand(command) {
-	const exist = registry.find((c) => c.name === commandName || c.aliases.includes(commandName));
-	if(exist)
-	registry.push(command);
+	const exist = registry.find((c) => c.name === command.name);
+	if (exist) registry.push(command);
 	console.info(`[Push]: ${command.name} `);
 }
 //===================================================================================
