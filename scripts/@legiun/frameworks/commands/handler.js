@@ -13,7 +13,7 @@ if (configs.commandPrefix.startsWith("/")) {
 
 world.beforeEvents.chatSend.subscribe(async (event) => {
 	const query = event.message;
-	if (query.startsWith(prefix)) {
+	if (query.startsWith(configs.commandPrefix)) {
 		event.cancel = true;
 		query = event.message
 			.slice(configs.commandPrefix.length)
