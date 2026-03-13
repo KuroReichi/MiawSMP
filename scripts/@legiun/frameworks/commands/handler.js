@@ -34,7 +34,6 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 			});
 
 			if (logs.length > 100) logs.shift();
-
 			database.set("log-commands", logs);
 		});
 	} else {
