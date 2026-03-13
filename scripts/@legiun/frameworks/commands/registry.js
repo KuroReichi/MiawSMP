@@ -16,21 +16,16 @@ export function getCommands() {
  */
 export function registerCommand(command) {
 	let exist = registry.find((c) => c.name === command.name);
-
 	if (exist) {
 		console.error(`${command.name} already registered.`);
 		return;
 	}
-
-	// Remove conflicting aliases
 	command.aliases = command.aliases.filter((alias) => {
 		let conflict = registry.find((c) => c.aliases.includes(alias));
-
 		if (conflict) {
 			console.info(`[Remove] Alias "${alias}" of ${command.name} removed (conflict with ${conflict.name})`);
 			return false;
 		}
-
 		return true;
 	});
 
