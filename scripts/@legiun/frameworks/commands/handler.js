@@ -23,7 +23,7 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 		query = query.map((v) => v.replace(/^["'`]|["'`]$/g, ""));
 
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
-		CommandQueue(query).then((response) => {
+		CommandQueue(event.sender, query).then((response) => {
 			const logs = database.get("log-commands");
 
 			logs.push({
