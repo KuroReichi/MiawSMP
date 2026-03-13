@@ -7,13 +7,20 @@ export function getCommands() {
 	return registry;
 }
 
+/**
+ * @name registerCommand
+ * @param {object} command
+ * @object
+ 	{
+ }
+ */
 export function registerCommand(command) {
 	const exist = registry.find((c) => c.name === command.name);
 	if (exist) {
-		console.error(`${command.name} already registered.`)
+		console.error(`${command.name} already registered.`);
 	} else {
 		registry.push(command);
-	console.info(`[Push]: ${command.name} has been registered.`);
+		console.info(`[Push]: ${command.name} has been registered.`);
 	}
 }
 //===================================================================================
