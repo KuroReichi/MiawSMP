@@ -1,51 +1,65 @@
 //===================================================================================
-const registry = new Map();
+
+const commandMap = new Map();
+const rootCommands = new Map();
+
 export function getCommands() {
-	return [...registry.values()];
+	return [...rootCommands.values()];
 }
 
 /**
  * --------------------------------------------------
  * @name registerCommand
- * @description Register root command
+ * @description Register command and its aliases into a single lookup map.
  * @function
  * @param {object} command
  * --------------------------------------------------
  */
 export function registerCommand(command) {
-	if (registry.has(command.name)) {
+	if (commandMap.has(command.name)) {
 		console.error(`Command "${command.name}" already registered.`);
 		return;
 	}
 	command.aliases ??= [];
 	command.children ??= [];
-	registry.set(command.name, command);
+
+	rootCommands.set(command.name, command);
+	commandMap.set(command.name, command);
+
+	for (const alias of command.aliases) {
+		if (commandMap.has(alias)) {
+			console.warn(`[Alias Conflict] "${alias}" ignored.`);
+			continue;
+		}
+		commandMap.set(alias, command);
+	}
+
 	console.info(`[Push] Command "${command.name}" registered.`);
 }
+
 
 /**
  * --------------------------------------------------
  * @name CommandQueue
- * @description Execute command tree
+ * @description Resolve command and traverse its literal/argument tree.
  * @function
  * @param {Player} player
  * @param {string[]} args
  * --------------------------------------------------
  */
 export async function CommandQueue(player, args) {
-	const rootName = args[0]?.toLowerCase();
-	let command = registry.get(rootName);
+	const name = args[0]?.toLowerCase();
+	const command = commandMap.get(name);
+
 	if (!command) {
-		command = [...registry.values()].find((c) => (c.aliases ?? []).includes(rootName));
-	}
-	if (!command) {
-		player.sendMessage(`§cUnknown command.`);
+		player.sendMessage("§cUnknown command.");
 		player.playSound("note.bass");
 		return { status: "Failed", message: "Unknown command" };
 	}
-	const result = await traverse(player, command, args, 1, {});
-	if (!result) {
-		player.sendMessage(`§cInvalid usage.`);
+
+	const success = await traverse(player, command, args, 1, {});
+	if (!success) {
+		player.sendMessage("§cInvalid usage.");
 		player.playSound("note.bass");
 		return { status: "Failed", message: "Invalid usage" };
 	}
@@ -63,17 +77,20 @@ async function traverse(player, node, args, index, context) {
 		return false;
 	}
 	const token = args[index].toLowerCase();
-
 	// Literal
-	const literal = node.children?.find((n) => n.type === "literal" && n.name === token);
+	const literal = node.children?.find(
+		(n) => n.type === "literal" && n.name === token
+	);
 	if (literal) {
 		return traverse(player, literal, args, index + 1, context);
 	}
 
 	// Argument
-	const argument = node.children?.find((n) => n.type === "argument");
+	const argument = node.children?.find(
+		(n) => n.type === "argument"
+	);
 	if (argument) {
-		context[argument.name] = parseArgument(argument.type, args[index]);
+		context[argument.name] = parseArgument(argument.argType, args[index]);
 		return traverse(player, argument, args, index + 1, context);
 	}
 	return false;
