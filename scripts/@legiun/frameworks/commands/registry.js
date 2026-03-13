@@ -63,7 +63,7 @@ async function traverse(player, node, args, index, context) {
 		return false;
 	}
 	const token = args[index].toLowerCase();
-	
+
 	// Literal
 	const literal = node.children?.find((n) => n.type === "literal" && n.name === token);
 	if (literal) {
@@ -86,7 +86,7 @@ function parseArgument(type, value) {
 		case "string":
 			return value;
 		case "player":
-			return value; // bisa di-upgrade nanti
+			return value;
 		default:
 			return value;
 	}
