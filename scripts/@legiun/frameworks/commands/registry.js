@@ -49,16 +49,30 @@ export function registerCommand(command) {
 export async function CommandQueue(player, args) {
 	const name = args[0]?.toLowerCase();
 	const command = commandMap.get(name);
-
 	if (!command) {
-		player.sendMessage("§cUnknown command.");
+		player.sendMessage({
+			rawtext: [
+				{ text: "§c" },
+				{
+					translate: "commands.generic.unknown",
+					with: [`§7${name}§c`]
+				}
+			]
+		});
 		player.playSound("note.bass");
 		return { status: "Failed", message: "Unknown command" };
 	}
-
 	const success = await traverse(player, command, args, 1, {});
 	if (!success) {
-		player.sendMessage("§cInvalid usage.");
+		player.sendMessage({
+			rawtext: [
+				{ text: "§c" },
+				{
+					translate: "commands.generic.syntax",
+					with: [`§7${args.join(" ")}§c`]
+				}
+			]
+		});
 		player.playSound("note.bass");
 		return { status: "Failed", message: "Invalid usage" };
 	}
