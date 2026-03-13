@@ -1,6 +1,6 @@
 import { world } from "@minecraft/server";
 import { configs } from "./../../../configs.js";
-import { getCommands, pendingCommand } from "./registry.js";
+import { getCommands, CommandQueue } from "./registry.js";
 
 if (configs.commandPrefix.startsWith("/")) {
 	console.info(`§4[§cERROR§4]§7: §eat §ghandler.js`);
