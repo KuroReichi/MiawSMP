@@ -23,6 +23,7 @@ export function registerCommand(command) {
 	const exist = registry.find((c) => c.name === command.name);
 	if (exist) {
 		console.error(`${command.name} already registered.`);
+		return;
 	} else {
 		registry.push(command);
 		console.info(`[Push]: ${command.name} has been registered.`);
