@@ -15,24 +15,25 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 	let query = event.message;
 	if (query.startsWith(configs.commandPrefix)) {
 		event.cancel = true;
+		
 		query = event.message
 			.slice(configs.commandPrefix.length)
 			.trim()
 			.match(/"[^"]*"|'[^']*'|`[^`]*`|\S+/g);
-			query = query.map((v) => v.replace(/^["'`]|["'`]$/g, ""));
-		/**
-		 * @return {object[]}
-		 */
+		query = query.map((v) => v.replace(/^["'`]|["'`]$/g, ""));
+
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
 		CommandQueue(query).then((response) => {
-			database.set(
-				"log-commands",
-				database.get("log-commands").push({
-					sender: event.sender,
-					status: response.status,
-					message: response.message
-				})
-			);
+			const logs = database.get("log-commands");
+
+logs.push({
+	sender: event.sender,
+	status: response.status,
+	message: response.message
+});
+
+database.set("log-commands", logs);
+
 			// Maximum Data (Default: 100)
 			if (database.get("log-commands").length >= 100 /* <== change the value */) database.set("log-commands", database.get("log-commands").slice(1));
 		});
