@@ -18,8 +18,6 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 import "./@legiun/frameworks/commands/loader.js";
-
 import { system } from "@minecraft/server";
-import { buildCommands } from "./@legiun/frameworks/commands/registry.js";
 
 //===================================================================================
