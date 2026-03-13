@@ -39,5 +39,4 @@ export async function CommandQueue(player, query) {
 	});
 }
 
-async function runCommand(args) {}
 //===================================================================================
