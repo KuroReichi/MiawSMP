@@ -40,7 +40,7 @@ export function registerCommand(command) {
  */
 export async function CommandQueue(player, query) {
 	return new Promise((resolve, reject) => {
-		const command = registry.find((c) => c.name === query[0].toLocaleLowerCase() || c.aliases.includes(query[0].toLocaleLowerCase()));
+		const command = registry.find((c) => c.name === query[0].toLowerCase() || c.aliases.includes(query[0].toLowerCase()));
 		if (command) {
 			command.run(player, query);
 			resolve({ status: "Success", message: `Running /${command.name}` });
