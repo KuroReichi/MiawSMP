@@ -13,7 +13,8 @@ export function getCommands() {
  * @param {object} command Command configuration object
  * --------------------------------------------------
  */
-export function registerCommand(command) {
+ export function registerCommand(command) {
+	command.aliases ??= [];
 	let exist = registry.find((c) => c.name === command.name);
 	if (exist) {
 		console.error(`${command.name} already registered.`);
@@ -22,7 +23,9 @@ export function registerCommand(command) {
 	command.aliases = command.aliases.filter((alias) => {
 		let conflict = registry.find((c) => (c.aliases ?? []).includes(alias));
 		if (conflict) {
-			console.info(`[Remove] Alias "${alias}" of ${command.name} removed (conflict with ${conflict.name})`);
+			console.info(
+				`[Remove] Alias "${alias}" of ${command.name} removed (conflict with ${conflict.name})`
+			);
 			return false;
 		}
 		return true;
