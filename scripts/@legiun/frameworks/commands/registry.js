@@ -8,7 +8,8 @@ export function getCommands() {
 }
 
 export function registerCommand(command) {
-		const exist = registry.find((c) => c.name === commandName || c.aliases.includes(commandName));
+	const exist = registry.find((c) => c.name === commandName || c.aliases.includes(commandName));
+	if(exist)
 	registry.push(command);
 	console.info(`[Push]: ${command.name} `);
 }
@@ -22,7 +23,7 @@ export function registerCommand(command) {
  */
 export async function CommandQueue(player, query) {
 	return new Promise((resolve, reject) => {
-		const command = registry.find((c) => c.name === commandName || c.aliases.includes(commandName));
+		const command = registry.find((c) => c.name === query[0].toLocaleLowerCase() || c.aliases.includes(query[0].toLocaleLowerCase()));
 		if (command) {
 			command.run(player, query);
 			resolve({ status: "Success", message: `Running /${command.name}` });
