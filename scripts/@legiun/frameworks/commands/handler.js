@@ -33,7 +33,7 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 					message: response.message
 				})
 			);
-			// Maximum Data
+			// Maximum Data (Default: 100)
 			if (database.get("log-commands").length >= 100) database.set("log-commands", database.get("log-commands").slice(1));
 		});
 	} else {
