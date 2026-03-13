@@ -33,11 +33,8 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 					message: response.message
 				})
 			);
-			if(database.get("log-commands").length >= 100)
-				database.set(
-					"log-commands",
-					database.get("log-commands").slice(1)
-				)
+			// Maximum Data
+			if (database.get("log-commands").length >= 100) database.set("log-commands", database.get("log-commands").slice(1));
 		});
 	} else {
 		event.cancel = true;
