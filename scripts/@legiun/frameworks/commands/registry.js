@@ -12,7 +12,12 @@ export function getCommands() {
  * @param {object} command
  * @object
  	{
- }
+ 		name.String,
+ 		aliases.Array,
+ 		description.String,
+ 		permission.Int [0 - 2],
+ 		run.Function() => {}
+	}
  */
 export function registerCommand(command) {
 	const exist = registry.find((c) => c.name === command.name);
