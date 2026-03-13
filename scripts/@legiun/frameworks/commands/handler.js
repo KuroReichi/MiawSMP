@@ -16,8 +16,7 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 	if (query.startsWith(configs.commandPrefix)) {
 		event.cancel = true;
 
-		query =
-			event.message
+		query = event.message
 				.slice(configs.commandPrefix.length)
 				.trim()
 				.match(/"[^"]*"|'[^']*'|`[^`]*`|\S+/g) ?? [];
