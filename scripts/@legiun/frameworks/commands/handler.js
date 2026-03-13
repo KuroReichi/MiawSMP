@@ -34,7 +34,7 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 				})
 			);
 			// Maximum Data (Default: 100)
-			if (database.get("log-commands").length >= 100) database.set("log-commands", database.get("log-commands").slice(1));
+			if (database.get("log-commands").length >= 100 /* <== change the value */) database.set("log-commands", database.get("log-commands").slice(1));
 		});
 	} else {
 		event.cancel = true;
