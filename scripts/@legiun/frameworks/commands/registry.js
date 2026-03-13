@@ -25,9 +25,10 @@ export async function CommandQueue(player, query) {
 		if (command) {
 		} else {
 			player.sendMessage([
+				{"text": "§c"},
 				{
-					"translate": "",
-					"with": []
+					"translate": "commands.generic.unknown",
+					"with": [query[0]]
 				}
 			]);
 		}
