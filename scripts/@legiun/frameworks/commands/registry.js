@@ -17,7 +17,6 @@ export function registerCommand(command) {
  * @name CommandQueue
  * @param {object} player - [Player Object]
  * @param {object[]} query - [args...]
- * @description verifying exact words of first arguments.
  * @returns {status[Success, Failed], message}
  */
 export async function CommandQueue(player, query) {
