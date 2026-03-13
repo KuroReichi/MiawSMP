@@ -18,8 +18,8 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 		query = event.message
 			.slice(configs.commandPrefix.length)
 			.trim()
-			.match(/"[^"]*"|'[^']*'|`[^`]*`|\S+/g)
-			.map((v) => v.replace(/^["'`]|["'`]$/g, ""));
+			.match(/"[^"]*"|'[^']*'|`[^`]*`|\S+/g);
+			query = query.map((v) => v.replace(/^["'`]|["'`]$/g, ""));
 		/**
 		 * @return {object[]}
 		 */
