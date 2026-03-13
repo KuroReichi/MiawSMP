@@ -166,7 +166,7 @@
 				"remove": {
 					"component_groups": [ "q:is_rideable" ]
 				}
-			}
+			},
 			"minecraft:trigger_raid": {
 				"add": {
 					"component_groups": [ "minecraft:raid_trigger" ]
