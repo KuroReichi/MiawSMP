@@ -20,7 +20,7 @@ export function registerCommand(command) {
 		return;
 	}
 	command.aliases = command.aliases.filter((alias) => {
-		let conflict = registry.find((c) => c.aliases.includes(alias));
+		let conflict = registry.find((c) => (c.aliases ?? []).includes(...));
 		if (conflict) {
 			console.info(`[Remove] Alias "${alias}" of ${command.name} removed (conflict with ${conflict.name})`);
 			return false;
