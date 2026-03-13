@@ -11,7 +11,6 @@ export function getCommands() {
  * --------------------------------------------------
  * @name registerCommand
  * @description Register command into registry and remove conflicting aliases.
- * @function registerCommand
  * @param {object} command Command configuration object
  * --------------------------------------------------
  */
