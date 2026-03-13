@@ -24,7 +24,7 @@ export async function CommandQueue(player, query) {
 		const command = registry.find((c) => c.name === commandName || c.aliases.includes(commandName));
 		if (command) {
 			command.run(player, query);
-			resolve({status: "Success", message: `Running ${command.name}`})
+			resolve({ status: "Success", message: `Running /${command.name}` });
 		} else {
 			player.sendMessage([
 				{ text: "§c" },
