@@ -39,21 +39,21 @@ export function registerCommand(command) {
  * @returns {status[Success, Failed], message}
  */
 export async function CommandQueue(player, query) {
-		const command = registry.find((c) => c.name === query[0].toLowerCase() || c.aliases.includes(query[0].toLowerCase()));
-		if (command) {
-			command.run(player, query);
-			return { status: "Success", message: `Running /${command.name}` };
-		} else {
-			player.sendMessage([
-				{ text: "§c" },
-				{
-					translate: "commands.generic.unknown",
-					with: [`§7${query[0]}9c`]
-				}
-			]);
-			player.playSound("note.bass");
-			return { status: "Failed", message: "Unknown Command" };
-		}
+	const command = registry.find((c) => c.name === query[0].toLowerCase() || c.aliases?.includes(query[0].toLowerCase()));
+	if (command) {
+		command.run(player, query);
+		return { status: "Success", message: `Running /${command.name}` };
+	} else {
+		player.sendMessage([
+			{ text: "§c" },
+			{
+				translate: "commands.generic.unknown",
+				with: [`§7${query[0]}9c`]
+			}
+		]);
+		player.playSound("note.bass");
+		return { status: "Failed", message: "Unknown Command" };
+	}
 }
 
 //===================================================================================
