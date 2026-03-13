@@ -14,18 +14,18 @@ export function registerCommand(command) {
 //===================================================================================
 
 /**
- * @name pendingCommand
+ * @name CommandQueue
+ * @param {object} player - [Player Object]
  * @param {object[]} query - [args...]
  * @description verifying exact words of first arguments.
  */
-export async function pendingCommand(query) {
+export async function CommandQueue(player, query) {
 	return new Promise((resolve, reject) => {
-		for (let command of registry) {
-			if (command.name === query[0] || command.aliases.includes(query[0])) {
-				runCommand(command, query.slice(1));
-			} else {
-				continue;
-			}
+		const command = registry.find(c => c.name === commandName || c.aliases.includes(commandName));
+		if (command) {
+			
+		} else {
+			player.sendMessage({})
 		}
 	});
 }
