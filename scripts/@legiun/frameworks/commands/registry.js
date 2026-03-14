@@ -85,36 +85,81 @@ async function traverse(player, node, args, index, context) {
 	if (index >= args.length) {
 		if (node.run) {
 			await node.run(player, context);
-			return true;
+			return { success: true };
 		}
-		return false;
+		return { success: false, error: "syntax" };
 	}
 	const token = args[index].toLowerCase();
-	// Literal
-	const literal = node.children?.find((n) => n.type === "literal" && n.name === token);
+	
+	// LITERAL MATCH
+	const literal = node.children?.find(
+		(n) => n.type === "literal" && n.name === token
+	);
 	if (literal) {
 		return traverse(player, literal, args, index + 1, context);
 	}
 
-	// Argument
-	const argument = node.children?.find((n) => n.type === "argument");
+	// ARGUMENT MATCH
+	const argument = node.children?.find(
+		(n) => n.type === "argument"
+	);
 	if (argument) {
-		context[argument.name] = parseArgument(argument.argType, args[index]);
+		const parsed = validateArgument(player, argument, args[index]);
+		if (!parsed.success) return parsed;
+		context[argument.name] = parsed.value;
+
 		return traverse(player, argument, args, index + 1, context);
 	}
-	return false;
+	return { success: false, error: "syntax", token };
 }
 
-function parseArgument(type, value) {
-	switch (type) {
-		case "number":
-			return Number(value);
+function validateArgument(player, argument, value) {
+	switch (argument.argType) {
 		case "string":
-			return value;
+			return { success: true, value };
+		case "number":
+			const num = Number(value);
+			if (Number.isNaN(num)) {
+				player.sendMessage({
+					rawtext: [
+						{ text: "§c" },
+						{
+							translate: "commands.generic.num.invalid",
+							with: [`§7${value}§c`]
+						}
+					]
+				});
+				return { success: false };
+			}
+			return { success: true, value: num };
+		case "boolean":
+			if (value === "true" || value === "false") {
+				return { success: true, value: value === "true" };
+			}
+			return { success: false };
 		case "player":
-			return value;
+			const target = [...world.getPlayers()].find(
+				(p) => p.name.toLowerCase() === value.toLowerCase()
+			);
+			if (!target) {
+				player.sendMessage({
+					rawtext: [
+						{ text: "§c" },
+						{
+							translate: "commands.generic.player.notFound"
+						}
+					]
+				});
+				return { success: false };
+			}
+			return { success: true, value: target };
+		case "enum":
+			if (argument.values?.includes(value)) {
+				return { success: true, value };
+			}
+			return { success: false };
 		default:
-			return value;
+			return { success: true, value };
 	}
 }
 
