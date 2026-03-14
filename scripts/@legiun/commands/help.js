@@ -1,6 +1,8 @@
 import { registerCommand, getCommands } from "../frameworks/commands/registry.js";
+import { configs } from "../../configs.js";
 
 const PAGE_SIZE = 6;
+const prefix = configs.commandPrefix;
 
 /**
  * --------------------------------------------------
@@ -13,10 +15,9 @@ const PAGE_SIZE = 6;
  */
 function buildUsages(node, path = []) {
 	const usages = [];
-	if (node.run) {
-		usages.push(path.join(" "));
-	}
+	if (node.run) usages.push(path.join(" "));
 	if (!node.children) return usages;
+
 	for (const child of node.children) {
 		if (child.type === "literal") {
 			usages.push(...buildUsages(child, [...path, child.name]));
@@ -36,7 +37,6 @@ function buildUsages(node, path = []) {
  * @param {object} args
  * --------------------------------------------------
  */
-
 function helpCommand(player, args) {
 	const commands = getCommands();
 	const arg = args.query;
@@ -48,16 +48,20 @@ function helpCommand(player, args) {
 		const end = start + PAGE_SIZE;
 
 		const list = commands.slice(start, end);
+
 		player.sendMessage(`§6§l=== Commands (${page}/${totalPages}) ===`);
 		for (const cmd of list) {
 			const aliasText = cmd.aliases?.length ? ` §7[${cmd.aliases.join(", ")}]` : "";
-			player.sendMessage(`§e!${cmd.name}${aliasText} §7- ${cmd.description ?? ""}`);
+			player.sendMessage(`§e${prefix}${cmd.name}${aliasText} §7- ${cmd.description ?? ""}`);
 		}
-		player.sendMessage(`§7Use !help <command> for details`);
+
+		player.sendMessage(`§7Use ${prefix}help <command> for details`);
 		return;
 	}
+
 	const name = arg.toLowerCase();
 	const command = commands.find((c) => c.name === name || (c.aliases ?? []).includes(name));
+
 	if (!command) {
 		player.sendMessage({
 			rawtext: [
@@ -70,21 +74,25 @@ function helpCommand(player, args) {
 		});
 		return;
 	}
+
 	player.sendMessage(`§6§l=== Command: ${command.name} ===`);
+
 	if (command.description) {
 		player.sendMessage(`§a${command.description}`);
 	}
+
 	if (command.aliases?.length) {
 		player.sendMessage(`§3Aliases§7: §f${command.aliases.join(", ")}`);
 	}
-	const usages = buildUsages(command, [`!${command.name}`]);
+
+	const usages = buildUsages(command, [`${prefix}${command.name}`]);
+
 	player.sendMessage(`§eUsages:`);
+
 	for (const usage of usages) {
 		player.sendMessage({
 			rawtext: [
-				{
-					text: `  §3» §f${usage}`
-				}
+				{ text: `  §3» §f${usage}` }
 			]
 		});
 	}
@@ -102,7 +110,6 @@ registerCommand({
 			type: "argument",
 			name: "query",
 			argType: "string",
-
 			run: helpCommand
 		}
 	],
