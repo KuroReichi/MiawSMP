@@ -27,7 +27,6 @@ function buildUsages(node, path = []) {
 	}
 	return usages;
 }
-
 /**
  * --------------------------------------------------
  * @name helpCommand
