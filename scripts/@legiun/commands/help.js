@@ -104,7 +104,6 @@ registerCommand({
 	name: "help",
 	aliases: ["?"],
 	description: "Show command list or command details",
-
 	children: [
 		{
 			type: "argument",
@@ -113,6 +112,5 @@ registerCommand({
 			run: helpCommand
 		}
 	],
-
 	run: helpCommand
 });
