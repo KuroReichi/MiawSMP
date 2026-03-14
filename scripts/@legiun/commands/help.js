@@ -19,16 +19,9 @@ function buildUsages(node, path = []) {
 	if (!node.children) return usages;
 	for (const child of node.children) {
 		if (child.type === "literal") {
-			usages.push(
-				...buildUsages(child, [...path, child.name])
-			);
+			usages.push(...buildUsages(child, [...path, child.name]));
 		} else if (child.type === "argument") {
-			usages.push(
-				...buildUsages(
-					child,
-					[...path, `<${child.name}:${child.argType}>`]
-				)
-			);
+			usages.push(...buildUsages(child, [...path, `<${child.name}:${child.argType}>`]));
 		}
 	}
 	return usages;
@@ -43,39 +36,28 @@ function buildUsages(node, path = []) {
  * @param {object} args
  * --------------------------------------------------
  */
- 
+
 function helpCommand(player, args) {
 	const commands = getCommands();
 	const arg = args.query;
 
 	if (!arg || !isNaN(arg)) {
 		const page = Math.max(Number(arg) || 1, 1);
-		const totalPages = Math.max(
-			Math.ceil(commands.length / PAGE_SIZE),
-			1
-		);
+		const totalPages = Math.max(Math.ceil(commands.length / PAGE_SIZE), 1);
 		const start = (page - 1) * PAGE_SIZE;
 		const end = start + PAGE_SIZE;
 
 		const list = commands.slice(start, end);
 		player.sendMessage(`§6§l=== Commands (${page}/${totalPages}) ===`);
 		for (const cmd of list) {
-			const aliasText = cmd.aliases?.length
-				? ` §7[${cmd.aliases.join(", ")}]`
-				: "";
-			player.sendMessage(
-				`§e!${cmd.name}${aliasText} §7- ${cmd.description ?? ""}`
-			);
+			const aliasText = cmd.aliases?.length ? ` §7[${cmd.aliases.join(", ")}]` : "";
+			player.sendMessage(`§e!${cmd.name}${aliasText} §7- ${cmd.description ?? ""}`);
 		}
 		player.sendMessage(`§7Use !help <command> for details`);
 		return;
 	}
 	const name = arg.toLowerCase();
-	const command = commands.find(
-		(c) =>
-			c.name === name ||
-			(c.aliases ?? []).includes(name)
-	);
+	const command = commands.find((c) => c.name === name || (c.aliases ?? []).includes(name));
 	if (!command) {
 		player.sendMessage({
 			rawtext: [
@@ -101,7 +83,7 @@ function helpCommand(player, args) {
 		player.sendMessage({
 			rawtext: [
 				{
-					text: `§3» §f${usage}`
+					text: `  §3» §f${usage}`
 				}
 			]
 		});
@@ -111,13 +93,11 @@ function helpCommand(player, args) {
 //===================================================================================
 
 registerCommand({
-
 	name: "help",
 	aliases: ["?"],
 	description: "Show command list or command details",
 
 	children: [
-
 		{
 			type: "argument",
 			name: "query",
@@ -125,7 +105,6 @@ registerCommand({
 
 			run: helpCommand
 		}
-
 	],
 
 	run: helpCommand
