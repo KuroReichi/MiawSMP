@@ -90,19 +90,15 @@ async function traverse(player, node, args, index, context) {
 		return { success: false, error: "syntax" };
 	}
 	const token = args[index].toLowerCase();
-	
+
 	// LITERAL MATCH
-	const literal = node.children?.find(
-		(n) => n.type === "literal" && n.name === token
-	);
+	const literal = node.children?.find((n) => n.type === "literal" && n.name === token);
 	if (literal) {
 		return traverse(player, literal, args, index + 1, context);
 	}
 
 	// ARGUMENT MATCH
-	const argument = node.children?.find(
-		(n) => n.type === "argument"
-	);
+	const argument = node.children?.find((n) => n.type === "argument");
 	if (argument) {
 		const parsed = validateArgument(player, argument, args[index]);
 		if (!parsed.success) return parsed;
@@ -138,9 +134,7 @@ function validateArgument(player, argument, value) {
 			}
 			return { success: false };
 		case "player":
-			const target = [...world.getPlayers()].find(
-				(p) => p.name.toLowerCase() === value.toLowerCase()
-			);
+			const target = [...world.getPlayers()].find((p) => p.name.toLowerCase() === value.toLowerCase());
 			if (!target) {
 				player.sendMessage({
 					rawtext: [
