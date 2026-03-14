@@ -72,10 +72,10 @@ function helpCommand(player, args) {
 	}
 	player.sendMessage(`§6§l=== Command: ${command.name} ===`);
 	if (command.description) {
-		player.sendMessage(`§7${command.description}`);
+		player.sendMessage(`§a${command.description}`);
 	}
 	if (command.aliases?.length) {
-		player.sendMessage(`§7Aliases: §f${command.aliases.join(", ")}`);
+		player.sendMessage(`§3Aliases§7: §f${command.aliases.join(", ")}`);
 	}
 	const usages = buildUsages(command, [`!${command.name}`]);
 	player.sendMessage(`§eUsages:`);
