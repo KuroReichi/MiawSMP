@@ -28,7 +28,7 @@ export function registerCommand(command) {
 
 	for (const alias of command.aliases) {
 		if (commandMap.has(alias)) {
-			console.warn(`[${command.name}] "${alias}" ignored.`);
+			console.warn(`[${command.name}] ignoring "${alias}" for conflicting with other comamnds aliases.`);
 			continue;
 		}
 		commandMap.set(alias, command);
