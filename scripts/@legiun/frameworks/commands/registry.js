@@ -17,7 +17,7 @@ export function getCommands() {
  */
 export function registerCommand(command) {
 	if (commandMap.has(command.name)) {
-		console.error(`Command "${command.name}" already registered.`);
+		console.error(`"${command.name}" already registered.`);
 		return;
 	}
 	command.aliases ??= [];
@@ -28,7 +28,7 @@ export function registerCommand(command) {
 
 	for (const alias of command.aliases) {
 		if (commandMap.has(alias)) {
-			console.warn(`[Alias Conflict] "${alias}" ignored.`);
+			console.warn(`[${command.name}] "${alias}" ignored.`);
 			continue;
 		}
 		commandMap.set(alias, command);
