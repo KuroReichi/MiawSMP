@@ -90,7 +90,7 @@ function helpCommand(player, args) {
 
 	for (const usage of usages) {
 		player.sendMessage({
-			rawtext: [{ text: `  §3» §f${usage}` }]
+			rawtext: [{ text: `  §3» §f${prefix}${usage}` }]
 		});
 	}
 }
