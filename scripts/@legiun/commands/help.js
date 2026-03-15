@@ -1,7 +1,7 @@
 import { registerCommand, getCommands } from "../frameworks/commands/registry.js";
 import { configs } from "../../configs.js";
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 10;
 const prefix = configs.commandPrefix;
 
 /**
