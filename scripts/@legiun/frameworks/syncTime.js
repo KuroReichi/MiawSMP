@@ -1,5 +1,5 @@
 import { world, system } from "@minecraft/server";
-
+import database from "../database.js";
 const TIMEZONE = "Asia/Jakarta";
 
 /**
