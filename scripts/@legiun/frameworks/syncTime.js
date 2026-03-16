@@ -4,19 +4,19 @@ const TIMEZONE = "Asia/Jakarta";
 
 /**
  * --------------------------------------------------
- * @name getJakartaTime
+ * @name getTimezoneLoc
  * @description Get current Jakarta time using Date API
  * @function
  * --------------------------------------------------
  */
-function getJakartaTime() {
+function getTimezoneLoc() {
 	const date = new Date();
-	const jakarta = new Date(date.toLocaleString("en-US", { timeZone: TIMEZONE }));
+	const timez = new Date(date.toLocaleString("en-US", { timeZone: TIMEZONE }));
 
 	return {
-		hour: jakarta.getHours(),
-		minute: jakarta.getMinutes(),
-		second: jakarta.getSeconds()
+		hour: timez.getHours(),
+		minute: timez.getMinutes(),
+		second: timez.getSeconds()
 	};
 }
 
@@ -28,7 +28,7 @@ function getJakartaTime() {
  * --------------------------------------------------
  */
 function getMinecraftTimeFromIRL() {
-	const { hour, minute, second } = getJakartaTime();
+	const { hour, minute, second } = getTimezoneLoc();
 	const irlHours = hour + minute / 60 + second / 3600;
 	let mcHours = irlHours - 6;
 	if (mcHours < 0) mcHours += 24;
