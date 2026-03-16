@@ -45,7 +45,6 @@ function getMinecraftTimeFromIRL() {
 export function startWorldTimeSync() {
 	system.runInterval(() => {
 		const ticks = getMinecraftTimeFromIRL();
-
 		world.getDimension("overworld").runCommand(`time set ${ticks}`);
 	}, 5);
 }
