@@ -19,6 +19,9 @@
 
 import "./@legiun/frameworks/commands/loader.js";
 import "./@legiun/frameworks/commands/handler.js";
-import { system } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
 
+world.afterEvents.worldLoad.subscribe(() => {
+	
+});
 //===================================================================================
