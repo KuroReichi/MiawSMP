@@ -23,7 +23,7 @@ function getJakartaTime() {
 /**
  * --------------------------------------------------
  * @name getMinecraftTimeFromIRL
- * @description Convert IRL specific timezone into Minecraft ticks
+ * @description Convert IRL Time with specific timezone into Minecraft ticks
  * @function
  * --------------------------------------------------
  */
