@@ -9,10 +9,10 @@ const TIMEZONE = "Asia/Jakarta";
  * @function
  * --------------------------------------------------
  */
- 
+
 function getTimezoneLoc() {
 	const date = new Date();
-	const timez = new Date(date.toLocaleString("en-US", { timeZone: TIMEZONE }));
+	const timez = new Date(date.toLocaleString("en-US", { timeZone: database.get("timezone.location") ?? TIMEZONE }));
 
 	return {
 		hour: timez.getHours(),
