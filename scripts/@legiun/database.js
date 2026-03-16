@@ -30,7 +30,6 @@ const database = {
 		}
 
 		if (/:/.test(key)) throw new Error("The character ':' is not allowed in (key) database!.");
-
 		const fullKey = database.prefix + database.query + key + ":" + id;
 
 		if (world.getDynamicProperty(fullKey) === undefined || overwrite) {
