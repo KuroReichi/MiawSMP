@@ -1,54 +1,68 @@
 import { registerCommand } from "../frameworks/commands/registry.js";
-import database from "../database.js";
 
-//===================================================================================
 /**
- *	@name payCommand
- *	@description - Mengirim uang ke player lain menggunakan sistem database
- *	dynamic property. Syntax: /q:pay <player> <amount>
+ * --------------------------------------------------
+ * @name payCommand
+ * @description Transfer money to another player
+ * @function
+ * @param {Player} player
+ * @param {object} args
+ * --------------------------------------------------
  */
-//===================================================================================
+function payCommand(player, args) {
+	const target = args.playerName;
+	const amount = args.amount;
 
-const MONEY_ID = "money";
+	if (target.id === player.id) {
+		player.sendMessage("§cYou cannot pay yourself.");
+		return;
+	}
+
+	if (amount < 0.01) {
+		player.sendMessage("§cMinimum transfer amount is §e0.01§c.");
+		return;
+	}
+
+	//==================================================
+	// Example balance logic (replace with your database)
+	//==================================================
+
+	const balance = player.getDynamicProperty("money") ?? 0;
+	const targetBalance = target.getDynamicProperty("money") ?? 0;
+
+	if (balance < amount) {
+		player.sendMessage("§cYou don't have enough money.");
+		return;
+	}
+
+	player.setDynamicProperty("money", balance - amount);
+	target.setDynamicProperty("money", targetBalance + amount);
+
+	player.sendMessage(`§aYou paid §e${target.name} §a${amount}.`);
+	target.sendMessage(`§aYou received §e${amount} §afrom §e${player.name}§a.`);
+}
+
+//===================================================================================
 
 registerCommand({
-	name: "q:pay",
-	description: "Send money to another player",
-	build(root) {
-		root
-			.playerSelector("player")
-			.integer("amount")
-			.executes((ctx) => {
-				const sender = ctx.source;
-				const targets = ctx.args.player;
-				const amount = ctx.args.amount;
+	name: "pay",
+	description: "Transfer money to another player",
 
-				if (amount <= 0) {
-					sender.sendMessage("§cAmount must be greater than 0.");
-					return;
-				}
-				const senderDB = database.player(sender);
-				let senderMoney = senderDB.get(MONEY_ID) ?? 0;
-				if (senderMoney < amount) {
-					sender.sendMessage("§cYou don't have enough money.");
-					return;
-				}
-				for (const target of targets) {
-					if (target.id === sender.id) {
-						sender.sendMessage("§cYou cannot pay yourself.");
-						continue;
-					}
-					const targetDB = database.player(target);
-					let targetMoney = targetDB.get(MONEY_ID) ?? 0;
+	children: [
+		{
+			type: "argument",
+			name: "playerName",
+			argType: "player",
 
-					senderMoney -= amount;
-					targetMoney += amount;
+			children: [
+				{
+					type: "argument",
+					name: "amount",
+					argType: "number",
 
-					targetDB.set(MONEY_ID, targetMoney);
-					target.sendMessage(`§aYou received §e${amount}§a from §b${sender.name}`);
+					run: payCommand
 				}
-				senderDB.set(MONEY_ID, senderMoney);
-				sender.sendMessage(`§aPaid §e${amount}`);
-			});
-	}
+			]
+		}
+	]
 });
