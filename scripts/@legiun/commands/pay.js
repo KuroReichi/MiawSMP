@@ -18,12 +18,10 @@ function payCommand(player, args) {
 		player.sendMessage("§cYou cannot pay yourself.");
 		return;
 	}
-
 	if (amount < 0.01) {
 		player.sendMessage("§cMinimum transfer amount is §e0.01§c.");
 		return;
 	}
-
 	const senderDB = database.player(player);
 	const targetDB = database.player(target);
 
@@ -43,7 +41,6 @@ function payCommand(player, args) {
 }
 
 //===================================================================================
-
 registerCommand({
 	name: "pay",
 	description: "Transfer money to another player",
