@@ -53,7 +53,7 @@ function helpCommand(player, args) {
 			const aliasText = cmd.aliases?.length ? ` §7[${cmd.aliases.join(", ")}]` : "";
 			player.sendMessage(`  §2» §f${prefix}${cmd.name} §2(§a${aliasText}§2) §7- §f${cmd.description ?? ""}`);
 		}
-		player.sendMessage(`§7Use ${prefix}help <command:commandName> for details`);
+		player.sendMessage(`§7Use ${prefix}help <command:commandName> for the details`);
 		return;
 	}
 
