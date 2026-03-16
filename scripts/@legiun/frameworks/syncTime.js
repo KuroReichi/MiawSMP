@@ -8,8 +8,7 @@ import { world, system } from "@minecraft/server";
  * --------------------------------------------------
  */
 function getMinecraftTimeFromIRL() {
-
-	const now = Temporal.Now.zonedDateTimeISO();
+	const now = Temporal.Now.zonedDateTimeISO("Asia/Jakarta");
 
 	const hour = now.hour;
 	const minute = now.minute;
@@ -30,14 +29,9 @@ function getMinecraftTimeFromIRL() {
  * --------------------------------------------------
  */
 export function startWorldTimeSync() {
-
 	system.runInterval(() => {
-
 		const ticks = getMinecraftTimeFromIRL();
 
-		world.getDimension("overworld").runCommand(
-			`time set ${ticks}`
-		);
-
+		world.getDimension("overworld").runCommand(`time set ${ticks}`);
 	}, 200); // update tiap 10 detik
 }
