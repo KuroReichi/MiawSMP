@@ -22,5 +22,7 @@ import "./@legiun/frameworks/commands/loader.js";
 import { startWorldTimeSync } from "./@legiun/frameworks/syncTime.js";
 import { world, system } from "@minecraft/server";
 
-world.afterEvents.worldLoad.subscribe(() => {});
+world.afterEvents.worldLoad.subscribe(() => {
+	startWorldTimeSync();
+});
 //===================================================================================
