@@ -11,9 +11,7 @@ const TIMEZONE = "Asia/Jakarta";
  */
 function getJakartaTime() {
 	const date = new Date();
-	const jakarta = new Date(
-		date.toLocaleString("en-US", { timeZone: TIMEZONE })
-	);
+	const jakarta = new Date(date.toLocaleString("en-US", { timeZone: TIMEZONE }));
 
 	return {
 		hour: jakarta.getHours(),
@@ -45,14 +43,9 @@ function getMinecraftTimeFromIRL() {
  * --------------------------------------------------
  */
 export function startWorldTimeSync() {
-
 	system.runInterval(() => {
-
 		const ticks = getMinecraftTimeFromIRL();
 
-		world.getDimension("overworld").runCommand(
-			`time set ${ticks}`
-		);
-
-	}, 200); // update tiap 10 detik
+		world.getDimension("overworld").runCommand(`time set ${ticks}`);
+	}, 5);
 }
