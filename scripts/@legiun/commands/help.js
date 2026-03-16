@@ -48,7 +48,7 @@ function helpCommand(player, args) {
 
 		const list = commands.slice(start, end);
 
-		player.sendMessage(`§6§l=== Commands (${page}/${totalPages}) ===`);
+		player.sendMessage(`§2--- §aShowing help page §7${page} §aof §7${totalPages} §g(§6${prefix}§ehelp §7<page:int|command:string>§g) §2---§r`);
 		for (const cmd of list) {
 			const aliasText = cmd.aliases?.length ? ` §7[${cmd.aliases.join(", ")}]` : "";
 			player.sendMessage(`§e${prefix}${cmd.name}${aliasText} §7- ${cmd.description ?? ""}`);
