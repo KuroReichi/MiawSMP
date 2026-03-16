@@ -17,8 +17,8 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-import "./@legiun/frameworks/commands/loader.js";
 import "./@legiun/frameworks/commands/handler.js";
+import "./@legiun/frameworks/commands/loader.js";
 import { startWorldTimeSync } from "./@legiun/frameworks/syncTime.js";
 import { world, system } from "@minecraft/server";
 
