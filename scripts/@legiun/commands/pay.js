@@ -1,4 +1,5 @@
 import { registerCommand } from "../frameworks/commands/registry.js";
+import database from "../database.js";
 
 /**
  * --------------------------------------------------
@@ -23,20 +24,19 @@ function payCommand(player, args) {
 		return;
 	}
 
-	//==================================================
-	// Example balance logic (replace with your database)
-	//==================================================
+	const senderDB = database.player(player);
+	const targetDB = database.player(target);
 
-	const balance = player.getDynamicProperty("money") ?? 0;
-	const targetBalance = target.getDynamicProperty("money") ?? 0;
+	const senderBalance = senderDB.get("money") ?? 0;
 
-	if (balance < amount) {
+	if (senderBalance < amount) {
 		player.sendMessage("§cYou don't have enough money.");
 		return;
 	}
 
-	player.setDynamicProperty("money", balance - amount);
-	target.setDynamicProperty("money", targetBalance + amount);
+	// transfer
+	senderDB.remove("money", amount);
+	targetDB.add("money", amount);
 
 	player.sendMessage(`§aYou paid §e${target.name} §a${amount}.`);
 	target.sendMessage(`§aYou received §e${amount} §afrom §e${player.name}§a.`);
