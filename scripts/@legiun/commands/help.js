@@ -80,16 +80,16 @@ function helpCommand(player, args) {
 	}
 
 	if (command.aliases?.length) {
-		player.sendMessage(`§3Aliases§7: §f${command.aliases.join(", ")}`);
+		player.sendMessage(`§aAliases§7: §f${command.aliases.join(", ")}`);
 	}
 
 	const usages = buildUsages(command, [`${prefix}${command.name}`]);
 
-	player.sendMessage(`§eUsages:`);
+	player.sendMessage(`§aUsages:`);
 
 	for (const usage of usages) {
 		player.sendMessage({
-			rawtext: [{ text: `  §3» §f${prefix}${usage}` }]
+			rawtext: [{ text: `  §e» §f${prefix}${usage}` }]
 		});
 	}
 }
