@@ -78,15 +78,12 @@ function helpCommand(player, args) {
 	if (command.description) {
 		player.sendMessage(`§a${command.description}`);
 	}
-
 	if (command.aliases?.length) {
 		player.sendMessage(`§aAliases§7: §f${command.aliases.join(", ")}`);
 	}
-
 	const usages = buildUsages(command, [`${prefix}${command.name}`]);
 
 	player.sendMessage(`§aUsages:`);
-
 	for (const usage of usages) {
 		player.sendMessage({
 			rawtext: [{ text: `  §e» §f${usage}` }]
