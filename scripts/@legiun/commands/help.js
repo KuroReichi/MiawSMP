@@ -73,7 +73,7 @@ function helpCommand(player, args) {
 		return;
 	}
 
-	player.sendMessage(`§6§l=== Command: ${command.name} ===`);
+	player.sendMessage(`§2--- §aCommand§7: §f${command.name} §2---`);
 
 	if (command.description) {
 		player.sendMessage(`§a${command.description}`);
