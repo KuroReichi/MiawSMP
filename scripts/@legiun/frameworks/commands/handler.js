@@ -22,7 +22,7 @@ if (configs.commandPrefix.startsWith("/")) {
  * @returns {number}
  * --------------------------------------------------
  */
- 
+
 function getDistance(a, b) {
 	const posA = a.location ?? a;
 	const posB = b.location ?? b;
@@ -48,7 +48,7 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
 		CommandQueue(event.sender, query).then((response) => {
-			const logs = database.get("command-logs") ?? [];
+			const logs = database.get("command-logs") ?? new Array();
 
 			logs.push({
 				sender: event.sender.name,
@@ -62,8 +62,8 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 	} else {
 		event.cancel = true;
 		console.info(`${event.sender.name}: ${event.message}`);
-		
-		const logs = database.get("chat-logs") ?? [];
+
+		const logs = database.get("chat-logs") ?? new Array();
 
 		logs.push({
 			playerName: event.sender.name,
