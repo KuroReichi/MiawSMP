@@ -127,7 +127,7 @@ function getSuggestions(commands, query) {
 		for (const a of aliases) {
 			score = Math.max(score, similarity(a, query));
 		}
-		
+
 		// IMPORTANT LINECODE - BARIS KODE PALING PENTING (NGITUNG SKOR MINIMAL DARI SIMILARITIES)
 		if (score >= MIN_SCORE) {
 			map.set(cmd.name, { name: cmd.name, score });
