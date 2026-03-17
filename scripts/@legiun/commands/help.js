@@ -131,15 +131,13 @@ function getSuggestions(commands, query) {
 		}
 	}
 
-	return [...map.values()]
-		.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name, undefined, { sensitivity: "base" }))
-		.slice(0, 5);
+	return [...map.values()].sort((a, b) => b.score - a.score || a.name.localeCompare(b.name, undefined, { sensitivity: "base" })).slice(0, 5);
 }
 
 /**
  * --------------------------------------------------
  * @name helpCommand
- * @description Fungsi utama saat player mengetik !help
+ * @description Main Function
  * --------------------------------------------------
  */
 function helpCommand(player, args) {
