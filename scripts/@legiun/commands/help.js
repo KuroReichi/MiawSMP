@@ -75,7 +75,9 @@ function buildUsages(node, path = []) {
 /**
  * --------------------------------------------------
  * @name similarity
- * @description Menghitung skor kemiripan antara dua kata (Makin tinggi = makin mirip)
+ * @description ngitung seberapa lucu sih aku?
+ * @param {object} cmdName
+ * @param {string} queey
  * --------------------------------------------------
  */
 function similarity(cmdName, query) {
@@ -107,7 +109,7 @@ function similarity(cmdName, query) {
 /**
  * --------------------------------------------------
  * @name getSuggestions
- * @description Mencari maksimal 5 command yang paling mendekati kata kunci
+ * @description Max Suggestions 5
  * --------------------------------------------------
  */
 const MIN_SCORE = 6;
