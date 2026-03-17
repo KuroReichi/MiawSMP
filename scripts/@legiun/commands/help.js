@@ -74,7 +74,7 @@ function buildUsages(node, path = []) {
 /**
  * --------------------------------------------------
  * @name similarity
- * @description ngitung seberapa lucu sih aku?
+ * @description Ngitung seberapa lucu sih aku?
  * @param {object} cmdName
  * @param {string} queey
  * --------------------------------------------------
