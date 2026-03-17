@@ -168,7 +168,7 @@ function helpCommand(player, args) {
 		}
 
 		if (totalPages > 1) {
-			player.sendMessage(`§7Use ${prefix}help <page:number> to navigate pages`);
+			player.sendMessage(`§7Use ${prefix}help <page:int> to navigate pages`);
 		}
 		player.sendMessage(`§7Use ${prefix}help <commandName:string> for the details`);
 		return;
