@@ -118,7 +118,6 @@ const MIN_SCORE = 6;
 
 function getSuggestions(commands, query) {
 	if (query.length < 2) return [];
-
 	const map = new Map();
 
 	for (const cmd of commands) {
@@ -129,7 +128,6 @@ function getSuggestions(commands, query) {
 			score = Math.max(score, similarity(a, query));
 		}
 
-		// 🔒 FILTER KETAT
 		if (score >= MIN_SCORE) {
 			map.set(cmd.name, { name: cmd.name, score });
 		}
