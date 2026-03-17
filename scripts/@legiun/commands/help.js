@@ -116,7 +116,6 @@ const MIN_SCORE = 6;
  * --------------------------------------------------
  */
 
-
 function getSuggestions(commands, query) {
 	if (query.length < 2) return [];
 
@@ -171,7 +170,7 @@ function helpCommand(player, args) {
 		if (totalPages > 1) {
 			player.sendMessage(`§7Use ${prefix}help <page:number> to navigate pages`);
 		}
-		player.sendMessage(`§7Use ${prefix}help <command:commandName> for the details`);
+		player.sendMessage(`§7Use ${prefix}help <commandName:string> for the details`);
 		return;
 	}
 
