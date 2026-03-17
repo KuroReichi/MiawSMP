@@ -11,8 +11,7 @@ let cachedCommands = null;
 /**
  * --------------------------------------------------
  * @name bumpCommandVersion
- * @description Panggil fungsi ini setiap kali ada command baru yang diregistrasi
- * atau di-reload agar cache ter-refresh.
+ * @description Check Registration dari Command.
  * --------------------------------------------------
  */
 export function bumpCommandVersion() {
@@ -22,7 +21,7 @@ export function bumpCommandVersion() {
 /**
  * --------------------------------------------------
  * @name getSortedCommands
- * @description Mengambil daftar command yang sudah diurutkan (dengan sistem cache versi)
+ * @description Sorting pake alphabet (A-Z)
  * --------------------------------------------------
  */
 function getSortedCommands() {
