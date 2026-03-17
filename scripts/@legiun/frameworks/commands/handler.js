@@ -1,7 +1,7 @@
 import { world } from "@minecraft/server";
 import { configs } from "./../../../configs.js";
 import { getCommands, CommandQueue } from "./registry.js";
-import database from "../../database.js"
+import database from "../../database.js";
 
 if (configs.commandPrefix.startsWith("/")) {
 	console.info(`§4[§cERROR§4]§7: §eat §ghandler.js`);
@@ -26,7 +26,7 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 
 		if (!configs.server.staff.includes(event.sender.name)) console.info(`${event.sender.name}: ${event.message}`);
 		CommandQueue(event.sender, query).then((response) => {
-			const logs = database.get("log-commands");
+			const logs = database.get("command-logs") ?? [];
 
 			logs.push({
 				sender: event.sender.name,
@@ -35,10 +35,18 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 			});
 
 			if (logs.length > 100) logs.shift();
-			database.set("log-commands", logs);
+			database.set("command-logs", logs);
 		});
 	} else {
 		event.cancel = true;
 		console.info(`${event.sender.name}: ${event.message}`);
+		const logs = database.get("chat-logs") ?? [];
+		
+		logs.push({
+			playerName: event.sender.name,
+			message: event.message
+		});
+		if(logs.length > 100) logs.shift();
+		database.set("chat-logs", logs);
 	}
 });
