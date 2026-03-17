@@ -61,14 +61,6 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 		});
 	} else {
 		event.cancel = true;
-		console.info(`${event.sender.name}: ${event.message}`);
-		const logs = database.get("chat-logs") ?? new Array();
-
-		logs.push({
-			playerName: event.sender.name,
-			message: event.message
-		});
-		if (logs.length > 100) logs.shift();
-		database.set("chat-logs", logs);
+		event.sender.sendMessage("§cChat Disabled");
 	}
 });
