@@ -85,12 +85,14 @@ function similarity(cmdName, query) {
 	if (!a.length || !b.length) return 0;
 	if (a === b) return 999;
 
+	if (Math.abs(a.length - b.length) > 3) return 0;
+
 	let score = 0;
 
 	if (a[0] === b[0]) score += 2;
 
 	if (a.startsWith(b)) score += 10;
-	else if (a.includes(b)) score += 5;
+	else if (a.includes(b)) score += 2;
 
 	for (let i = 0; i < Math.min(a.length, b.length); i++) {
 		if (a[i] === b[i]) score += 1;
@@ -108,6 +110,8 @@ function similarity(cmdName, query) {
  * @description Mencari maksimal 5 command yang paling mendekati kata kunci
  * --------------------------------------------------
  */
+const MIN_SCORE = 6;
+
 function getSuggestions(commands, query) {
 	if (query.length < 2) return [];
 
@@ -121,12 +125,15 @@ function getSuggestions(commands, query) {
 			score = Math.max(score, similarity(a, query));
 		}
 
-		if (score > 0) {
+		// 🔒 FILTER KETAT
+		if (score >= MIN_SCORE) {
 			map.set(cmd.name, { name: cmd.name, score });
 		}
 	}
 
-	return [...map.values()].sort((a, b) => b.score - a.score || a.name.localeCompare(b.name, undefined, { sensitivity: "base" })).slice(0, 5);
+	return [...map.values()]
+		.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name, undefined, { sensitivity: "base" }))
+		.slice(0, 5);
 }
 
 /**
@@ -150,7 +157,7 @@ function helpCommand(player, args) {
 		const end = start + PAGE_SIZE;
 		const list = commands.slice(start, end);
 
-		player.sendMessage(`§2--- §aShowing help page §7${page} §aof §7${totalPages} §8(${commands.length} cmds) §g(§6${prefix}§ehelp§g) §2---§r`);
+		player.sendMessage(`§2--- §aShowing help page §7${page} §aof §7${totalPages} §g(§6${prefix}§ehelp§g) §2---§r`);
 
 		for (const cmd of list) {
 			const sortedAliases = cmd.aliases?.slice().sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" })) || [];
