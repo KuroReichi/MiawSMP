@@ -38,7 +38,7 @@ function getSortedCommands() {
 /**
  * --------------------------------------------------
  * @name highlightMatch
- * @description Memberikan warna kuning (highlight) pada bagian kata yang cocok
+ * @description Highlight
  * --------------------------------------------------
  */
 function highlightMatch(text, query) {
@@ -54,7 +54,7 @@ function highlightMatch(text, query) {
 /**
  * --------------------------------------------------
  * @name buildUsages
- * @description Membuat format cara penggunaan (usage) command secara otomatis
+ * @description Format usage nggo detail cmd
  * --------------------------------------------------
  */
 function buildUsages(node, path = []) {
