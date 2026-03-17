@@ -38,7 +38,6 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 	let query = event.message;
 	if (query.startsWith(configs.commandPrefix)) {
 		event.cancel = true;
-
 		query =
 			event.message
 				.slice(configs.commandPrefix.length)
