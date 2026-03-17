@@ -62,7 +62,6 @@ world.beforeEvents.chatSend.subscribe(async (event) => {
 	} else {
 		event.cancel = true;
 		console.info(`${event.sender.name}: ${event.message}`);
-
 		const logs = database.get("chat-logs") ?? new Array();
 
 		logs.push({
