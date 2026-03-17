@@ -104,6 +104,10 @@ function similarity(cmdName, query) {
 
 	return score;
 }
+/**
+ * @var {number} MIN_SCORE - Nilai Minimum skor kemipiripan
+ */
+const MIN_SCORE = 6;
 
 /**
  * --------------------------------------------------
@@ -111,7 +115,7 @@ function similarity(cmdName, query) {
  * @description Max Suggestions 5
  * --------------------------------------------------
  */
-const MIN_SCORE = 6;
+
 
 function getSuggestions(commands, query) {
 	if (query.length < 2) return [];
