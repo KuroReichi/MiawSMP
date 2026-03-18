@@ -23,7 +23,7 @@ system.beforeEvents.startup.subscribe((event) => {
 			if (origin.sourceType !== "Entity" || origin.sourceEntity?.typeId !== "minecraft:player") {
 				console.error("Only player can access this command.");
 				return;
-			} // Oh
+			} // 😹😹😹 pler
 			Interface.messagers.home(origin.sourceEntity);
 		}
 	);
