@@ -11,14 +11,16 @@ Interface.profile = function (target, viewer) {
 		v.title("Profile");
 	} else {
 		v.title(`${target.name}'s Profile`);
-		v.body([
-			// Interface Pemain Lain
-			`§bName		§3: §f${target.name}`,
-			`§bFaction	§3: §f${player.get("faction").name}`,
-			`§bPlayTime	§3:`,
-			`	§3» ${player.playTime()}`,
-			``
-		].join("\n"));
+		v.body(
+			[
+				// Interface Pemain Lain
+				`§bName		§3: §f${target.name}`,
+				`§bFaction	§3: §f${player.get("faction").name}`,
+				`§bPlayTime	§3:`,
+				`	§3» ${player.playTime()}`,
+				``
+			].join("\n")
+		);
 	}
 };
 Interface.messager = {
