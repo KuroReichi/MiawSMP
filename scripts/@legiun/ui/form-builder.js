@@ -4,7 +4,7 @@ import database from "./../database.js";
 import { configs } from "./../../configs.js";
 
 function ATT(key) {
-	return key.join("\n")
+	return key.join("\n");
 }
 const Interface = {};
 Interface.profile = function (target, viewer) {
@@ -13,7 +13,7 @@ Interface.profile = function (target, viewer) {
 		v.title("Profile");
 	} else {
 		v.title(`${target.name}'s Profile`);
-		v.body()
+		v.body();
 	}
 };
 Interface.messager = {
