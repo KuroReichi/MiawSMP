@@ -17,8 +17,10 @@ Interface.profile = function (target, viewer) {
 				`§bName		§3: §f${target.name}`,
 				`§bFaction	§3: §f${player.get("faction").name}`,
 				`§bPlayTime	§3:`,
-				`	§3» ${player.playTime()}`,
-				``
+				`	§3» §f${player.get("playtime.d")} §bDays`,
+				`	§3» §f${player.get("playtime.h")} §bHours`,
+				`	§3» §f${player.get("playtime.m")} §bMinutes`,
+				`	§3» §f${player.get("playtime.s")} §bSeconds`
 			].join("\n")
 		);
 	}
