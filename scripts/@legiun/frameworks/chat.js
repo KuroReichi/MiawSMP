@@ -14,7 +14,7 @@ system.beforeEvents.startup.subscribe((event) => {
 		(origin) => {
 			/**
 			 * @param {CustomCommandOrigin} origin
-			 * @returns
+			 * @returns {object}
 			 * #initiator<Entity>
 			 * #sourceBlock<Block>
 			 * #sourceEntity<Entity>
