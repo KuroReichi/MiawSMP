@@ -3,4 +3,6 @@ import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/serve
 import database from "./../database.js";
 import { configs } from "./../../configs.js";
 
-export const UI = {};
+const Interface = {};
+
+export default Interface;
