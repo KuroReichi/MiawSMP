@@ -17,11 +17,11 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-import "./@legiun/frameworks/commands/handler.js";
-import "./@legiun/frameworks/commands/loader.js";
-import "./@legiun/frameworks/chat.js";
-import database from "./@legiun/database.js";
-import { startWorldTimeSync } from "./@legiun/frameworks/syncTime.js";
+import "@legiun/frameworks/commands/handler.js";
+import "@legiun/frameworks/commands/loader.js";
+import "@legiun/frameworks/chat.js";
+import database from "@legiun/database.js";
+import { startWorldTimeSync } from "@legiun/frameworks/syncTime.js";
 import { world, system } from "@minecraft/server";
 
 world.afterEvents.worldLoad.subscribe(() => {
