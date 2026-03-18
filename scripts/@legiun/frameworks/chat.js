@@ -9,5 +9,5 @@ system.beforeEvents.startup.subscribe((event) => {
 		mandatoryParameters: [],
 		optionalParameters: []
 	}, (origin) => {
-		);
+	});
 });
