@@ -6,5 +6,5 @@ system.beforeEvents.startup.subscribe((event) => {
 		description: "Open Chat GUI",
 		permissionLevel: 0,
 		cheatsRequired: false
-	})
+	});
 });
