@@ -2,8 +2,6 @@ import { system } from "@minecraft/server";
 import { Interface } from "../ui/form-builder.js";
 
 system.beforeEvents.startup.subscribe((event) => {
-	event.customCommandRegistry.registerEnum();
-	
 	event.customCommandRegistry.registerCommand(
 		{
 			name: "q:chat",
@@ -11,7 +9,7 @@ system.beforeEvents.startup.subscribe((event) => {
 			permissionLevel: 0,
 			cheatsRequired: false,
 			mandatoryParameters: [],
-			optionalParameters: [param]
+			optionalParameters: []
 		},
 		(origin) => {
 			/**
