@@ -17,10 +17,10 @@ Interface.profile = function (target, viewer) {
 				`§bName		§3: §f${target.name}`,
 				`§bFaction	§3: §f${player.get("faction").name}`,
 				`§bPlayTime	§3:`,
-				`	§3» §f${} §bDays`,
-				`	§3» §f${} §bHours`,
-				`	§3» §f${} §bMinutes`,
-				`	§3» §f${} §bSeconds`
+				`	§3» §f${Math.min(Math.round(player.get("playtime")),0)} §bDays`,
+				`	§3» §f${Math.min(Math.round(player.get("playtime")),0)} §bHours`,
+				`	§3» §f${Math.min(Math.round(player.get("playtime")),0)} §bMinutes`,
+				`	§3» §f${Math.min(Math.round(player.get("playtime")),0)} §bSeconds`
 			].join("\n")
 		);
 	}
