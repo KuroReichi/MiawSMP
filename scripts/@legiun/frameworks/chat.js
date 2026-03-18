@@ -14,7 +14,7 @@ system.beforeEvents.startup.subscribe((event) => {
 		(origin) => {
 			/**
 			 * @param {CustomCommandOrigin} origin
-			 * @var { initiator, sourceBlock, sourceEntity, sourceType } CustomCommandOrigin
+			 * @returns { initiator, sourceBlock, sourceEntity, sourceType } CustomCommandOrigin
 			 */
 			if (origin.sourceType !== "Entity" || origin.sourceEntity?.typeId !== "minecraft:player") {
 				console.error("Only player can access this command.");
