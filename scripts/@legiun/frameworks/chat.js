@@ -24,7 +24,7 @@ system.beforeEvents.startup.subscribe((event) => {
 				console.error("Only player can access this command.");
 				return;
 			}
-			Interface.chat.home(origin.sourceEntity);
+			Interface.messagers.home(origin.sourceEntity);
 		}
 	);
 });
