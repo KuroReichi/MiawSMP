@@ -5,10 +5,20 @@ import { configs } from "./../../configs.js";
 
 const Interface = {};
 Interface.messager = {
-	home: function(player) {
+	name: "WhatsApp Messager",
+	getFollowers: function(player) {
+		
+	},
+	home: function (player, fromUI) {
 		const v = new ActionFormData();
+		v.title(this.name);
+		if(fromUI)
+			v.button("Back");
+		v.button("Add Friends")
+		 .button(`Incoming Followers §g(§e${this.getFollowers(player)}§g)§r`);
+		v.divider();
 		
 	}
-}
+};
 
 export default Interface;
