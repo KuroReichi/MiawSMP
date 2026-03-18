@@ -1,5 +1,5 @@
 import { system } from "@minecraft/server";
-import { UI } from "../ui/form-builder.js";
+import { Interface } from "../ui/form-builder.js";
 
 system.beforeEvents.startup.subscribe((event) => {
 	event.customCommandRegistry.registerCommand(
@@ -24,6 +24,8 @@ system.beforeEvents.startup.subscribe((event) => {
 				console.error("Only player can access this command.");
 				return;
 			}
+			Interface
+				.chat.home(origin.sourceEntity)
 		}
 	);
 });
