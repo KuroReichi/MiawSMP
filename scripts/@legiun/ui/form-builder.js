@@ -12,6 +12,7 @@ Interface.profile = function (target, viewer) {
 	} else {
 		v.title(`${target.name}'s Profile`);
 		v.body([
+			// Interface Pemain Lain
 			`§bName		§3: §f${target.name}`,
 			`§bFaction	§3: §f${player.get("faction").name}`,
 			`§bPlayTime	§3:`,
