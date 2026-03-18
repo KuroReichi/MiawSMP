@@ -6,12 +6,15 @@ import { configs } from "./../../configs.js";
 const Interface = {};
 Interface.profile = function (target, viewer) {
 	const v = new ActionFormData();
+	const player = database.player(target);
 	if (viewer === "self") {
 		v.title("Profile");
 	} else {
 		v.title(`${target.name}'s Profile`);
 		v.body([
-			
+			`§bName		§3: §f${target.name}`,
+			`§bFaction	§3: §f${player.get("faction").name}`,
+			`§bPlayTime	§3: §f${player.playTime()}`
 		].join("\n"));
 	}
 };
