@@ -14,7 +14,9 @@ Interface.profile = function (target, viewer) {
 		v.body([
 			`§bName		§3: §f${target.name}`,
 			`§bFaction	§3: §f${player.get("faction").name}`,
-			`§bPlayTime	§3: §f${player.playTime()}`
+			`§bPlayTime	§3:`,
+			`	§3» ${player.playTime()}`,
+			``
 		].join("\n"));
 	}
 };
