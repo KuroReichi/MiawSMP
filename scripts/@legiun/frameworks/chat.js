@@ -5,6 +5,7 @@ system.beforeEvents.startup.subscribe((event) => {
 		name: "q:chat",
 		description: "Open Chat GUI",
 		permissionLevel: 0,
-		cheatsRequired: false
+		cheatsRequired: false,
+		mandatoryParameters: [],optionalParameters: []
 	});
 });
