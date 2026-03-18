@@ -14,12 +14,14 @@ system.beforeEvents.startup.subscribe((event) => {
 		(origin) => {
 			/**
 			 * @param {CustomCommandOrigin} origin
-			 * @prototype [initiator<>]
+			 * @var {
+			 	* initiator, sourceBlock, sourceEntity, sourceType }
 			 */
 			if (origin.sourceType !== "Entity" || origin.sourceEntity?.typeId !== "minecraft:player") {
 				console.error("Only player can access this command.");
 				return;
 			}
+			
 		}
 	);
 });
