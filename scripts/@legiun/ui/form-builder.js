@@ -3,9 +3,6 @@ import { system, world } from "@minecraft/server";
 import database from "./../database.js";
 import { configs } from "./../../configs.js";
 
-function ATT(key) {
-	return key.join("\n");
-}
 const Interface = {};
 Interface.profile = function (target, viewer) {
 	const v = new ActionFormData();
@@ -13,7 +10,9 @@ Interface.profile = function (target, viewer) {
 		v.title("Profile");
 	} else {
 		v.title(`${target.name}'s Profile`);
-		v.body();
+		v.body([
+			
+		].join("\n"));
 	}
 };
 Interface.messager = {
