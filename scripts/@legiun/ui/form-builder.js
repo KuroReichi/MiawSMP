@@ -49,7 +49,7 @@ Interface.messager = {
 	name: "Messager",
 	getFollowers: function (player) {
 		const playerDB = database.player(player).get("followers");
-		if(!playerDB) return "";
+		if (!playerDB) return "";
 		return ` §4[§c${playerDB.length}§4]§r`;
 	},
 	home: async function (player, fromUI) {
@@ -59,7 +59,7 @@ Interface.messager = {
 		if (fromUI) v.button("§cBack", "textures/@legiun/arrow/prev.png");
 
 		v.button("Add Friends", "textures/@legiun/interface/add_friends.png");
-		v.button(`Incoming Followers${playerDB.get("followers")}`, "textures/@legiun/interface/invitation.png");
+		v.button(`Incoming Followers${this.getFollowers(player)}`, "textures/@legiun/interface/invitation.png");
 		v.divider();
 		if (playerDB.get("friend.list")) {
 			playerDB.get("friend.list").forEach((friend) => {
