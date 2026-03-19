@@ -8,13 +8,17 @@ Interface.profile = function (target, viewer) {
 	const v = new ActionFormData();
 	const player = database.player(target);
 	if (viewer === "self") {
+	let JoinDate = new Date(player.get("joinedAt"));
 		v.title("Profile");
 	} else {
+	let JoinDate = new Date(player.get("joinedAt"));
 		v.title(`${target.name}'s Profile`);
 		v.body(
 			[
 				// Interface Pemain Lain
+				`§7Joined at §f${joinDate}`
 				`§bName		§3: §f${target.name}`,
+				,
 				`§bFaction	§3: §f${player.get("faction").name}`,
 				`§bPlayTime	§3:`,
 				`	§3» §f${Math.max(Math.floor(player.get("playtime") / 86400), 0)} §bDays`,
