@@ -51,9 +51,10 @@ Interface.messager = {
 	home: function (player, fromUI) {
 		const v = new ActionFormData();
 		v.title(this.name);
-		if (fromUI) v.button("Back");
+		if (fromUI) v.button("§cBack", "textures/@legiun/arrow/prev.png");
 
-		v.button("Add Friends").button(`Incoming Followers §g(§e${this.getFollowers(player)}§g)§r`);
+		v.button("Add Friends");
+		v.button(`Incoming Followers §g(§e${this.getFollowers(player)}§g)§r`);
 		v.divider();
 	}
 };
