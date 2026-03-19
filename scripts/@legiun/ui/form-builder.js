@@ -68,8 +68,28 @@ Interface.messager = {
 			v.label("§cLooks like you don't have any friends here...");
 		}
 		const r = await v.show(player);
-		if(r.cancelationReason)
-		return;
+		if (r.cancelationReason) return;
+		switch(r.selection) {
+			default:
+				this.friendAction(playerDB.get("friend.list")[r.selection - 2], player);
+			break;
+			case 0:
+				this.addFriends(player)
+				break;
+			case 1:
+				this.incomingInvites(player)
+		}
+	},
+	friendAction: async function(target, player) {
+		
+	},
+	addFriends: async function(player) {
+		
+	},
+	searchPlayers: async function(player) {
+		
+	},
+	incomingInvites: async function(player) {
 		
 	}
 };
