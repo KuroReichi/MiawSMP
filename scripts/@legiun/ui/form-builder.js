@@ -7,16 +7,28 @@ const Interface = {};
 Interface.profile = function (target, viewer) {
 	const v = new ActionFormData();
 	const player = database.player(target);
+	let JoinDate = new Date(player.get("joinedAt"))
+		.toLocaleTimeString("id-ID", {
+			timeZone: "Asia/Jakarta",
+			timeZoneName: "short",
+			hour: "2-digit",
+			minute: "2-digir",
+			hour12: false
+		}) + ", " + new Date(player.get("joinedAt"))
+		.toLocaleDateString("id-ID", {
+			weekday: "full",
+			day: "numeric",
+			month: "long",
+			year: "numeric"
+		})
 	if (viewer === "self") {
-	let JoinDate = new Date(player.get("joinedAt"));
 		v.title("Profile");
 	} else {
-	let JoinDate = new Date(player.get("joinedAt"));
 		v.title(`${target.name}'s Profile`);
 		v.body(
 			[
 				// Interface Pemain Lain
-				`§7Joined at §f${joinDate}`
+				`§7Joined at §f${JoinDate}`,
 				`§bName		§3: §f${target.name}`,
 				,
 				`§bFaction	§3: §f${player.get("faction").name}`,
