@@ -52,7 +52,7 @@ Interface.messager = {
 		const v = new ActionFormData();
 		v.title(this.name);
 		if (fromUI) v.button("Back");
-		
+
 		v.button("Add Friends").button(`Incoming Followers §g(§e${this.getFollowers(player)}§g)§r`);
 		v.divider();
 	}
