@@ -5,7 +5,7 @@ import { configs } from "./../../configs.js";
 
 const Interface = {};
 
-Interface.profile = function (target, viewer, fromUI) {
+Interface.profile = async function (target, viewer, fromUI) {
 	const v = new ActionFormData();
 	const player = database.player(target);
 	let JoinDate =
@@ -43,6 +43,7 @@ Interface.profile = function (target, viewer, fromUI) {
 			].join("\n")
 		);
 	}
+	const r = await v.show(player);
 };
 
 Interface.messager = {
