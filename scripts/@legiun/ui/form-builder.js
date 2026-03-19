@@ -4,6 +4,7 @@ import database from "./../database.js";
 import { configs } from "./../../configs.js";
 
 const Interface = {};
+
 Interface.profile = function (target, viewer) {
 	const v = new ActionFormData();
 	const player = database.player(target);
