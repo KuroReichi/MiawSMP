@@ -44,6 +44,7 @@ Interface.profile = function (target, viewer) {
 		);
 	}
 };
+
 Interface.messager = {
 	name: "WhatsApp Messager",
 	getFollowers: function (player) {},
