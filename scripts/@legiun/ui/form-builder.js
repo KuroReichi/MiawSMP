@@ -7,20 +7,21 @@ const Interface = {};
 Interface.profile = function (target, viewer) {
 	const v = new ActionFormData();
 	const player = database.player(target);
-	let JoinDate = new Date(player.get("joinedAt"))
-		.toLocaleTimeString("id-ID", {
+	let JoinDate =
+		new Date(player.get("joinedAt")).toLocaleTimeString("id-ID", {
 			timeZone: "Asia/Jakarta",
 			timeZoneName: "short",
 			hour: "2-digit",
-			minute: "2-digir",
+			minute: "2-digit",
 			hour12: false
-		}) + ", " + new Date(player.get("joinedAt"))
-		.toLocaleDateString("id-ID", {
-			weekday: "full",
+		}) +
+		", " +
+		new Date(player.get("joinedAt")).toLocaleDateString("id-ID", {
+			weekday: "long",
 			day: "numeric",
 			month: "long",
 			year: "numeric"
-		})
+		}).replace(",","");
 	if (viewer === "self") {
 		v.title("Profile");
 	} else {
