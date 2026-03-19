@@ -10,7 +10,7 @@ Interface.profile = function (target, viewer) {
 	const player = database.player(target);
 	let JoinDate =
 		new Date(player.get("joinedAt")).toLocaleTimeString("id-ID", {
-			timeZone: "Asia/Jakarta",
+			timeZone: database.get("timezone.location"),
 			timeZoneName: "short",
 			hour: "2-digit",
 			minute: "2-digit",
