@@ -57,7 +57,7 @@ Interface.messager = {
 		if (fromUI) v.button("§cBack", "textures/@legiun/arrow/prev.png");
 
 		v.button("Add Friends");
-		v.button(`Incoming Followers${playerDB.get("followers") ??}`);
+		v.button(`Incoming Followers${playerDB.get("followers")}`);
 		v.divider();
 		if (playerDB.get("friend.list")) {
 			playerDB.get("friend.list").forEach((friend) => {
