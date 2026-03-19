@@ -69,29 +69,21 @@ Interface.messager = {
 		}
 		const r = await v.show(player);
 		if (r.cancelationReason) return;
-		switch(r.selection) {
+		switch (r.selection) {
 			default:
 				this.friendAction(playerDB.get("friend.list")[r.selection - 2], player);
-			break;
+				break;
 			case 0:
-				this.addFriends(player)
+				this.addFriends(player);
 				break;
 			case 1:
-				this.incomingInvites(player)
+				this.incomingInvites(player);
 		}
 	},
-	friendAction: async function(target, player) {
-		
-	},
-	addFriends: async function(player) {
-		
-	},
-	searchPlayers: async function(player) {
-		
-	},
-	incomingInvites: async function(player) {
-		
-	}
+	friendAction: async function (target, player) {},
+	addFriends: async function (player) {},
+	searchPlayers: async function (player) {},
+	incomingInvites: async function (player) {}
 };
 
 export default Interface;
