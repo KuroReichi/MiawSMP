@@ -47,10 +47,10 @@ Interface.profile = function (target, viewer, fromUI) {
 
 Interface.messager = {
 	name: "Messager",
-	getFollowers: async function (player) {
+	getFollowers: function (player) {
 		database.player(player).get("followers");
 	},
-	home: function (player, fromUI) {
+	home: async function (player, fromUI) {
 		const v = new ActionFormData();
 		const playerDB = database.player(player);
 		v.title(this.name);
