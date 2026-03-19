@@ -32,14 +32,15 @@ Interface.profile = function (target, viewer) {
 			[
 				// Interface Pemain Lain
 				`§7Joined at §f${JoinDate}`,
-				`§bName		§3: §f${target.name}`,
+				`§bName		§3: §f${target.name} §g(§e${player.get("class")?.name}§g)`,
 				,
 				`§bFaction	§3: §f${player.get("faction").name}`,
 				`§bPlayTime	§3:`,
 				`	§3» §f${Math.max(Math.floor(player.get("playtime") / 86400), 0)} §bDays`,
 				`	§3» §f${Math.max(Math.floor((player.get("playtime") % 86400) / 3600), 0)} §bHours`,
 				`	§3» §f${Math.max(Math.floor((player.get("playtime") % 3600) / 60), 0)} §bMinutes`,
-				`	§3» §f${Math.max(Math.floor(player.get("playtime") % 60), 0)} §bSeconds`
+				`	§3» §f${Math.max(Math.floor(player.get("playtime") % 60), 0)} §bSeconds`,
+				
 			].join("\n")
 		);
 	}
