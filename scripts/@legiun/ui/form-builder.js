@@ -67,6 +67,7 @@ Interface.messager = {
 		} else {
 			v.label("§cLooks like you don't have any friends here...");
 		}
+		const r = await v.show(player)
 	}
 };
 
