@@ -48,7 +48,9 @@ Interface.profile = function (target, viewer, fromUI) {
 Interface.messager = {
 	name: "Messager",
 	getFollowers: function (player) {
-		return database.player(player).get("followers");
+		const playerDB = database.player(player).get("followers");
+		if(!playerDB) return "";
+		return ` §4[§c${playerDB.length}§4]§r`;
 	},
 	home: async function (player, fromUI) {
 		const v = new ActionFormData();
