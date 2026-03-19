@@ -5,6 +5,7 @@ import { configs } from "./../../configs.js";
 
 const Interface = {};
 
+// PROFILE SEDANG DI KERJAKAN, ABAIKAN SAJA UNTUK SAAT INI!
 Interface.profile = async function (target, viewer, fromUI) {
 	const v = new ActionFormData();
 	const player = database.player(target);
