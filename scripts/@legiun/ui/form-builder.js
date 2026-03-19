@@ -34,7 +34,7 @@ Interface.profile = async function (target, viewer, fromUI) {
 			[
 				`§7Joined at §f${JoinDate}`,
 				`§bName		§3: §f${target.name} §g(§e${player.get("class")?.name ?? "Pengangguran"}§g)`,
-				,
+				, // Double comma index tidak error
 				`§bFaction	§3: §f${player.get("faction").name}`,
 				`§bPlayTime	§3:`,
 				`	§3» §f${Math.max(Math.floor(player.get("playtime") / 86400), 0)} §bDays`,
@@ -73,16 +73,6 @@ Interface.messager = {
 		}
 		const r = await v.show(player);
 		if (r.cancelationReason) return;
-		switch (r.selection) {
-			default:
-				this.friendAction(playerDB.get("friend.list")[r.selection - 2], player);
-				break;
-			case 0:
-				this.addFriends(player);
-				break;
-			case 1:
-				this.incomingInvites(player);
-		}
 	},
 	friendAction: async function (target, player) {},
 	addFriends: async function (player) {},
