@@ -30,7 +30,6 @@ Interface.profile = function (target, viewer) {
 		v.title(`${target.name}'s Profile`);
 		v.body(
 			[
-				// Interface Pemain Lain
 				`§7Joined at §f${JoinDate}`,
 				`§bName		§3: §f${target.name} §g(§e${player.get("class")?.name ?? "Pengangguran"}§g)`,
 				,
