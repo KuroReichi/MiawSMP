@@ -65,7 +65,7 @@ Interface.messager = {
 				v.button(`${friend.name}`, `textures/@legiun/gamerpic_${status}.png`);
 			});
 		} else {
-			v.label("§cYou doesn't have a friend...");
+			v.label("§cLooks like you don't have any friends here...");
 		}
 	}
 };
