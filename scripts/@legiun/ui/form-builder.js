@@ -46,7 +46,7 @@ Interface.profile = function (target, viewer, fromUI) {
 };
 
 Interface.messager = {
-	name: "WhatsApp Messager",
+	name: "Messager",
 	getFollowers: function (player) {},
 	home: function (player, fromUI) {
 		const v = new ActionFormData();
