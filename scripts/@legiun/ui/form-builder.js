@@ -47,7 +47,7 @@ Interface.profile = function (target, viewer, fromUI) {
 
 Interface.messager = {
 	name: "Messager",
-	getFollowers: function (player) {
+	getFollowers: async function (player) {
 		database.player(player).get("followers");
 	},
 	home: function (player, fromUI) {
