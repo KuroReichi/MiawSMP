@@ -16,12 +16,14 @@ Interface.profile = function (target, viewer) {
 			hour12: false
 		}) +
 		", " +
-		new Date(player.get("joinedAt")).toLocaleDateString("id-ID", {
-			weekday: "long",
-			day: "numeric",
-			month: "long",
-			year: "numeric"
-		}).replace(",","");
+		new Date(player.get("joinedAt"))
+			.toLocaleDateString("id-ID", {
+				weekday: "long",
+				day: "numeric",
+				month: "long",
+				year: "numeric"
+			})
+			.replace(",", "");
 	if (viewer === "self") {
 		v.title("Profile");
 	} else {
