@@ -48,7 +48,7 @@ Interface.profile = function (target, viewer, fromUI) {
 Interface.messager = {
 	name: "Messager",
 	getFollowers: function (player) {
-		database.player(player).get("followers")
+		database.player(player).get("followers");
 	},
 	home: function (player, fromUI) {
 		const v = new ActionFormData();
@@ -56,13 +56,13 @@ Interface.messager = {
 		v.title(this.name);
 		if (fromUI) v.button("§cBack", "textures/@legiun/arrow/prev.png");
 
-		v.button("Add Friends");
-		v.button(`Incoming Followers${playerDB.get("followers")}`);
+		v.button("Add Friends", "textures/@legiun/interface/add_friends.png");
+		v.button(`Incoming Followers${playerDB.get("followers")}`, "textures/@legiun/interface/invitation.png");
 		v.divider();
 		if (playerDB.get("friend.list")) {
 			playerDB.get("friend.list").forEach((friend) => {
 				let status = world.getPlayers({ name: friend.name }).length === 1 ? "online" : "offline";
-				v.button(`${friend.name}`, `textures/@legiun/gamerpic_${status}`);
+				v.button(`${friend.name}`, `textures/@legiun/gamerpic_${status}.png`);
 			});
 		} else {
 			v.label("§cYou doesn't have a friend...");
