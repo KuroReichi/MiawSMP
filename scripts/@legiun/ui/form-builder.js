@@ -49,32 +49,20 @@ Interface.profile = async function (target, viewer, fromUI) {
 
 Interface.messager = {
 	name: "Messager",
-
-	//==================================================
-	// @UTIL
-	//==================================================
-
 	getFollowers(player) {
 		const data = database.player(player).get("followers") ?? [];
 		return data.length > 0 ? ` §4[§c${data.length}§4]§r` : "";
 	},
-
 	getFriends(player) {
 		return database.player(player).get("friend.list") ?? [];
 	},
-
 	getInvites(player) {
 		return database.player(player).get("friend.invites") ?? [];
 	},
-
 	isOnline(name) {
 		return world.getPlayers({ name }).length === 1;
 	},
-
-	//==================================================
-	// @HOME
-	//==================================================
-
+	
 	async home(player, fromUI = false) {
 		const v = new ActionFormData();
 		const friends = this.getFriends(player);
