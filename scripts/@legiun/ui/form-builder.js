@@ -301,4 +301,4 @@ Interface.messager = {
 	}
 };
 
-export default Interface;
+export Interface;
