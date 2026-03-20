@@ -62,7 +62,7 @@ Interface.messager = {
 	isOnline(name) {
 		return world.getPlayers({ name }).length === 1;
 	},
-	
+
 	async home(player, fromUI = false) {
 		const v = new ActionFormData();
 		const friends = this.getFriends(player);
@@ -101,11 +101,6 @@ Interface.messager = {
 		const friend = friends[i - 2];
 		if (friend) return this.friendAction(friend, player);
 	},
-
-	//==================================================
-	// @FRIEND ACTION
-	//==================================================
-
 	async friendAction(target, player) {
 		const v = new ActionFormData();
 
