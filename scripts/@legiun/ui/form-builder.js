@@ -215,11 +215,6 @@ Interface.messager = {
 		sender.sendMessage(`§aFriend request sent to §e${target.name}`);
 		target.sendMessage(`§e${sender.name} §awants to be your friend`);
 	},
-
-	//==================================================
-	// @INVITES
-	//==================================================
-
 	async incomingInvites(player) {
 		const invites = this.getInvites(player);
 
