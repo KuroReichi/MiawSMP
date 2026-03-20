@@ -166,12 +166,10 @@ Interface.messager = {
 
 	async addFriends(player) {
 		const v = new ActionFormData();
-
 		v.title("Add Friends");
-		v.body("§7Choose option");
 
+		v.button("§cBack", "textures/@legiun/arrow/prev.png");
 		v.button("§aSearch Player");
-		v.button("§cBack");
 
 		const r = await v.show(player);
 		if (r.canceled) return;
