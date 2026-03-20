@@ -93,10 +93,7 @@ Interface.messager = {
 		} else {
 			friends.forEach((f) => {
 				const status = this.isOnline(f.name) ? "online" : "offline";
-				v.button(
-					`${this.isOnline(f.name) ? "§a●" : "§7●"} §f${f.name}`,
-					`textures/@legiun/gamerpic_${status}.png`
-				);
+				v.button(`${this.isOnline(f.name) ? "§a●" : "§7●"} §f${f.name}`, `textures/@legiun/gamerpic_${status}.png`);
 			});
 		}
 
