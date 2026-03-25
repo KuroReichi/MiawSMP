@@ -78,7 +78,7 @@ export async function CommandQueue(player, args) {
 		return { status: "Failed", message: "Invalid usage" };
 	}
 	return { status: "Success", message: `Running /${command.name}` };
-	})
+	}, 5);
 }
 
 //===================================================================================
