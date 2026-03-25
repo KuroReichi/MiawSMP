@@ -163,7 +163,7 @@ Interface.debug = {
 						defaultValue: value
 					});
 				} else {
-					v.slider(name, 0 value, {
+					v.slider(name, 0, value, {
 						defaultValue: value
 					})
 				}
