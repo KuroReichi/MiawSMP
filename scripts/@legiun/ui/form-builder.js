@@ -46,4 +46,34 @@ Interface.profile = async function (target, viewer, fromUI) {
 	const r = await v.show(player);
 };
 
+Interface.debug = {
+	database: {
+		main: function (player) {
+		const v = new ActionFormData();
+		v.title("Database");
+		v.button("PlayerDB");
+		}
+	},
+	main: function(player) {
+		const v = new ActionFormData();
+		v.title("");
+		v.button("Database", "textures/ui/icon_book_writable");
+		v.button("Gamerules", "textures/ui/settings_pause_menu_icon");
+		
+		v.show(player).then(response => {
+			if(response.canceled || response.cancelationReason) return;
+			switch(respony.selection) {
+				default:
+					
+				break;
+				case: 0;
+					
+				break;
+				case 1:
+					
+				break;
+			}
+		})
+	}
+}
 export { Interface };
