@@ -48,14 +48,14 @@ Interface.profile = async function (target, viewer, fromUI) {
 
 Interface.debug = {
 	database: {
-		maxDivide: 10, // 10 Database each page
+		maxDivide: 10,
 		main: function (player) {
 			const v = new ActionFormData();
 			v.title("Database");
-			v.button("Back", "textures/@legiun/arrow/prev.png")
+			v.button("Back", "textures/@legiun/arrow/prev.png");
 			v.button("PlayerDB", "textures/@legiun/interface/database.png");
-			v.bytton("GlobalDB", "textures/@legiun/interface/database.png");
-			v.bytton("Others", "textures/ui/icon_setting");
+			v.button("GlobalDB", "textures/@legiun/interface/database.png");
+			v.button("Others", "textures/ui/icon_setting");
 		},
 		playerDB: function (player, page = 1) {
 			const maxPage = math.ceil(database)
