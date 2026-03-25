@@ -109,10 +109,7 @@ Interface.debug = {
 					this.main(player);
 				} else if (response.selection === 1) {
 					this.playerDB(player, page);
-				} else if (
-					response.selection >= baseIndex &&
-					response.selection < baseIndex + list.length
-				) {
+				} else if (response.selection >= baseIndex && response.selection < baseIndex + list.length) {
 					const index = response.selection - baseIndex;
 					const selected = list[index];
 				} else {
@@ -165,7 +162,7 @@ Interface.debug = {
 				} else {
 					v.slider(name, 0, value, {
 						defaultValue: value
-					})
+					});
 				}
 			} else if (typeof value === "boolean") {
 				v.toggle(name, {
@@ -187,7 +184,7 @@ Interface.debug = {
 	},
 	main: function (player) {
 		const v = new ActionFormData();
-		v.title("");
+		v.title("Debugging");
 		v.button("Database", "textures/ui/icon_book_writable");
 		v.button("Gamerules", "textures/ui/settings_pause_menu_icon");
 
