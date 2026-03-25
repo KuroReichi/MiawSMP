@@ -24,7 +24,10 @@ system.beforeEvents.startup.subscribe((event) => {
 				console.error("Only player can access this command.");
 				return;
 			}
+			system.runTimeout(() => {
 			Interface.messager.home(origin.sourceEntity);
+				
+			})
 		}
 	);
 });
