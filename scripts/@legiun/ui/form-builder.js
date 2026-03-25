@@ -71,7 +71,19 @@ Interface.debug = {
 		const v = new ModalFormData();
 		v.title("Gamerule Settings");
 		Object.entries(world.gameRules).forEach(([name, value], position) => {
-			console.info(`${name}: ${value} > ${typeof value}`);
+			if(typeof value === "number") {
+				v.slider(
+					name,
+					0
+				)
+			} else if(typeof value === "boolean") {
+				v.toggle(
+					name,
+					{
+						defaultValue: value
+					}
+				)
+			}
 		});
 	},
 	main: function (player) {
