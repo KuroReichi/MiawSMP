@@ -47,7 +47,7 @@ export function registerCommand(command) {
  * --------------------------------------------------
  */
 export async function CommandQueue(player, args) {
-	system.runTimeout(() => {
+	system.runTimeout(async () => {
 	const name = args[0]?.toLowerCase();
 	const command = commandMap.get(name);
 	if (!command) {
