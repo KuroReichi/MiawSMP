@@ -47,6 +47,8 @@ export function registerCommand(command) {
  * --------------------------------------------------
  */
 export async function CommandQueue(player, args) {
+	system.runTimeout(() => {
+		
 	const name = args[0]?.toLowerCase();
 	const command = commandMap.get(name);
 	if (!command) {
@@ -77,6 +79,7 @@ export async function CommandQueue(player, args) {
 		return { status: "Failed", message: "Invalid usage" };
 	}
 	return { status: "Success", message: `Running /${command.name}` };
+	})
 }
 
 //===================================================================================
