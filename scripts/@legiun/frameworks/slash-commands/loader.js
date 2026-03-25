@@ -1,6 +1,6 @@
 const modules = [
 	// Path Module(s)
-	"./debug.js",
+	"./debug.js"
 ];
 
 modules.forEach((m) => import(m));
