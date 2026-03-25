@@ -48,7 +48,7 @@ Interface.profile = async function (target, viewer, fromUI) {
 
 Interface.debug = {
 	database: {
-		_maxDivide: 10, // 10 Database each page
+		maxDivide: 10, // 10 Database each page
 		main: function (player) {
 			const v = new ActionFormData();
 			v.title("Database");
