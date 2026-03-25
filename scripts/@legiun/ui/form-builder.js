@@ -71,20 +71,17 @@ Interface.debug = {
 		const v = new ModalFormData();
 		v.title("Gamerule Settings");
 		Object.entries(world.gameRules).forEach(([name, value], position) => {
-			if(typeof value === "number") {
-				v.slider(
-					name,
-					0
-				)
-			} else if(typeof value === "boolean") {
-				v.toggle(
-					name,
-					{
-						defaultValue: value
-					}
-				)
+			if (typeof value === "number") {
+				if(name === "playersSleepingPercentage")
+					v.slider(name, -1, 100)
+			} else if (typeof value === "boolean") {
+				v.toggle(name, {
+					defaultValue: value
+				});
 			}
 		});
+		v.submitButton("Submit Changes");
+		v.show(player)
 	},
 	main: function (player) {
 		const v = new ActionFormData();
