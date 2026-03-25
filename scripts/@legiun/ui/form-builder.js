@@ -48,7 +48,7 @@ Interface.profile = async function (target, viewer, fromUI) {
 
 Interface.debug = {
 	database: {
-		maxDivide: 10,
+		PageDivider: 10,
 		main: function (player) {
 			const v = new ActionFormData();
 			v.title("Database");
@@ -58,9 +58,9 @@ Interface.debug = {
 			v.button("Others", "textures/ui/icon_setting");
 		},
 		playerDB: function (player, page = 1) {
-			const maxPage = math.ceil(database)
+			const maxPage = math.ceil(database.get("registered-player").length / this.PageDivider)
 			const v = new ActionFormData();
-			v.title(`Player Database ${page} of ${}`)
+			v.title(`Player Database ${page} of ${maxPage}`)
 		},
 		globalDB: function (player) {
 			const v = new ActionFormData();
