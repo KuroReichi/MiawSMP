@@ -70,7 +70,7 @@ Interface.debug = {
 	gamerules: function (player) {
 		const v = new ModalFormData();
 		v.title("Gamerule Settings");
-		Object.entries(configs.server.gamerules).forEach(([name, value], position) => {
+		Object.entries(world.gameRules).forEach(([name, value], position) => {
 			console.info(`${name}: ${value} > ${typeof value}`);
 		});
 	},
