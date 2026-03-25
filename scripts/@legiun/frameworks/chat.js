@@ -26,7 +26,7 @@ system.beforeEvents.startup.subscribe((event) => {
 			}
 			system.runTimeout(() => {
 				Interface.messager.home(origin.sourceEntity);
-			});
+			}, 5);
 		}
 	);
 });
