@@ -66,7 +66,7 @@ Interface.debug = {
 				default:
 					
 				break;
-				case: 0;
+				case 0;
 					
 				break;
 				case 1:
