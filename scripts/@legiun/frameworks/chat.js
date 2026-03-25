@@ -25,9 +25,8 @@ system.beforeEvents.startup.subscribe((event) => {
 				return;
 			}
 			system.runTimeout(() => {
-			Interface.messager.home(origin.sourceEntity);
-				
-			})
+				Interface.messager.home(origin.sourceEntity);
+			});
 		}
 	);
 });
