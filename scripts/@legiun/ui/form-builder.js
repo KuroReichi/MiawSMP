@@ -49,31 +49,35 @@ Interface.profile = async function (target, viewer, fromUI) {
 Interface.debug = {
 	database: {
 		main: function (player) {
-		const v = new ActionFormData();
-		v.title("Database");
-		v.button("PlayerDB");
+			const v = new ActionFormData();
+			v.title("Database");
+			v.button("Back", "textures/@legiun/arrow/prev.png")
+			v.button("PlayerDB", "textures/@legiun/interface/database.png");
+			v.bytton("GlobalDB", "textures/@legiun/interface/database.png");
+			v.bytton("Others", "textures/ui/icon_setting");
+		}
+		player: function(player) {
+			const v = new ActionFormData();
+			
 		}
 	},
-	main: function(player) {
+	main: function (player) {
 		const v = new ActionFormData();
 		v.title("");
 		v.button("Database", "textures/ui/icon_book_writable");
 		v.button("Gamerules", "textures/ui/settings_pause_menu_icon");
-		
-		v.show(player).then(response => {
-			if(response.canceled || response.cancelationReason) return;
-			switch(respony.selection) {
+
+		v.show(player).then((response) => {
+			if (response.canceled || response.cancelationReason) return;
+			switch (respony.selection) {
 				default:
-					
-				break;
+					break;
 				case 0:
-					
-				break;
+					break;
 				case 1:
-					
-				break;
+					break;
 			}
-		})
+		});
 	}
-}
+};
 export { Interface };
