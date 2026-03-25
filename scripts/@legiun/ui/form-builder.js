@@ -58,14 +58,21 @@ Interface.debug = {
 			v.button("Others", "textures/ui/icon_setting");
 		},
 		playerDB: function (player, page = 1) {
-			const maxPage = math.ceil(database.get("registered-player").length / this.PageDivider)
+			const maxPage = math.ceil(database.get("registered-player").length / this.PageDivider);
 			const v = new ActionFormData();
-			v.title(`Player Database ${page} of ${maxPage}`)
+			v.title(`Player Database ${page} of ${maxPage}`);
 		},
 		globalDB: function (player) {
 			const v = new ActionFormData();
-			
+			v.title(`Global Database`)
 		}
+	},
+	gamerules: function (player) {
+		const v = new ModalFormData();
+		v.title("Gamerule Settings");
+		Object.entries(configs.server.gamerules).forEach((name, value) => {
+			console.info(`${name}: ${value} > ${typeof value}`)
+		})
 	},
 	main: function (player) {
 		const v = new ActionFormData();
@@ -79,8 +86,10 @@ Interface.debug = {
 				default:
 					break;
 				case 0:
+					this.database.main(player);
 					break;
 				case 1:
+					this.gamerules(player);
 					break;
 			}
 		});
