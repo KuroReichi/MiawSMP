@@ -64,15 +64,15 @@ Interface.debug = {
 		},
 		globalDB: function (player) {
 			const v = new ActionFormData();
-			v.title(`Global Database`)
+			v.title(`Global Database`);
 		}
 	},
 	gamerules: function (player) {
 		const v = new ModalFormData();
 		v.title("Gamerule Settings");
-		Object.entries(configs.server.gamerules).forEach((name, value) => {
-			console.info(`${name}: ${value} > ${typeof value}`)
-		})
+		Object.entries(configs.server.gamerules).forEach(([name, value], position) => {
+			console.info(`${name}: ${value} > ${typeof value}`);
+		});
 	},
 	main: function (player) {
 		const v = new ActionFormData();
