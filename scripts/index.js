@@ -17,10 +17,10 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
+import database from "@legiun/database.js";
 import "@legiun/frameworks/commands/handler.js";
 import "@legiun/frameworks/commands/loader.js";
 import "@legiun/frameworks/slash-commands/loader.js";
-import database from "@legiun/database.js";
 import { startWorldTimeSync } from "@legiun/frameworks/syncTime.js";
 import { world, system } from "@minecraft/server";
 
