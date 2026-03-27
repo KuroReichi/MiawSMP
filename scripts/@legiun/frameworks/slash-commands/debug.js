@@ -1,3 +1,6 @@
+import { system, CustomCommandSource } from "@minecraft/server";
+import { Interface } from "../../ui/form-builder.js";
+
 /**
  * =========================================
  * @name registerDebugCommand
@@ -5,9 +8,6 @@
  * @function
  * =========================================
  */
-import { world, system } from "@minecraft/server";
-import { Interface } from "../../ui/form-builder.js";
-
 system.beforeEvents.startup.subscribe((event) => {
 	const registry = event.customCommandRegistry;
 
@@ -15,20 +15,15 @@ system.beforeEvents.startup.subscribe((event) => {
 		name: "q:debug",
 		description: "Open Debug Menu",
 		permissionLevel: 0,
-		overloads: [
-			{
-				parameters: [],
-				handler(origin) {
-					try {
-						const player = origin.sourceEntity;
-						if (!player) return;
+		cheatsRequired: false,
+		mandatoryParameters: [],
+		optionalParameters: []
+	}, (origin) => {
+		if (origin.sourceType !== CustomCommandSource.Entity) return;
 
-						system.run(() => {
-							Interface.debug.main(player);
-						});
-					} catch {}
-				}
-			}
-		]
+		const player = origin.sourceEntity;
+		if (!player || player.typeId !== "minecraft:player") return;
+
+		Interface.debug.main(player);
 	});
 });
