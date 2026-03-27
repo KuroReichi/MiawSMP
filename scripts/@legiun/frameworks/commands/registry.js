@@ -34,7 +34,7 @@ export function registerCommand(command) {
 		commandMap.set(alias, command);
 	}
 
-	console.info(`[Push] Command "${command.name}" registered.`);
+	console.info(`[+] Command "${command.name}" registered.`);
 }
 
 /**
