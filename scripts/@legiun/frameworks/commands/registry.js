@@ -1,5 +1,4 @@
-//===================================================================================
-
+import { world, system } from "@minecraft/server"
 const commandMap = new Map();
 const rootCommands = new Map();
 
