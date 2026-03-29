@@ -17,8 +17,7 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-import database from "./@legiun/database.js";
-database.prototype = {
+const database = {
 	/**
 	 * @var {string} prefix - Unique identifier, prevent other(s) Add-Ons to overwriting the data.
 	 * @var {string} query - Unique divider, this also make the data looks complex.
@@ -105,7 +104,7 @@ database.prototype = {
 			getAll: () => database.getAll(key)
 		};
 	}
-}
+};
 import "@legiun/frameworks/commands/handler.js";
 import "@legiun/frameworks/commands/loader.js";
 import "@legiun/frameworks/slash-commands/loader.js";
@@ -119,7 +118,6 @@ world.afterEvents.worldLoad.subscribe(() => {
 
 	startWorldTimeSync();
 });
-
 world.afterEvents.playerSpawn.subscribe((event) => {
 	const player = event.player;
 	const playerDB = database.player(player);
