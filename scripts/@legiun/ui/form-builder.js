@@ -34,7 +34,7 @@ Interface.profile = async function (target, viewer, fromUI) {
 				`§7Joined at §f${JoinDate}`,
 				`§bName		§3: §f${target.name} §g(§e${player.get("class")?.name ?? "Unemployed"}§g)`, // Double comma index tidak error
 				,
-				`§bFaction	§3: §f${player.get("faction").name}`,
+				`§bFaction	§3: §f${player.get("faction").name ?? "No Faction"}`,
 				`§bPlayTime	§3:`,
 				`	§3» §f${Math.max(Math.floor(player.get("playtime") / 86400), 0)} §bDays`,
 				`	§3» §f${Math.max(Math.floor((player.get("playtime") % 86400) / 3600), 0)} §bHours`,
