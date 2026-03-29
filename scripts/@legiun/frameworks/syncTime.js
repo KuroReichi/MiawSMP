@@ -48,13 +48,9 @@ function getDayPassed() {
 
 	const tz = database.get("timezone.location") ?? "Asia/Jakarta";
 
-	const startDate = new Date(
-		new Date(start).toLocaleString("en-US", { timeZone: tz })
-	);
+	const startDate = new Date(new Date(start).toLocaleString("en-US", { timeZone: tz }));
 
-	const nowDate = new Date(
-		new Date().toLocaleString("en-US", { timeZone: tz })
-	);
+	const nowDate = new Date(new Date().toLocaleString("en-US", { timeZone: tz }));
 
 	// reset jam ke 00:00
 	startDate.setHours(0, 0, 0, 0);
@@ -74,9 +70,10 @@ function getDayPassed() {
 
 export function startWorldTimeSync() {
 	system.runInterval(() => {
-		const ticks = getMinecraftTimeFromIRL();
-		const days = getDayPassed();
-		const finalTime = ticks + days * 24000;
+const ticks = getMinecraftTimeFromIRL();
+const days = getDayPassed();
+
+const finalTime = ticks + (days * 24000);
 
 		world.getDimension("overworld").runCommand(`time set ${finalTime}`);
 	}, 5);
