@@ -32,7 +32,7 @@ Interface.profile = async function (target, viewer, fromUI) {
 		v.body(
 			[
 				`§7Joined at §f${JoinDate}`,
-				`§bName		§3: §f${target.name} §g(§e${player.get("class")?.name ?? "Pengangguran"}§g)`, // Double comma index tidak error
+				`§bName		§3: §f${target.name} §g(§e${player.get("class")?.name ?? "Unemployed"}§g)`, // Double comma index tidak error
 				,
 				`§bFaction	§3: §f${player.get("faction").name}`,
 				`§bPlayTime	§3:`,
