@@ -22,7 +22,7 @@ import "@legiun/frameworks/commands/handler.js";
 import "@legiun/frameworks/commands/loader.js";
 import "@legiun/frameworks/slash-commands/loader.js";
 import { startWorldTimeSync } from "@legiun/frameworks/syncTime.js";
-import { world, system } from "@minecraft/server";
+import { Entity, Player, system, world } from "@minecraft/server";
 
 world.afterEvents.worldLoad.subscribe(() => {
 	database.set("server.startDate", new Date().valueOf(), "server", false);
@@ -32,4 +32,11 @@ world.afterEvents.worldLoad.subscribe(() => {
 	startWorldTimeSync();
 });
 
+world.afterEvents.playerSpawn.subscribe((event) => {
+	const player = event.player;
+	if(event.initialSpawn === true) {
+	} else {
+		
+	}
+})
 //===================================================================================
