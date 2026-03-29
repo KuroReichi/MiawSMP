@@ -38,14 +38,36 @@ function getMinecraftTimeFromIRL() {
 
 /**
  * --------------------------------------------------
- * @name startWorldTimeSync
- * @description Sync Minecraft world time with Jakarta time
- * @function
+ * @name getDayPassed
+ * @description Hitung berapa hari sejak server start
  * --------------------------------------------------
  */
+function getDayPassed() {
+	const start = database.get("server.startDate", "server");
+	if (!start) return 0;
+
+	const now = Date.now();
+	const diff = now - start;
+
+	const days = Math.floor(diff / 86400000); // 1 hari = 86400000 ms
+	return Math.max(days, 0);
+}
+
+/**
+ * --------------------------------------------------
+ * @name startWorldTimeSync
+ * @description Sync Minecraft world time + scaling day
+ * --------------------------------------------------
+ */
+ 
 export function startWorldTimeSync() {
 	system.runInterval(() => {
 		const ticks = getMinecraftTimeFromIRL();
-		world.getDimension("overworld").runCommand(`time set ${ticks}`);
+		const days = getDayPassed();
+		const finalTime = ticks + (days * 24000);
+
+		world.getDimension("overworld").runCommand(
+			`time set ${finalTime}`
+		);
 	}, 5);
 }
