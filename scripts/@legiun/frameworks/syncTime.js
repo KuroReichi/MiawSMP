@@ -73,7 +73,7 @@ export function startWorldTimeSync() {
 		const ticks = getMinecraftTimeFromIRL();
 		const days = getDayPassed();
 
-		const finalTime = ticks + (days * 24000);
+		const finalTime = ticks + Number(days * 24000);
 
 		world.getDimension("overworld").runCommand(`time set ${finalTime}`);
 	}, 5);
