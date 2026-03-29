@@ -45,7 +45,6 @@ function getMinecraftTimeFromIRL() {
 function getDayPassed() {
 	const start = database.get("server.startDate", "server");
 	if (!start) return 0;
-
 	const now = Date.now();
 	const diff = now - start;
 
@@ -59,15 +58,13 @@ function getDayPassed() {
  * @description Sync Minecraft world time + scaling day
  * --------------------------------------------------
  */
- 
+
 export function startWorldTimeSync() {
 	system.runInterval(() => {
 		const ticks = getMinecraftTimeFromIRL();
 		const days = getDayPassed();
-		const finalTime = ticks + (days * 24000);
+		const finalTime = ticks + days * 24000;
 
-		world.getDimension("overworld").runCommand(
-			`time set ${finalTime}`
-		);
+		world.getDimension("overworld").runCommand(`time set ${finalTime}`);
 	}, 5);
 }
