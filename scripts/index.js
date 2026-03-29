@@ -34,7 +34,7 @@ world.afterEvents.worldLoad.subscribe(() => {
 
 world.afterEvents.playerSpawn.subscribe((event) => {
 	const player = event.player;
-	const playerDB = database.
+	const playerDB = database.player(player)
 	if (event.initialSpawn === true) {
 		
 	} else {
