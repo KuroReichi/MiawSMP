@@ -17,7 +17,7 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-import database from "@legiun/database.js";
+import database from "./@legiun/database.js";
 import "@legiun/frameworks/commands/handler.js";
 import "@legiun/frameworks/commands/loader.js";
 import "@legiun/frameworks/slash-commands/loader.js";
@@ -34,9 +34,10 @@ world.afterEvents.worldLoad.subscribe(() => {
 
 world.afterEvents.playerSpawn.subscribe((event) => {
 	const player = event.player;
-	if(event.initialSpawn === true) {
-	} else {
+	const playerDB = database.
+	if (event.initialSpawn === true) {
 		
+	} else {
 	}
-})
+});
 //===================================================================================
