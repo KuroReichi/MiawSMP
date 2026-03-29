@@ -15,7 +15,7 @@ const database = {
 	 * @param {Boolean} overwrite
 	 * @returns {Object}
 	 */
-	set: function (id, value, key = "global", overwrite = true) {
+	set(id, value, key = "global", overwrite = true) {
 		if (typeof id === "object" && id !== null && !Array.isArray(id)) {
 			const entries = Object.entries(id);
 			const bulkData = {};
@@ -38,14 +38,14 @@ const database = {
 
 		return world.getDynamicProperty(fullKey);
 	},
-	get: function (id, key = "global") {
+	get(id, key = "global") {
 		try {
 			return JSON.parse(world.getDynamicProperty(database.prefix + database.query + key + ":" + id));
 		} catch (e) {
 			return world.getDynamicProperty(database.prefix + database.query + key + ":" + id);
 		}
 	},
-	getAllBy: function (key = "global") {
+	getAllBy(key = "global") {
 		return world
 			.getDynamicPropertyIds()
 			.filter((propertyID) => propertyID.startsWith(database.prefix + database.query + key + ":"))
@@ -54,7 +54,7 @@ const database = {
 				data: database.get(propertyID.replace(database.prefix + database.query + key + ":", ""), key)
 			}));
 	},
-	getAll: function () {
+	getAll() {
 		return world
 			.getDynamicPropertyIds()
 			.filter((propertyID) => propertyID.startsWith(database.prefix + database.query))
@@ -63,16 +63,16 @@ const database = {
 				source: propertyID.slice(propertyID.indexOf(database.query) + 1, propertyID.lastIndexOf(":"))
 			}));
 	},
-	delete: function (id, key = "global") {
+	delete(id, key = "global") {
 		if (world.getDynamicProperty(database.prefix + database.query + key + ":" + id) === undefined) return false;
 		world.setDynamicProperty(database.prefix + database.query + key + ":" + id, undefined);
 		return true;
 	},
-	add: function (id, key = "global", value = 0) {
+	add(id, key = "global", value = 0) {
 		if (typeof value !== "number") throw new ReferenceError(`Unexpected type at » database.add(...) «, value must be a number, but it present ${typeof value}`);
 		return database.set(id, database.get(id, key) + value, key, true);
 	},
-	remove: function (id, key = "global", value = 0) {
+	remove(id, key = "global", value = 0) {
 		if (typeof value !== "number") throw new ReferenceError(`Unexpected type at » database.remove(...) «, value must be a number, but it present ${typeof value}`);
 		return database.set(id, database.get(id, key) - value, key, true);
 	},
