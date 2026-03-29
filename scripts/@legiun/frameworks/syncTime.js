@@ -39,17 +39,30 @@ function getMinecraftTimeFromIRL() {
 /**
  * --------------------------------------------------
  * @name getDayPassed
- * @description Hitung berapa hari sejak server start
+ * @description Hitung hari berdasarkan tanggal (00:00 reset)
  * --------------------------------------------------
  */
 function getDayPassed() {
 	const start = database.get("server.startDate", "server");
 	if (!start) return 0;
-	const now = Date.now();
-	const diff = now - start;
 
-	const days = Math.floor(diff / 86400000); // 1 hari = 86400000 ms
-	return Math.max(days, 0);
+	const tz = database.get("timezone.location") ?? "Asia/Jakarta";
+
+	const startDate = new Date(
+		new Date(start).toLocaleString("en-US", { timeZone: tz })
+	);
+
+	const nowDate = new Date(
+		new Date().toLocaleString("en-US", { timeZone: tz })
+	);
+
+	// reset jam ke 00:00
+	startDate.setHours(0, 0, 0, 0);
+	nowDate.setHours(0, 0, 0, 0);
+
+	const diff = nowDate - startDate;
+
+	return Math.max(Math.floor(diff / 86400000), 0);
 }
 
 /**
