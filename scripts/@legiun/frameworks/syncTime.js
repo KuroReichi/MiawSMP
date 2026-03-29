@@ -70,10 +70,10 @@ function getDayPassed() {
 
 export function startWorldTimeSync() {
 	system.runInterval(() => {
-const ticks = getMinecraftTimeFromIRL();
-const days = getDayPassed();
+		const ticks = getMinecraftTimeFromIRL();
+		const days = getDayPassed();
 
-const finalTime = ticks + (days * 24000);
+		const finalTime = ticks +() days * 24000);
 
 		world.getDimension("overworld").runCommand(`time set ${finalTime}`);
 	}, 5);
