@@ -16,6 +16,7 @@
 //░░░╚═════╝░░░░╚═╝░░░░╚═════╝░╚═════╝░╚═╝░╚════╝░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
 import database from "@legiun/database.js";
 import "@legiun/frameworks/commands/handler.js";
 import "@legiun/frameworks/commands/loader.js";
