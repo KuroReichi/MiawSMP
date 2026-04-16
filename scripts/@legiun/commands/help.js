@@ -104,7 +104,7 @@ const MIN_SCORE = 6;
 /**
  * --------------------------------------------------
  * @name getSuggestions
- * @description Memberi commands suggestion berdasarkan similarity query (Max Suggestions 5)
+ * @description Memberi commands suggestion berdasarkan query similarity (Max Suggestions 5)
  * --------------------------------------------------
  */
 
