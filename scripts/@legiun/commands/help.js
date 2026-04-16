@@ -8,12 +8,6 @@ export let cacheVersion = 0;
 let lastVersion = -1;
 let cachedCommands = null;
 
-/**
- * --------------------------------------------------
- * @name bumpCommandVersion
- * @description Check Registration dari Command.
- * --------------------------------------------------
- */
 export function bumpCommandVersion() {
 	cacheVersion++;
 }
@@ -104,15 +98,13 @@ function similarity(cmdName, query) {
 
 	return score;
 }
-/**
- * @var {number} MIN_SCORE - Nilai Minimum skor kemipiripan
- */
+
 const MIN_SCORE = 6;
 
 /**
  * --------------------------------------------------
  * @name getSuggestions
- * @description Max Suggestions 5
+ * @description Memberi commands suggestion berdasarkan similarity query (Max Suggestions 5)
  * --------------------------------------------------
  */
 
