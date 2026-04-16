@@ -8,12 +8,10 @@ export function getCommands() {
 }
 
 /**
- * --------------------------------------------------
  * @name registerCommand
  * @description Register command and its aliases into a single lookup map.
  * @function
  * @param {object} command
- * --------------------------------------------------
  */
 export function registerCommand(command) {
 	if (commandMap.has(command.name)) {
@@ -38,13 +36,11 @@ export function registerCommand(command) {
 }
 
 /**
- * --------------------------------------------------
  * @name CommandQueue
  * @description Resolve command and traverse its literal/argument tree.
  * @function
  * @param {Player} player
  * @param {string[]} args
- * --------------------------------------------------
  */
 export function CommandQueue(player, args) {
 	return new Promise((resolve) => {
